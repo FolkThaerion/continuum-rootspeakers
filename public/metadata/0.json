@@ -1,0 +1,10 @@
+{
+  "name": "Genesis Rootspeaker #0",
+  "description": "The first minted Rootspeaker from Continuum Rootspeakers: Unstable Realities.",
+  "image": "http://172.18.10.250:3000/placeholder/rootspeaker0.png",
+  "attributes": [
+    { "trait_type": "Path", "value": "Harmonic Ascent" },
+    { "trait_type": "Stage", "value": "Root Listener" },
+    { "trait_type": "State", "value": "Genesis" }
+  ]
+}

@@ -1,0 +1,46 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.24;
+
+import "erc721a/contracts/ERC721A.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract GenesisRootspeakers is ERC721A, Ownable {
+
+    uint256 public constant MAX_SUPPLY = 1111;
+    uint256 public mintPrice = 0.05 ether;
+
+    bool public publicMintOpen = false;
+
+    string private baseTokenURI;
+
+    constructor(
+        string memory baseURI
+    )
+        ERC721A("Continuum Rootspeakers", "ROOT")
+        Ownable(msg.sender)
+    {
+        baseTokenURI = baseURI;
+    }
+
+    function mint(uint256 quantity) external payable {
+        require(publicMintOpen, "Mint closed");
+        require(totalSupply() + quantity <= MAX_SUPPLY, "Sold out");
+        require(msg.value >= mintPrice * quantity, "Not enough ETH");
+
+        _safeMint(msg.sender, quantity);
+    }
+
+    function setPublicMintOpen(bool open) external onlyOwner {
+        publicMintOpen = open;
+    }
+
+    function setBaseURI(string calldata uri) external onlyOwner {
+        baseTokenURI = uri;
+    }
+
+    function _baseURI() internal view override returns (string memory) {
+        return baseTokenURI;
+    }
+}
+
+
