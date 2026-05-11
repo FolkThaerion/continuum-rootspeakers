@@ -1,5 +1,5 @@
 {
-  "name": "Genesis Rootspeaker #0",
+  "name": "Genesis Rootspeaker #4",
   "description": "A living entity emerging from the Continuum Weave.",
   "image": "https://continuum-rootspeakers.vercel.app/placeholder/rootspeaker0.png",
   "attributes": [
@@ -9,11 +9,11 @@
     },
     {
       "trait_type": "Stage",
-      "value": "Pattern Speaker"
+      "value": "Living Confluence"
     },
     {
       "trait_type": "Genesis",
-      "value": 4
+      "value": 79
     }
   ]
 }

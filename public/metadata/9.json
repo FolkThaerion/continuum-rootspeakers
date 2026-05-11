@@ -1,19 +1,19 @@
 {
-  "name": "Genesis Rootspeaker #0",
+  "name": "Genesis Rootspeaker #9",
   "description": "A living entity emerging from the Continuum Weave.",
   "image": "https://continuum-rootspeakers.vercel.app/placeholder/rootspeaker0.png",
   "attributes": [
     {
       "trait_type": "Path",
-      "value": "Galaxy Speaker"
+      "value": "Silence Listener"
     },
     {
       "trait_type": "Stage",
-      "value": "Pattern Speaker"
+      "value": "Weave Anchor"
     },
     {
       "trait_type": "Genesis",
-      "value": 4
+      "value": 11
     }
   ]
 }

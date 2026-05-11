@@ -1,10 +1,19 @@
 {
   "name": "Genesis Rootspeaker #0",
-  "description": "The first minted Rootspeaker from Continuum Rootspeakers: Unstable Realities.",
+  "description": "A living entity emerging from the Continuum Weave.",
   "image": "https://continuum-rootspeakers.vercel.app/placeholder/rootspeaker0.png",
   "attributes": [
-    { "trait_type": "Path", "value": "Harmonic Ascent" },
-    { "trait_type": "Stage", "value": "Root Listener" },
-    { "trait_type": "State", "value": "Genesis" }
+    {
+      "trait_type": "Path",
+      "value": "Galaxy Speaker"
+    },
+    {
+      "trait_type": "Stage",
+      "value": "Pattern Speaker"
+    },
+    {
+      "trait_type": "Genesis",
+      "value": 4
+    }
   ]
 }
