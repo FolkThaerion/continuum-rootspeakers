@@ -29,7 +29,7 @@ for (let i = 0; i < 10; i++) {
       "A living entity emerging from the Continuum Weave.",
 
     image:
-      `https://continuum-rootspeakers.vercel.app/placeholder/rootspeaker0.png`,
+      `https://continuum-rootspeakers.vercel.app/rootspeakers/${i}.png`,
 
     attributes: [
       {
