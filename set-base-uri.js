@@ -8,7 +8,7 @@ async function main() {
   const abi = JSON.parse(fs.readFileSync("build/GenesisRootspeakers.abi.json", "utf8"));
   const contract = new ethers.Contract(process.env.NEXT_PUBLIC_ROOTSPEAKERS_CONTRACT, abi, wallet);
 
-  const newBaseURI = "http://172.18.10.250:3000/metadata/";
+  const newBaseURI = "http://continuum-rootspeakers.vercel.app/metadata/";
 
   const tx = await contract.setBaseURI(newBaseURI);
   console.log("Set base URI tx:", tx.hash);
