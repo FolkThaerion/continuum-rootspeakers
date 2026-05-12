@@ -57,21 +57,23 @@ export default function MintPage() {
   }
 
   return (
-    <main
-      style={{
-        minHeight: "100vh",
-        background: "black",
-        color: "white",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        gap: "20px",
-      }}
-    >
-      <h1 style={{ fontSize: "3rem" }}>
-        Continuum Rootspeakers
-      </h1>
+  <main
+    style={{
+      minHeight: "100vh",
+      background: "black",
+      color: "white",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      gap: "20px",
+    }}
+  >
+    <h1 style={{ fontSize: "3rem" }}>
+      Continuum Rootspeakers
+    </h1>
+
+    <div style={{ display: "flex", gap: "20px" }}>
 
       <button
         onClick={mint}
@@ -84,7 +86,41 @@ export default function MintPage() {
         Mint Rootspeaker
       </button>
 
-      <p>{status}</p>
-    </main>
-  );
+      <button
+        onClick={async () => {
+
+          try {
+
+            setStatus("Evolving Rootspeaker...");
+
+            const response = await fetch("/api/evolve", {
+              method: "POST",
+            });
+
+            const data = await response.json();
+
+            setStatus(data.message);
+
+          } catch (err) {
+
+            console.error(err);
+
+            setStatus("Evolution failed.");
+          }
+        }}
+
+        style={{
+          padding: "16px 32px",
+          fontSize: "1.2rem",
+          cursor: "pointer",
+        }}
+      >
+        Evolve Rootspeaker
+      </button>
+
+    </div>
+
+    <p>{status}</p>
+  </main>
+);
 }
