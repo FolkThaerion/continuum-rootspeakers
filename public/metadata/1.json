@@ -1,6 +1,6 @@
 {
   "name": "Genesis Rootspeaker #1",
-  "description": "A living entity emerging from the Continuum Weave.",
+  "description": "This Rootspeaker has evolved into Pattern Speaker.",
   "image": "https://continuum-rootspeakers.vercel.app/rootspeakers/1.png",
   "attributes": [
     {
@@ -9,11 +9,11 @@
     },
     {
       "trait_type": "Stage",
-      "value": "Root Listener"
+      "value": "Pattern Speaker"
     },
     {
       "trait_type": "Anomaly",
-      "value": "Glitched"
+      "value": "Fractured"
     },
     {
       "trait_type": "Rarity",
