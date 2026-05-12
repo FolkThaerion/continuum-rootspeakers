@@ -93,9 +93,32 @@ export default function MintPage() {
 
             setStatus("Evolving Rootspeaker...");
 
-            const response = await fetch("/api/evolve", {
-              method: "POST",
-            });
+            let wallet = "development-wallet";
+
+if ((window as any).ethereum) {
+
+  const provider = new ethers.providers.Web3Provider(
+    (window as any).ethereum
+  );
+
+  await provider.send("eth_requestAccounts", []);
+
+  const signer = provider.getSigner();
+
+  wallet = await signer.getAddress();
+}
+
+const response = await fetch("/api/evolve", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    tokenId: 1,
+    wallet,
+  }),
+}); 
+           
 
             const data = await response.json();
 

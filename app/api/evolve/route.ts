@@ -1,9 +1,12 @@
 import fs from "fs";
 import path from "path";
 
-export async function POST() {
+export async function POST(request: Request) {
 
-  const tokenId = 1;
+  const body = await request.json();
+
+const tokenId = body.tokenId;
+const wallet = body.wallet;console.log("Evolution request from:", wallet);
 
   const file = path.join(
     process.cwd(),
