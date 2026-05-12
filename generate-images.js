@@ -2,62 +2,71 @@ const fs = require("fs");
 const path = require("path");
 const { Jimp } = require("jimp");
 
-const LAYERS = [
-  "background",
-  "weave",
-  "core",
-  "glyph",
-  "halo",
-  "anomaly",
-];
-
 const OUTPUT_DIR = "public/rootspeakers";
+
 fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 
-function listPngs(folder) {
-  const dir = path.join("layers", folder);
-  if (!fs.existsSync(dir)) return [];
-
-  return fs
-    .readdirSync(dir)
-    .filter((file) => file.endsWith(".png"))
-    .map((file) => path.join(dir, file));
+function loadMetadata(tokenId) {
+  return JSON.parse(
+    fs.readFileSync(`public/metadata/${tokenId}.json`, "utf8")
+  );
 }
 
-function pick(files) {
-  if (files.length === 0) return null;
-  return files[Math.floor(Math.random() * files.length)];
+function traitValue(metadata, trait) {
+  const found = metadata.attributes.find(
+    (a) => a.trait_type === trait
+  );
+
+  return found ? found.value : null;
 }
 
 async function generateToken(tokenId) {
-  const chosen = LAYERS
-    .map((layer) => pick(listPngs(layer)))
-    .filter(Boolean);
 
-  if (chosen.length === 0) {
-    throw new Error("No PNG layer files found.");
+  const metadata = loadMetadata(tokenId);
+
+  const rarity = traitValue(metadata, "Rarity");
+  const anomaly = traitValue(metadata, "Anomaly");
+
+  let backgroundPath =
+    "layers/background/bg.png";
+
+  let corePath =
+    "layers/core/core.png";
+
+  if (rarity === "Mythic") {
+    backgroundPath =
+      "layers/background/mythic.png";
   }
 
-  const base = await Jimp.read(chosen[0]);
+  if (anomaly === "Singularity") {
+    corePath =
+      "layers/core/singularity.png";
+  }
+
+  const base = await Jimp.read(backgroundPath);
+
   base.resize({ w: 1024, h: 1024 });
 
-  for (const overlayPath of chosen.slice(1)) {
-    const overlay = await Jimp.read(overlayPath);
-    overlay.resize({ w: 1024, h: 1024 });
-    base.composite(overlay, 0, 0);
-  }
+  const core = await Jimp.read(corePath);
 
-  await base.write(`${OUTPUT_DIR}/${tokenId}.png`);
+  core.resize({ w: 1024, h: 1024 });
 
-  console.log(`Generated token ${tokenId}`);
+  base.composite(core, 0, 0);
+
+  await base.write(`public/rootspeakers/${tokenId}.png`);
+
+  console.log(
+    `Generated token ${tokenId} | ${rarity} | ${anomaly}`
+  );
 }
 
 async function main() {
+
   for (let i = 0; i < 10; i++) {
     await generateToken(i);
   }
 
-  console.log("Generated Rootspeaker images.");
+  console.log("Generated trait-driven Rootspeakers.");
 }
 
 main().catch(console.error);
