@@ -5,15 +5,23 @@
   "attributes": [
     {
       "trait_type": "Path",
-      "value": "Galaxy Speaker"
+      "value": "Harmonic Ascent"
     },
     {
       "trait_type": "Stage",
       "value": "Root Listener"
     },
     {
+      "trait_type": "Anomaly",
+      "value": "Glitched"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Common"
+    },
+    {
       "trait_type": "Genesis",
-      "value": 32
+      "value": 82
     }
   ]
 }

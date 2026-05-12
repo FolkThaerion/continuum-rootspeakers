@@ -5,15 +5,23 @@
   "attributes": [
     {
       "trait_type": "Path",
-      "value": "Silence Listener"
+      "value": "Galaxy Speaker"
     },
     {
       "trait_type": "Stage",
-      "value": "Pattern Speaker"
+      "value": "Weave Anchor"
+    },
+    {
+      "trait_type": "Anomaly",
+      "value": "Glitched"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Common"
     },
     {
       "trait_type": "Genesis",
-      "value": 88
+      "value": 83
     }
   ]
 }

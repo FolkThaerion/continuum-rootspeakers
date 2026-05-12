@@ -5,15 +5,23 @@
   "attributes": [
     {
       "trait_type": "Path",
-      "value": "Void-Touched"
+      "value": "Reality Binder"
     },
     {
       "trait_type": "Stage",
-      "value": "Pattern Speaker"
+      "value": "Root Listener"
+    },
+    {
+      "trait_type": "Anomaly",
+      "value": "Glitched"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
     },
     {
       "trait_type": "Genesis",
-      "value": 8
+      "value": 73
     }
   ]
 }

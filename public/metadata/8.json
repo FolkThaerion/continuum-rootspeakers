@@ -5,15 +5,23 @@
   "attributes": [
     {
       "trait_type": "Path",
-      "value": "Silence Listener"
+      "value": "Reality Binder"
     },
     {
       "trait_type": "Stage",
-      "value": "Living Confluence"
+      "value": "Pattern Speaker"
+    },
+    {
+      "trait_type": "Anomaly",
+      "value": "Glitched"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Common"
     },
     {
       "trait_type": "Genesis",
-      "value": 60
+      "value": 28
     }
   ]
 }

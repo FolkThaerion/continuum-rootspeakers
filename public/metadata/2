@@ -5,15 +5,23 @@
   "attributes": [
     {
       "trait_type": "Path",
-      "value": "Reality Binder"
+      "value": "Galaxy Speaker"
     },
     {
       "trait_type": "Stage",
-      "value": "Root Listener"
+      "value": "Pattern Speaker"
+    },
+    {
+      "trait_type": "Anomaly",
+      "value": "Stable"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
     },
     {
       "trait_type": "Genesis",
-      "value": 30
+      "value": 93
     }
   ]
 }

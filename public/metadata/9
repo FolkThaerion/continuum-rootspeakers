@@ -5,15 +5,23 @@
   "attributes": [
     {
       "trait_type": "Path",
-      "value": "Void-Touched"
+      "value": "Reality Binder"
     },
     {
       "trait_type": "Stage",
-      "value": "Weave Anchor"
+      "value": "Living Confluence"
+    },
+    {
+      "trait_type": "Anomaly",
+      "value": "Stable"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Common"
     },
     {
       "trait_type": "Genesis",
-      "value": 88
+      "value": 84
     }
   ]
 }
