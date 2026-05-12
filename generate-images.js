@@ -30,8 +30,22 @@ async function generateToken(tokenId) {
   let backgroundPath =
     "layers/background/bg.png";
 
-  let corePath =
-    "layers/core/core.png";
+  let corePath = "layers/core/core.png";
+
+const stage = traitValue(metadata, "Stage");
+
+if (stage === "Pattern Speaker") {
+  corePath = "layers/core/pattern-speaker.png";
+}
+
+if (stage === "Weave Anchor") {
+  corePath = "layers/core/weave-anchor.png";
+}
+
+if (stage === "Living Confluence") {
+  corePath = "layers/core/living-confluence.png";
+}
+   
 
   if (rarity === "Mythic") {
     backgroundPath =
