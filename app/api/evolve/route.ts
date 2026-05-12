@@ -1,12 +1,52 @@
+import { ethers } from "ethers";
 import fs from "fs";
 import path from "path";
 
 export async function POST(request: Request) {
+  try { 
 
   const body = await request.json();
 
 const tokenId = body.tokenId;
-const wallet = body.wallet;console.log("Evolution request from:", wallet);
+const wallet = body.wallet;
+const abi = [
+  "function ownerOf(uint256 tokenId) view returns (address)"
+];
+
+ const rpcUrl =
+  process.env.RPC_URL ||
+  process.env.NEXT_PUBLIC_RPC_URL;
+
+if (!rpcUrl) {
+
+  return Response.json(
+    {
+      success: false,
+      message: "Missing RPC_URL in .env.local",
+    },
+    { status: 500 }
+  );
+}
+
+console.log("Using RPC URL:", rpcUrl);
+
+const provider =
+  new ethers.providers.StaticJsonRpcProvider(
+    rpcUrl,
+    {
+      name: "sepolia",
+      chainId: 11155111,
+    }
+  );
+
+const contract = new ethers.Contract(
+  process.env.NEXT_PUBLIC_ROOTSPEAKERS_CONTRACT!,
+  abi,
+  provider
+);
+
+  
+console.log("Evolution request from:", wallet);
 
   const file = path.join(
     process.cwd(),
@@ -77,4 +117,18 @@ const wallet = body.wallet;console.log("Evolution request from:", wallet);
     message:
       `Rootspeaker evolved into ${stageTrait.value}`,
   });
+
+    } catch (error: any) {
+
+    console.error("EVOLVE API ERROR:", error);
+
+    return Response.json(
+      {
+        success: false,
+        message:
+          error.message || "Evolution failed on server.",
+      },
+      { status: 500 }
+    );
+  }
 }

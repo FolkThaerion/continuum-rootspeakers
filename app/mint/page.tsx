@@ -114,13 +114,17 @@ const response = await fetch("/api/evolve", {
     "Content-Type": "application/json",
   },
   body: JSON.stringify({
-    tokenId: 1,
+    tokenId: 0,
     wallet,
   }),
 }); 
            
 
-            const data = await response.json();
+            const text = await response.text();
+
+const data = text
+  ? JSON.parse(text)
+  : { message: "No response from server." };
 
             setStatus(data.message);
 
