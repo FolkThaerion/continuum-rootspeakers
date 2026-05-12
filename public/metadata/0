@@ -5,7 +5,7 @@
   "attributes": [
     {
       "trait_type": "Path",
-      "value": "Galaxy Speaker"
+      "value": "Harmonic Ascent"
     },
     {
       "trait_type": "Stage",
@@ -17,11 +17,11 @@
     },
     {
       "trait_type": "Rarity",
-      "value": "Epic"
+      "value": "Rare"
     },
     {
       "trait_type": "Genesis",
-      "value": 56
+      "value": 6
     }
   ]
 }

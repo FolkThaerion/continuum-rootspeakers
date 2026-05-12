@@ -9,7 +9,7 @@
     },
     {
       "trait_type": "Stage",
-      "value": "Pattern Speaker"
+      "value": "Root Listener"
     },
     {
       "trait_type": "Anomaly",
@@ -21,7 +21,7 @@
     },
     {
       "trait_type": "Genesis",
-      "value": 93
+      "value": 10
     }
   ]
 }

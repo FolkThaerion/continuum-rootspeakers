@@ -5,11 +5,11 @@
   "attributes": [
     {
       "trait_type": "Path",
-      "value": "Silence Listener"
+      "value": "Harmonic Ascent"
     },
     {
       "trait_type": "Stage",
-      "value": "Root Listener"
+      "value": "Pattern Speaker"
     },
     {
       "trait_type": "Anomaly",
@@ -17,11 +17,11 @@
     },
     {
       "trait_type": "Rarity",
-      "value": "Common"
+      "value": "Rare"
     },
     {
       "trait_type": "Genesis",
-      "value": 22
+      "value": 42
     }
   ]
 }

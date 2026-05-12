@@ -9,7 +9,7 @@
     },
     {
       "trait_type": "Stage",
-      "value": "Root Listener"
+      "value": "Weave Anchor"
     },
     {
       "trait_type": "Anomaly",
@@ -21,7 +21,7 @@
     },
     {
       "trait_type": "Genesis",
-      "value": 90
+      "value": 0
     }
   ]
 }
