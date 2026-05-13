@@ -17,7 +17,7 @@ type Metadata = {
 export default function GalleryPage() {
 
   const [tokens, setTokens] = useState<Metadata[]>([]);
-
+  const [era, setEra] = useState("Genesis Era");
   useEffect(() => {
 
     async function load() {
@@ -41,6 +41,11 @@ export default function GalleryPage() {
       }
 
       setTokens(results);
+      fetch("/world/state.json")
+  .then((res) => res.json())
+  .then((data) => {
+    setEra(data.era);
+  });
     }
 
     load();
@@ -81,15 +86,44 @@ export default function GalleryPage() {
           <div
             key={index}
             style={{
-              border: "1px solid #333",
+              border:
+  era === "Age of Fractures"
+    ? "1px solid crimson"
+    : era === "Era of Convergence"
+    ? "1px solid cyan"
+    : "1px solid #333",
               borderRadius: "20px",
               padding: "20px",
-              background: "#111",
+              background:
+  era === "Genesis Era"
+    ? "#111"
+    : era === "Era of Spiral Instability"
+    ? "#1a0f1f"
+    : era === "Age of Fractures"
+    ? "#2a0f0f"
+    : era === "The Silence Bloom"
+    ? "#1a1a1a"
+    : "#0f1f1a",
             }}
           >
 
             <img
               src={token.image}
+              style={{
+  width: "100%",
+  borderRadius: "12px",
+  marginBottom: "20px",
+  filter:
+    era === "Era of Spiral Instability"
+      ? "hue-rotate(45deg) saturate(1.8)"
+      : era === "Age of Fractures"
+      ? "contrast(1.4) saturate(0.7)"
+      : era === "The Silence Bloom"
+      ? "grayscale(1) brightness(0.7)"
+      : era === "Era of Convergence"
+      ? "brightness(1.6) saturate(2.5) hue-rotate(90deg)"
+      : "none",
+}}
               alt={token.name}
               style={{
                 width: "100%",

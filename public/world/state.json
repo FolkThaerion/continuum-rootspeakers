@@ -1,7 +1,7 @@
 {
-  "era": "Era of Spiral Instability",
+  "era": "Era of Convergence",
   "lastEvent": "The Spiral Surge",
-  "eventCount": 2,
-  "condition": "Unstable",
-  "description": "The Spiral Surge distorted the Continuum."
+  "eventCount": 26,
+  "condition": "Converging",
+  "description": "All paths begin bending toward a single living pattern."
 }

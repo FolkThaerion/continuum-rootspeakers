@@ -1,3 +1,5 @@
+import { getMutationRules } from "@/lib/mutationRules";
+import { getNextEra } from "@/lib/eraEngine";
 import fs from "fs";
 import path from "path";
 
@@ -12,17 +14,25 @@ export async function POST() {
 const worldState = JSON.parse(
   fs.readFileSync(worldFile, "utf8")
 );
+const historyFile = path.join(
+  process.cwd(),
+  "public/world/history.json"
+);
 
+const history = JSON.parse(
+  fs.readFileSync(historyFile, "utf8")
+);
 worldState.lastEvent = eventName;
 
 worldState.eventCount += 1;
 
-worldState.era = "Era of Spiral Instability";
+const nextEra = getNextEra(worldState.eventCount);
+const rules = getMutationRules(nextEra.name);
+worldState.era = nextEra.name;
 
-worldState.condition = "Unstable";
+worldState.condition = nextEra.condition;
 
-worldState.description =
-  "The Spiral Surge distorted the Continuum.";
+worldState.description = nextEra.description;
   for (let tokenId = 0; tokenId < 10; tokenId++) {
 
     const file = path.join(
@@ -68,20 +78,24 @@ worldState.description =
       anomalies.indexOf(anomalyTrait.value);
 
     if (
-      Math.random() < 0.5 &&
-      stageIndex < stages.length - 1
-    ) {
-      stageTrait.value =
-        stages[stageIndex + 1];
-    }
+  Math.random() < rules.stageChance &&
+  stageIndex < stages.length - 1
+) {
+  stageTrait.value =
+    stages[stageIndex + 1];
+}
 
-    if (
-      Math.random() < 0.7 &&
-      anomalyIndex < anomalies.length - 1
-    ) {
-      anomalyTrait.value =
-        anomalies[anomalyIndex + 1];
-    }
+if (
+  Math.random() < rules.anomalyChance &&
+  anomalyIndex < anomalies.length - 1
+) {
+  anomalyTrait.value =
+    anomalies[anomalyIndex + 1];
+}
+
+if (rules.forceConvergence) {
+  stageTrait.value = "Living Confluence";
+}
 
     metadata.description =
       `${metadata.name} was altered during ${eventName}.`;
@@ -99,6 +113,17 @@ worldState.description =
 fs.writeFileSync(
   worldFile,
   JSON.stringify(worldState, null, 2)
+);
+history.push({
+  event: eventName,
+  era: worldState.era,
+  description: worldState.description,
+  eventNumber: worldState.eventCount,
+});
+
+fs.writeFileSync(
+  historyFile,
+  JSON.stringify(history, null, 2)
 );  
   return Response.json({
     success: true,
