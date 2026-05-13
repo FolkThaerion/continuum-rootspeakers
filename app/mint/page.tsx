@@ -13,7 +13,7 @@ const ABI = [
 
 export default function MintPage() {
   const [status, setStatus] = useState("");
-
+  const [tokenId, setTokenId] = useState(0);
   async function mint() {
     try {
       if (!(window as any).ethereum) {
@@ -72,7 +72,18 @@ export default function MintPage() {
     <h1 style={{ fontSize: "3rem" }}>
       Continuum Rootspeakers
     </h1>
-
+    <input
+  type="number"
+  value={tokenId}
+  onChange={(e) => setTokenId(Number(e.target.value))}
+  min={0}
+  style={{
+    padding: "12px",
+    fontSize: "1rem",
+    width: "120px",
+    textAlign: "center",
+  }}
+/>
     <div style={{ display: "flex", gap: "20px" }}>
 
       <button
@@ -114,7 +125,7 @@ const response = await fetch("/api/evolve", {
     "Content-Type": "application/json",
   },
   body: JSON.stringify({
-    tokenId: 0,
+    tokenId,
     wallet,
   }),
 }); 
