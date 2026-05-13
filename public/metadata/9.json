@@ -1,6 +1,6 @@
 {
   "name": "Genesis Rootspeaker #9",
-  "description": "A living entity emerging from the Continuum Weave.",
+  "description": "Genesis Rootspeaker #9 was altered during The Spiral Surge.",
   "image": "https://continuum-rootspeakers.vercel.app/rootspeakers/9.png",
   "attributes": [
     {
@@ -9,11 +9,11 @@
     },
     {
       "trait_type": "Stage",
-      "value": "Pattern Speaker"
+      "value": "Living Confluence"
     },
     {
       "trait_type": "Anomaly",
-      "value": "Stable"
+      "value": "Glitched"
     },
     {
       "trait_type": "Rarity",

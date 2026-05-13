@@ -1,6 +1,6 @@
 {
   "name": "Genesis Rootspeaker #2",
-  "description": "A living entity emerging from the Continuum Weave.",
+  "description": "Genesis Rootspeaker #2 was altered during The Spiral Surge.",
   "image": "https://continuum-rootspeakers.vercel.app/rootspeakers/2.png",
   "attributes": [
     {
@@ -9,11 +9,11 @@
     },
     {
       "trait_type": "Stage",
-      "value": "Root Listener"
+      "value": "Weave Anchor"
     },
     {
       "trait_type": "Anomaly",
-      "value": "Stable"
+      "value": "Fractured"
     },
     {
       "trait_type": "Rarity",

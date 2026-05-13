@@ -1,6 +1,6 @@
 {
   "name": "Genesis Rootspeaker #0",
-  "description": "This Rootspeaker has evolved into Pattern Speaker.",
+  "description": "Genesis Rootspeaker #0 was altered during The Spiral Surge.",
   "image": "https://continuum-rootspeakers.vercel.app/rootspeakers/0.png",
   "attributes": [
     {
@@ -9,11 +9,11 @@
     },
     {
       "trait_type": "Stage",
-      "value": "Pattern Speaker"
+      "value": "Living Confluence"
     },
     {
       "trait_type": "Anomaly",
-      "value": "Stable"
+      "value": "Singularity"
     },
     {
       "trait_type": "Rarity",

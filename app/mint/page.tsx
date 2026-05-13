@@ -155,7 +155,37 @@ const data = text
       >
         Evolve Rootspeaker
       </button>
+      <button
+  onClick={async () => {
 
+    try {
+
+      setStatus("Triggering Spiral Surge...");
+
+      const response = await fetch("/api/events", {
+        method: "POST",
+      });
+
+      const data = await response.json();
+
+      setStatus(data.message);
+
+    } catch (err) {
+
+      console.error(err);
+
+      setStatus("Event failed.");
+    }
+  }}
+
+  style={{
+    padding: "16px 32px",
+    fontSize: "1.2rem",
+    cursor: "pointer",
+  }}
+>
+  Trigger Spiral Surge
+</button>
     </div>
 
     <p>{status}</p>

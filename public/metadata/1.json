@@ -1,6 +1,6 @@
 {
   "name": "Genesis Rootspeaker #1",
-  "description": "This Rootspeaker has evolved into Living Confluence.",
+  "description": "Genesis Rootspeaker #1 was altered during The Spiral Surge.",
   "image": "https://continuum-rootspeakers.vercel.app/rootspeakers/1.png",
   "attributes": [
     {
@@ -13,7 +13,7 @@
     },
     {
       "trait_type": "Anomaly",
-      "value": "Fractured"
+      "value": "Singularity"
     },
     {
       "trait_type": "Rarity",
