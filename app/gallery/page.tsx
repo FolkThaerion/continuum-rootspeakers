@@ -108,29 +108,25 @@ export default function GalleryPage() {
           >
 
             <img
-              src={token.image}
-              style={{
-  width: "100%",
-  borderRadius: "12px",
-  marginBottom: "20px",
-  filter:
-    era === "Era of Spiral Instability"
-      ? "hue-rotate(45deg) saturate(1.8)"
-      : era === "Age of Fractures"
-      ? "contrast(1.4) saturate(0.7)"
-      : era === "The Silence Bloom"
-      ? "grayscale(1) brightness(0.7)"
-      : era === "Era of Convergence"
-      ? "brightness(1.6) saturate(2.5) hue-rotate(90deg)"
-      : "none",
-}}
-              alt={token.name}
-              style={{
-                width: "100%",
-                borderRadius: "12px",
-                marginBottom: "20px",
-              }}
-            />
+  src={token.image}
+  alt={token.name}
+  style={{
+    width: "100%",
+    borderRadius: "12px",
+    marginBottom: "20px",
+    filter:
+      era === "Era of Spiral Instability"
+        ? "hue-rotate(45deg) saturate(1.8)"
+        : era === "Age of Fractures"
+        ? "contrast(1.4) saturate(0.7)"
+        : era === "The Silence Bloom"
+        ? "grayscale(1) brightness(0.7)"
+        : era === "Era of Convergence"
+        ? "brightness(1.6) saturate(2.5) hue-rotate(90deg)"
+        : "none",
+  }}
+/>
+   
 
             <h2
               style={{
