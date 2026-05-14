@@ -38,6 +38,14 @@ worldState.era = nextEra.name;
 worldState.condition = nextEra.condition;
 
 worldState.description = nextEra.description;
+const archivePath = path.join(
+  process.cwd(),
+  "public/archive/cycles.json"
+);
+
+const archive = JSON.parse(
+  fs.readFileSync(archivePath, "utf8")
+);
   for (let tokenId = 0; tokenId < 10; tokenId++) {
 
     const file = path.join(
@@ -113,7 +121,18 @@ else if (
   stageTrait.value = "Root Listener";
 
   anomalyTrait.value = "Stable";
-  
+  archive.push({
+  archivedCycle: worldState.cycle || 1,
+  archivedEra: worldState.era,
+  archivedCondition: worldState.condition,
+  archivedEventCount: worldState.eventCount,
+  archivedAtEvent: eventName,
+});
+
+fs.writeFileSync(
+  archivePath,
+  JSON.stringify(archive, null, 2)
+);
   worldState.cycle =
   (worldState.cycle || 1) + 1;
 
