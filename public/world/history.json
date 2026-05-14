@@ -2668,5 +2668,11 @@
     "era": "Era of Convergence",
     "description": "Chaotic resonance spreads through the Continuum.",
     "eventNumber": 446
+  },
+  {
+    "event": "The Silence Tide",
+    "era": "Era of Convergence",
+    "description": "A strange quiet suppresses all mutation.",
+    "eventNumber": 447
   }
 ]

@@ -23,8 +23,10 @@ export default function TimelinePage() {
       <h1 style={{ fontSize: "3rem", marginBottom: "40px" }}>
         Continuum Timeline
       </h1>
-
-      {events.map((item, index) => (
+      <p style={{ opacity: 0.7, marginBottom: "30px" }}>
+  Showing latest 25 events out of {events.length} total recorded Continuum events.
+</p>
+      {events.slice(-25).reverse().map((item, index) => (
         <div key={index} style={{ borderLeft: "2px solid white", paddingLeft: "20px", marginBottom: "30px" }}>
           <p style={{ opacity: 0.6 }}>Event #{item.eventNumber}</p>
           <h2>{item.event}</h2>

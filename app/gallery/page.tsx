@@ -71,7 +71,34 @@ export default function GalleryPage() {
       >
         Rootspeakers Gallery
       </h1>
+      <div
+  style={{
+    marginBottom: "40px",
+    padding: "20px",
+    borderRadius: "20px",
+    textAlign: "center",
+    background:
+      era === "Era of Convergence"
+        ? "#0f2f2f"
+        : era === "Age of Fractures"
+        ? "#2f0f0f"
+        : era === "The Silence Bloom"
+        ? "#1a1a1a"
+        : "#151515",
+    border:
+      era === "Era of Convergence"
+        ? "1px solid cyan"
+        : era === "Age of Fractures"
+        ? "1px solid crimson"
+        : "1px solid #333",
+  }}
+>
+  <h2>{era}</h2>
 
+  <p>
+    The Continuum currently exists within this era.
+  </p>
+</div>
       <div
         style={{
           display: "grid",
