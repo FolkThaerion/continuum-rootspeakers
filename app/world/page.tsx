@@ -29,7 +29,8 @@ export default function WorldPage() {
       <p>Condition: {world.condition}</p>
       <p>Last Event: {world.lastEvent}</p>
       <p>Total Events: {world.eventCount}</p>
-       <div style={{ marginTop: "30px", padding: "20px", border: "1px solid #333" }}>
+      <p>World Cycle: {world.cycle}</p>      
+ <div style={{ marginTop: "30px", padding: "20px", border: "1px solid #333" }}>
   <h2>Active Mutation Rules</h2>
 
   {world.era === "Genesis Era" && (

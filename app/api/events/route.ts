@@ -113,6 +113,16 @@ else if (
   stageTrait.value = "Root Listener";
 
   anomalyTrait.value = "Stable";
+  
+  worldState.cycle =
+  (worldState.cycle || 1) + 1;
+
+worldState.era = "Genesis Era";
+
+worldState.condition = "Reawakening";
+
+worldState.description =
+  "The Continuum begins again from the first breath.";
 }
 
 else {
