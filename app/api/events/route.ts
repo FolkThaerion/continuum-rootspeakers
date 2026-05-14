@@ -1,3 +1,4 @@
+import { getRandomEvent } from "@/lib/events";
 import { getMutationRules } from "@/lib/mutationRules";
 import { getNextEra } from "@/lib/eraEngine";
 import fs from "fs";
@@ -5,7 +6,11 @@ import path from "path";
 
 export async function POST() {
 
-  const eventName = "The Spiral Surge";
+  const event = getRandomEvent();
+
+const eventName = event.name;
+
+const eventDescription = event.description;
   const worldFile = path.join(
   process.cwd(),
   "public/world/state.json"
@@ -77,28 +82,65 @@ worldState.description = nextEra.description;
     const anomalyIndex =
       anomalies.indexOf(anomalyTrait.value);
 
-    if (
-  Math.random() < rules.stageChance &&
-  stageIndex < stages.length - 1
-) {
-  stageTrait.value =
-    stages[stageIndex + 1];
+    if (eventName === "The Infinite Bloom") {
+
+  stageTrait.value = "Living Confluence";
+
+  anomalyTrait.value = "Singularity";
 }
 
-if (
-  Math.random() < rules.anomalyChance &&
-  anomalyIndex < anomalies.length - 1
-) {
-  anomalyTrait.value =
-    anomalies[anomalyIndex + 1];
+else if (eventName === "The Silence Tide") {
+
+  // mutation freeze
 }
 
-if (rules.forceConvergence) {
+else if (eventName === "The Null Echo") {
+
+  anomalyTrait.value = "Singularity";
+}
+
+else if (
+  eventName === "The Convergence Pulse"
+) {
+
   stageTrait.value = "Living Confluence";
 }
 
+else if (
+  eventName === "The Returning Spiral"
+) {
+
+  stageTrait.value = "Root Listener";
+
+  anomalyTrait.value = "Stable";
+}
+
+else {
+
+  if (
+    Math.random() < rules.stageChance &&
+    stageIndex < stages.length - 1
+  ) {
+    stageTrait.value =
+      stages[stageIndex + 1];
+  }
+
+  if (
+    Math.random() < rules.anomalyChance &&
+    anomalyIndex < anomalies.length - 1
+  ) {
+    anomalyTrait.value =
+      anomalies[anomalyIndex + 1];
+  }
+
+  if (rules.forceConvergence) {
+    stageTrait.value =
+      "Living Confluence";
+  }
+}
+
     metadata.description =
-      `${metadata.name} was altered during ${eventName}.`;
+  `${metadata.name} was altered during ${eventName}. ${eventDescription}`;
 
     fs.writeFileSync(
       file,
@@ -117,7 +159,7 @@ fs.writeFileSync(
 history.push({
   event: eventName,
   era: worldState.era,
-  description: worldState.description,
+  description: eventDescription,
   eventNumber: worldState.eventCount,
 });
 

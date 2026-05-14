@@ -131,11 +131,7 @@ const response = await fetch("/api/evolve", {
 }); 
            
 
-            const text = await response.text();
-
-const data = text
-  ? JSON.parse(text)
-  : { message: "No response from server." };
+            const data = await response.json();
 
             setStatus(data.message);
 
@@ -184,7 +180,7 @@ const data = text
     cursor: "pointer",
   }}
 >
-  Trigger Spiral Surge
+  Trigger Global Event
 </button>
     </div>
 
