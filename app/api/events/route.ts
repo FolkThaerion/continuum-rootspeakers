@@ -1,3 +1,4 @@
+import { maybeAddRelicTrait } from "@/lib/relicEngine";
 import { getRandomEvent } from "@/lib/events";
 import { getMutationRules } from "@/lib/mutationRules";
 import { getNextEra } from "@/lib/eraEngine";
@@ -170,7 +171,7 @@ else {
 
     metadata.description =
   `${metadata.name} was altered during ${eventName}. ${eventDescription}`;
-
+   maybeAddRelicTrait(metadata, archive);
     fs.writeFileSync(
       file,
       JSON.stringify(metadata, null, 2)
