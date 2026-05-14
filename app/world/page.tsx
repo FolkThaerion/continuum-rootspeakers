@@ -8,6 +8,7 @@ type WorldState = {
   eventCount: number;
   condition: string;
   description: string;
+  cycle: number;
 };
 
 export default function WorldPage() {
