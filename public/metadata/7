@@ -1,6 +1,6 @@
 {
-  "name": "Genesis Rootspeaker #7",
-  "description": "Genesis Rootspeaker #7 was altered during The Silence Tide. A strange quiet suppresses all mutation.",
+  "name": "The Spiral Walker — Thalor",
+  "description": "The Spiral Walker — Vael-Tor was altered during The Silence Tide. A strange quiet suppresses all mutation. It carries a relic-memory from Genesis Era.",
   "image": "https://continuum-rootspeakers.vercel.app/rootspeakers/7.png",
   "attributes": [
     {
@@ -22,6 +22,110 @@
     {
       "trait_type": "Genesis",
       "value": 42
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 8"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 6"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Last Speaker — Astra-Vey"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 6"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Silent Witness — Astra-Vey"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 9"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The First Echo — Thalor"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 3"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Last Speaker — Veyrith"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 2"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Hollow Flame — Nyra-Kai"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 6"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The First Echo — Kireth"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 8"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Spiral Walker — Vael-Tor"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 4"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Spiral Walker — Thalor"
     }
   ]
 }

@@ -1,17 +1,18 @@
+import { generateLegendaryName } from "./legendaryNames";
 export function maybeAddRelicTrait(metadata: any, archive: any[]) {
   if (!archive || archive.length === 0) {
     return metadata;
   }
 
-  const alreadyHasRelic = metadata.attributes.some(
-    (attr: any) => attr.trait_type === "Relic"
-  );
+  // const alreadyHasRelic = metadata.attributes.some(
+//   (attr: any) => attr.trait_type === "Relic"
+// );
 
-  if (alreadyHasRelic) {
-    return metadata;
-  }
+// if (alreadyHasRelic) {
+//   return metadata;
+// } 
 
-  const relicChance = 0.08;
+  const relicChance = 1;
 
   if (Math.random() > relicChance) {
     return metadata;
@@ -29,7 +30,16 @@ export function maybeAddRelicTrait(metadata: any, archive: any[]) {
     trait_type: "Ancient Era",
     value: ancientCycle.archivedEra,
   });
+if (Math.random() < 1) {
+  const legendaryName = generateLegendaryName();
 
+  metadata.attributes.push({
+    trait_type: "Legendary Name",
+    value: legendaryName,
+  });
+
+  metadata.name = legendaryName;
+}
   metadata.description =
     `${metadata.description} It carries a relic-memory from ${ancientCycle.archivedEra}.`;
 

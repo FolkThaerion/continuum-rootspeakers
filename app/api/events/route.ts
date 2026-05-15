@@ -171,7 +171,31 @@ else {
 
     metadata.description =
   `${metadata.name} was altered during ${eventName}. ${eventDescription}`;
-   maybeAddRelicTrait(metadata, archive);
+const tokenHistoryPath = path.join(
+  process.cwd(),
+  `public/token-history/${tokenId}.json`
+);
+
+let tokenHistory = [];
+
+if (fs.existsSync(tokenHistoryPath)) {
+  tokenHistory = JSON.parse(
+    fs.readFileSync(tokenHistoryPath, "utf8")
+  );
+}
+
+tokenHistory.push({
+  event: eventName,
+  description: eventDescription,
+  stage: stageTrait.value,
+  anomaly: anomalyTrait.value,
+});
+
+fs.writeFileSync(
+  tokenHistoryPath,
+  JSON.stringify(tokenHistory, null, 2)
+);  
+ maybeAddRelicTrait(metadata, archive);
     fs.writeFileSync(
       file,
       JSON.stringify(metadata, null, 2)

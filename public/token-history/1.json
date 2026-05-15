@@ -1,0 +1,31 @@
+[
+  {
+    "event": "Origin",
+    "description": "Genesis Rootspeaker #1 first emerged within the Continuum.",
+    "stage": "Root Listener"
+  },
+  {
+    "event": "The Spiral Surge",
+    "description": "Chaotic resonance spreads through the Continuum.",
+    "stage": "Living Confluence",
+    "anomaly": "Singularity"
+  },
+  {
+    "event": "The Convergence Pulse",
+    "description": "Rootspeakers synchronize into unified evolution.",
+    "stage": "Living Confluence",
+    "anomaly": "Singularity"
+  },
+  {
+    "event": "The Convergence Pulse",
+    "description": "Rootspeakers synchronize into unified evolution.",
+    "stage": "Living Confluence",
+    "anomaly": "Singularity"
+  },
+  {
+    "event": "The Silence Tide",
+    "description": "A strange quiet suppresses all mutation.",
+    "stage": "Living Confluence",
+    "anomaly": "Singularity"
+  }
+]

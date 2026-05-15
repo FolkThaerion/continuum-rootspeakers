@@ -1,8 +1,8 @@
 {
   "era": "Era of Convergence",
   "lastEvent": "The Silence Tide",
-  "eventCount": 447,
+  "eventCount": 351,
   "condition": "Converging",
-  "description": "All paths begin bending toward a single living pattern."
-  "cycle": 1,
+  "description": "All paths begin bending toward a single living pattern.",
+  "cycle": 11
 }

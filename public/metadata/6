@@ -1,6 +1,6 @@
 {
-  "name": "Genesis Rootspeaker #6",
-  "description": "Genesis Rootspeaker #6 was altered during The Silence Tide. A strange quiet suppresses all mutation.",
+  "name": "The Last Speaker — Veyrith",
+  "description": "The Spiral Walker — Vael-Tor was altered during The Silence Tide. A strange quiet suppresses all mutation. It carries a relic-memory from Genesis Era.",
   "image": "https://continuum-rootspeakers.vercel.app/rootspeakers/6.png",
   "attributes": [
     {
@@ -22,6 +22,110 @@
     {
       "trait_type": "Genesis",
       "value": 91
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 1"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Era of Convergence"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 1"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Era of Convergence"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Spiral Walker — Orryx"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 6"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Fractured Herald — Kireth"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 8"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Ancient Voice — Vael-Tor"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 10"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Last Speaker — Orryx"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 1"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Era of Convergence"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Fractured Herald — Kireth"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 4"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Last Speaker — Astra-Vey"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 8"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Spiral Walker — Vael-Tor"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 8"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Last Speaker — Veyrith"
     }
   ]
 }

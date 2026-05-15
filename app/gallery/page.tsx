@@ -133,7 +133,7 @@ export default function GalleryPage() {
     : "#0f1f1a",
             }}
           >
-
+          <a href={`/token/${index}`}>
             <img
   src={token.image}
   alt={token.name}
@@ -153,7 +153,7 @@ export default function GalleryPage() {
         : "none",
   }}
 />
-   
+</a>   
 
             <h2
               style={{
@@ -163,7 +163,36 @@ export default function GalleryPage() {
             >
               {token.name}
             </h2>
-
+            {token.attributes.some((attr) => attr.trait_type === "Relic") && (
+  <div
+    style={{
+      marginBottom: "12px",
+      padding: "8px 12px",
+      border: "1px solid gold",
+      borderRadius: "999px",
+      color: "gold",
+      display: "inline-block",
+      fontSize: "0.9rem",
+    }}
+  >
+    Ancient Relic
+  </div>
+)}
+{token.attributes.some((attr) => attr.trait_type === "Legendary Name") && (
+  <div
+    style={{
+      marginBottom: "12px",
+      padding: "8px 12px",
+      border: "1px solid violet",
+      borderRadius: "999px",
+      color: "violet",
+      display: "inline-block",
+      fontSize: "0.9rem",
+    }}
+  >
+    Legendary Entity
+  </div>
+)} 
             <p
               style={{
                 opacity: 0.8,

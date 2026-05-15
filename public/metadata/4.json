@@ -1,6 +1,6 @@
 {
-  "name": "Genesis Rootspeaker #4",
-  "description": "Genesis Rootspeaker #4 was altered during The Silence Tide. A strange quiet suppresses all mutation.",
+  "name": "The Hollow Flame — Nyra-Kai",
+  "description": "The Silent Witness — Thalor was altered during The Silence Tide. A strange quiet suppresses all mutation. It carries a relic-memory from Genesis Era.",
   "image": "https://continuum-rootspeakers.vercel.app/rootspeakers/4.png",
   "attributes": [
     {
@@ -22,6 +22,110 @@
     {
       "trait_type": "Genesis",
       "value": 64
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 3"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 8"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Last Speaker — Astra-Vey"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 2"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Last Speaker — Orryx"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 7"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Last Speaker — Thalor"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 5"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Ancient Voice — Astra-Vey"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 4"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Spiral Walker — Kireth"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 8"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Hollow Flame — Kireth"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 9"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Silent Witness — Thalor"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 7"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Hollow Flame — Nyra-Kai"
     }
   ]
 }

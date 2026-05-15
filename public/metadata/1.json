@@ -1,6 +1,6 @@
 {
-  "name": "Genesis Rootspeaker #1",
-  "description": "Genesis Rootspeaker #1 was altered during The Silence Tide. A strange quiet suppresses all mutation.",
+  "name": "The Hollow Flame — Orryx",
+  "description": "The Ancient Voice — Kireth was altered during The Silence Tide. A strange quiet suppresses all mutation. It carries a relic-memory from Genesis Era.",
   "image": "https://continuum-rootspeakers.vercel.app/rootspeakers/1.png",
   "attributes": [
     {
@@ -22,6 +22,110 @@
     {
       "trait_type": "Genesis",
       "value": 82
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 2"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 7"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Last Speaker — Kireth"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 8"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Fractured Herald — Astra-Vey"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 4"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Spiral Walker — Veyrith"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 2"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Ancient Voice — Veyrith"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 5"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Last Speaker — Orryx"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 6"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Spiral Walker — Veyrith"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 5"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Ancient Voice — Kireth"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 5"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Hollow Flame — Orryx"
     }
   ]
 }

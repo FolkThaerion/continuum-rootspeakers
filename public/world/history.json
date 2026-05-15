@@ -2674,5 +2674,119 @@
     "era": "Era of Convergence",
     "description": "A strange quiet suppresses all mutation.",
     "eventNumber": 447
+  },
+  {
+    "event": "The Spiral Surge",
+    "era": "Era of Convergence",
+    "description": "Chaotic resonance spreads through the Continuum.",
+    "eventNumber": 333
+  },
+  {
+    "event": "The Spiral Surge",
+    "era": "Era of Convergence",
+    "description": "Chaotic resonance spreads through the Continuum.",
+    "eventNumber": 334
+  },
+  {
+    "event": "The Silence Tide",
+    "era": "Era of Convergence",
+    "description": "A strange quiet suppresses all mutation.",
+    "eventNumber": 335
+  },
+  {
+    "event": "The Spiral Surge",
+    "era": "Era of Convergence",
+    "description": "Chaotic resonance spreads through the Continuum.",
+    "eventNumber": 336
+  },
+  {
+    "event": "The Returning Spiral",
+    "era": "Genesis Era",
+    "description": "The Continuum begins awakening again from the beginning.",
+    "eventNumber": 337
+  },
+  {
+    "event": "The Spiral Surge",
+    "era": "Era of Convergence",
+    "description": "Chaotic resonance spreads through the Continuum.",
+    "eventNumber": 338
+  },
+  {
+    "event": "The Null Echo",
+    "era": "Era of Convergence",
+    "description": "Forgotten patterns return from outside the Continuum.",
+    "eventNumber": 339
+  },
+  {
+    "event": "The Fracture Bloom",
+    "era": "Era of Convergence",
+    "description": "Reality begins splitting into unstable branches.",
+    "eventNumber": 340
+  },
+  {
+    "event": "The Silence Tide",
+    "era": "Era of Convergence",
+    "description": "A strange quiet suppresses all mutation.",
+    "eventNumber": 341
+  },
+  {
+    "event": "The Spiral Surge",
+    "era": "Era of Convergence",
+    "description": "Chaotic resonance spreads through the Continuum.",
+    "eventNumber": 342
+  },
+  {
+    "event": "The Spiral Surge",
+    "era": "Era of Convergence",
+    "description": "Chaotic resonance spreads through the Continuum.",
+    "eventNumber": 343
+  },
+  {
+    "event": "The Null Echo",
+    "era": "Era of Convergence",
+    "description": "Forgotten patterns return from outside the Continuum.",
+    "eventNumber": 344
+  },
+  {
+    "event": "The Convergence Pulse",
+    "era": "Era of Convergence",
+    "description": "Rootspeakers synchronize into unified evolution.",
+    "eventNumber": 345
+  },
+  {
+    "event": "The Convergence Pulse",
+    "era": "Era of Convergence",
+    "description": "Rootspeakers synchronize into unified evolution.",
+    "eventNumber": 346
+  },
+  {
+    "event": "The Spiral Surge",
+    "era": "Era of Convergence",
+    "description": "Chaotic resonance spreads through the Continuum.",
+    "eventNumber": 347
+  },
+  {
+    "event": "The Spiral Surge",
+    "era": "Era of Convergence",
+    "description": "Chaotic resonance spreads through the Continuum.",
+    "eventNumber": 348
+  },
+  {
+    "event": "The Convergence Pulse",
+    "era": "Era of Convergence",
+    "description": "Rootspeakers synchronize into unified evolution.",
+    "eventNumber": 349
+  },
+  {
+    "event": "The Convergence Pulse",
+    "era": "Era of Convergence",
+    "description": "Rootspeakers synchronize into unified evolution.",
+    "eventNumber": 350
+  },
+  {
+    "event": "The Silence Tide",
+    "era": "Era of Convergence",
+    "description": "A strange quiet suppresses all mutation.",
+    "eventNumber": 351
   }
 ]

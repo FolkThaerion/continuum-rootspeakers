@@ -1,6 +1,6 @@
 {
-  "name": "Genesis Rootspeaker #2",
-  "description": "Genesis Rootspeaker #2 was altered during The Silence Tide. A strange quiet suppresses all mutation.",
+  "name": "The Silent Witness — Orryx",
+  "description": "The Fractured Herald — Kireth was altered during The Silence Tide. A strange quiet suppresses all mutation. It carries a relic-memory from Genesis Era.",
   "image": "https://continuum-rootspeakers.vercel.app/rootspeakers/2.png",
   "attributes": [
     {
@@ -22,6 +22,110 @@
     {
       "trait_type": "Genesis",
       "value": 10
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 2"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 7"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Ancient Voice — Thalor"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 3"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Hollow Flame — Veyrith"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 6"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Fractured Herald — Nyra-Kai"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 4"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The First Echo — Kireth"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 10"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Silent Witness — Veyrith"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 9"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Spiral Walker — Kireth"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 7"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Fractured Herald — Kireth"
+    },
+    {
+      "trait_type": "Relic",
+      "value": "Echo of Cycle 6"
+    },
+    {
+      "trait_type": "Ancient Era",
+      "value": "Genesis Era"
+    },
+    {
+      "trait_type": "Legendary Name",
+      "value": "The Silent Witness — Orryx"
     }
   ]
 }
