@@ -22,7 +22,7 @@ type TokenHistory = {
 };
  
 export default function TokenPage(props: any) {
-  const id = React.use(props.params).id;
+  const { id } = React.use(props.params) as { id: string };
  const [token, setToken] = useState<Metadata | null>(null);
 const [history, setHistory] = useState<TokenHistory[]>([]);
   useEffect(() => {
