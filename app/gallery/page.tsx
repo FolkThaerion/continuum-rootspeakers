@@ -192,6 +192,21 @@ export default function GalleryPage() {
   >
     Legendary Entity
   </div>
+)}
+{token.attributes.length > 0 && (
+  <div
+    style={{
+      marginBottom: "12px",
+      padding: "8px 12px",
+      border: "1px solid #555",
+      borderRadius: "999px",
+      color: "#aaa",
+      display: "inline-block",
+      fontSize: "0.9rem",
+    }}
+  >
+    Living History
+  </div>
 )} 
             <p
               style={{
