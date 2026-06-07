@@ -39,7 +39,13 @@ export default function MintPage() {
     alert("Rootspeaker minted successfully.");
   } catch (error) {
   console.error("Mint error:", error);
-  alert(String(error));
+  const err = error as any;
+
+alert(
+  err?.reason ||
+  err?.message ||
+  JSON.stringify(err)
+);
 }
 }
 
