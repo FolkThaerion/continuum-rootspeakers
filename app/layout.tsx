@@ -78,6 +78,16 @@ export default function RootLayout({
 >
   Codex
 </a>
+         <a
+    href="/stats"
+    style={{
+     color: "white",
+     textDecoration: "none",
+  }}
+>
+  Stats
+</a>
+
         </nav>
 
         {children}

@@ -1,190 +1,140 @@
 "use client";
 
-import { useState } from "react";
 import { ethers } from "ethers";
-
-const CONTRACT =
-  process.env.NEXT_PUBLIC_ROOTSPEAKERS_CONTRACT || "";
-
-const ABI = [
-  "function mint(uint256 quantity) payable",
-  "function mintPrice() view returns (uint256)"
-];
+import { useState } from "react";
 
 export default function MintPage() {
-  const [status, setStatus] = useState("");
   const [tokenId, setTokenId] = useState(0);
+
   async function mint() {
-    try {
-      if (!(window as any).ethereum) {
-        alert("Install MetaMask");
-        return;
-      }
-
-      setStatus("Connecting wallet...");
-
-      await (window as any).ethereum.request({
-        method: "eth_requestAccounts",
-      });
-
-      const provider = new ethers.providers.Web3Provider(
-        (window as any).ethereum
-      );
-
-      const signer = provider.getSigner();
-
-      const contract = new ethers.Contract(
-        CONTRACT,
-        ABI,
-        signer
-      );
-
-      const mintPrice = await contract.mintPrice();
-
-      setStatus("Minting Rootspeaker...");
-
-      const tx = await contract.mint(1, {
-        value: mintPrice,
-      });
-
-      await tx.wait();
-
-      setStatus("Rootspeaker minted successfully.");
-    } catch (err: any) {
-      console.error(err);
-      setStatus("Mint failed.");
+  try {
+    if (!(window as any).ethereum) {
+      alert("Please install or open MetaMask.");
+      return;
     }
-  }
 
-  return (
-  <main
-    style={{
-      minHeight: "100vh",
-      background: "black",
-      color: "white",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-      alignItems: "center",
-      gap: "20px",
-    }}
-  >
-    <h1 style={{ fontSize: "3rem" }}>
-      Continuum Rootspeakers
-    </h1>
-    <input
-  type="number"
-  value={tokenId}
-  onChange={(e) => setTokenId(Number(e.target.value))}
-  min={0}
-  style={{
-    padding: "12px",
-    fontSize: "1rem",
-    width: "120px",
-    textAlign: "center",
-  }}
-/>
-    <div style={{ display: "flex", gap: "20px" }}>
+    const provider = new ethers.providers.Web3Provider(
+      (window as any).ethereum
+    );
 
-      <button
-        onClick={mint}
-        style={{
-          padding: "16px 32px",
-          fontSize: "1.2rem",
-          cursor: "pointer",
-        }}
-      >
-        Mint Rootspeaker
-      </button>
+    await provider.send("eth_requestAccounts", []);
 
-      <button
-        onClick={async () => {
+    const signer = provider.getSigner();
 
-          try {
+    const contract = new ethers.Contract(
+      process.env.NEXT_PUBLIC_ROOTSPEAKERS_CONTRACT!,
+      [
+        "function mint(uint256 quantity) payable",
+        "function mintPrice() view returns (uint256)"
+      ],
+      signer
+    );
 
-            setStatus("Evolving Rootspeaker...");
+    const price = await contract.mintPrice();
 
-            let wallet = "development-wallet";
+    const tx = await contract.mint(1, {
+      value: price,
+    });
 
-if ((window as any).ethereum) {
+    await tx.wait();
 
-  const provider = new ethers.providers.Web3Provider(
-    (window as any).ethereum
-  );
-
-  await provider.send("eth_requestAccounts", []);
-
-  const signer = provider.getSigner();
-
-  wallet = await signer.getAddress();
+    alert("Rootspeaker minted successfully.");
+  } catch (error) {
+  console.error("Mint error:", error);
+  alert(String(error));
+}
 }
 
-const response = await fetch("/api/evolve", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({
-    tokenId,
-    wallet,
-  }),
-}); 
-           
-
-            const data = await response.json();
-
-            setStatus(data.message);
-
-          } catch (err) {
-
-            console.error(err);
-
-            setStatus("Evolution failed.");
-          }
-        }}
-
+  return (
+    <main
+      style={{
+        minHeight: "100vh",
+        background: "black",
+        color: "white",
+        padding: "20px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
+      <h1
         style={{
-          padding: "16px 32px",
-          fontSize: "1.2rem",
-          cursor: "pointer",
+          fontSize: "clamp(2.5rem, 8vw, 4rem)",
+          lineHeight: 1.1,
+          wordBreak: "break-word",
+          textAlign: "center",
         }}
       >
-        Evolve Rootspeaker
-      </button>
-      <button
-  onClick={async () => {
+        Continuum Rootspeakers
+      </h1>
 
-    try {
+      <input
+        type="number"
+        value={tokenId}
+        onChange={(e) => setTokenId(Number(e.target.value))}
+        min={0}
+        style={{
+          padding: "12px",
+          fontSize: "1rem",
+          width: "120px",
+          textAlign: "center",
+          marginTop: "20px",
+          marginBottom: "20px",
+        }}
+      />
 
-      setStatus("Triggering Spiral Surge...");
+      <div
+        style={{
+          display: "flex",
+          gap: "16px",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          marginTop: "20px",
+        }}
+      >
+        <button
+          onClick={mint}
+          style={{
+            padding: "12px 20px",
+            borderRadius: "999px",
+            border: "1px solid #333",
+            background: "#111",
+            color: "white",
+            cursor: "pointer",
+          }}
+        >
+          Mint Rootspeaker
+        </button>
 
-      const response = await fetch("/api/events", {
-        method: "POST",
-      });
+        <button
+          onClick={async () => {
+            try {
+              const response = await fetch("/api/events", {
+                method: "POST",
+              });
 
-      const data = await response.json();
+              const data = await response.json();
 
-      setStatus(data.message);
+alert(data.message);
 
-    } catch (err) {
+} catch (error) {
 
-      console.error(err);
+  console.error(error);
 
-      setStatus("Event failed.");
-    }
-  }}
-
-  style={{
-    padding: "16px 32px",
-    fontSize: "1.2rem",
-    cursor: "pointer",
-  }}
->
-  Trigger Global Event
-</button>
-    </div>
-
-    <p>{status}</p>
-  </main>
-);
+}
+          }}
+          style={{
+            padding: "12px 20px",
+            borderRadius: "999px",
+            border: "1px solid #333",
+            background: "#111",
+            color: "white",
+            cursor: "pointer",
+          }}
+        >
+          Trigger Global Event
+        </button>
+      </div>
+    </main>
+  );
 }
