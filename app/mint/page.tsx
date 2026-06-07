@@ -25,16 +25,14 @@ export default function MintPage() {
       process.env.NEXT_PUBLIC_ROOTSPEAKERS_CONTRACT!,
       [
         "function mint(uint256 quantity) payable",
-        "function mintPrice() view returns (uint256)"
+        
       ],
       signer
     );
 
-    const price = await contract.mintPrice();
-
     const tx = await contract.mint(1, {
-      value: price,
-    });
+  value: ethers.utils.parseEther("0.05"),
+});
 
     await tx.wait();
 
