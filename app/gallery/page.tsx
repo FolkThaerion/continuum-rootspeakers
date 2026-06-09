@@ -108,31 +108,38 @@ export default function GalleryPage() {
         }}
       >
 
-        {tokens.map((token, index) => (
+        {tokens.map((token, index) => {
 
-          <div
-            key={index}
-            style={{
-              border:
-  era === "Age of Fractures"
-    ? "1px solid crimson"
-    : era === "Era of Convergence"
-    ? "1px solid cyan"
-    : "1px solid #333",
-              borderRadius: "20px",
-              padding: "20px",
-              background:
-  era === "Genesis Era"
-    ? "#111"
-    : era === "Era of Spiral Instability"
-    ? "#1a0f1f"
-    : era === "Age of Fractures"
-    ? "#2a0f0f"
-    : era === "The Silence Bloom"
-    ? "#1a1a1a"
-    : "#0f1f1a",
-            }}
-          >
+  const trait = (name: string) =>
+    token.attributes.find(
+      (attr) => attr.trait_type === name
+    )?.value || "None";
+
+  
+            return (
+  <div
+    key={index}
+    style={{
+      border:
+        era === "Age of Fractures"
+          ? "1px solid crimson"
+          : era === "Era of Convergence"
+          ? "1px solid cyan"
+          : "1px solid #333",
+      borderRadius: "20px",
+      padding: "20px",
+      background:
+        era === "Genesis Era"
+          ? "#111"
+          : era === "Era of Spiral Instability"
+          ? "#1a0f1f"
+          : era === "Age of Fractures"
+          ? "#2a0f0f"
+          : era === "The Silence Bloom"
+          ? "#1a1a1a"
+          : "#0f1f1a",
+    }}
+  >
           <a href={`/token/${index}`}>
             <img
   src={token.image}
@@ -225,26 +232,22 @@ export default function GalleryPage() {
               }}
             >
 
-              {token.attributes.map((attr, i) => (
-
-                <div
-                  key={i}
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    borderBottom: "1px solid #222",
-                    paddingBottom: "6px",
-                  }}
-                >
-                  <span>{attr.trait_type}</span>
-                  <strong>{attr.value}</strong>
-                </div>
-              ))}
+              <div
+  style={{
+    marginTop: "12px",
+    textAlign: "left",
+  }}
+>
+  <p><strong>Path:</strong> {trait("Path")}</p>
+  <p><strong>Stage:</strong> {trait("Stage")}</p>
+  <p><strong>Rarity:</strong> {trait("Rarity")}</p>
+</div>
 
             </div>
 
           </div>
-        ))}
+        );
+      })}
 
       </div>
 

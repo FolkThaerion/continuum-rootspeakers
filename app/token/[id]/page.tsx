@@ -35,7 +35,9 @@ fetch(`/token-history/${id}.json`)
  }, [id]);
 
   if (!token) return <main>Loading...</main>;
-
+function trait(name: string) {
+  return token?.attributes.find((a) => a.trait_type === name)?.value || "None";
+}
   return (
     <main style={{ minHeight: "100vh", background: "black", color: "white", padding: "40px" }}>
       <h1>{token.name}</h1>
@@ -45,18 +47,34 @@ fetch(`/token-history/${id}.json`)
         alt={token.name}
         style={{ width: "100%", maxWidth: "500px", borderRadius: "20px" }}
       />
+<div
+  style={{
+    border: "1px solid #333",
+    borderRadius: "16px",
+    padding: "20px",
+    marginTop: "20px",
+    marginBottom: "20px",
+    background: "#111",
+  }}
+>
+  <h2>Rootspeaker Profile</h2>
 
+  <p><strong>Name:</strong> The Silent Witness — Orryx</p>
+  <p><strong>Path:</strong> {trait("Path")}</p>
+<p><strong>Stage:</strong> {trait("Stage")}</p>
+<p><strong>Anomaly:</strong> {trait("Anomaly")}</p>
+<p><strong>Rarity:</strong> {trait("Rarity")}</p>
+<p><strong>Relic:</strong> {trait("Relic")}</p>
+<p><strong>Ancient Era:</strong> {trait("Ancient Era")}</p>
+  <p><strong>Token ID:</strong> #{id}</p>
+</div>
       <p style={{ maxWidth: "700px", marginTop: "30px" }}>
         {token.description}
       </p>
 
-      <h2>Traits</h2>
+      
 
-      {token.attributes.map((attr, index) => (
-        <p key={index}>
-          <strong>{attr.trait_type}:</strong> {attr.value}
-        </p>
-      ))}
+      
 <h2 style={{ marginTop: "40px" }}>
   Evolution History
 </h2>
