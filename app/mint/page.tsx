@@ -1,11 +1,37 @@
 "use client";
 
 import { ethers } from "ethers";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function MintPage() {
   const [tokenId, setTokenId] = useState(0);
+  const [totalMinted, setTotalMinted] = useState("0");
+async function loadSupply() {
+  try {
+    if (!(window as any).ethereum) return;
 
+    const provider = new ethers.providers.Web3Provider(
+      (window as any).ethereum
+    );
+
+    const contract = new ethers.Contract(
+      process.env.NEXT_PUBLIC_ROOTSPEAKERS_CONTRACT!,
+      [
+        "function totalSupply() view returns (uint256)"
+      ],
+      provider
+    );
+
+    const supply = await contract.totalSupply();
+    setTotalMinted(supply.toString());
+
+  } catch (error) {
+    console.error(error);
+  }
+}
+useEffect(() => {
+  loadSupply();
+}, []);
   async function mint() {
   try {
     if (!(window as any).ethereum) {
@@ -30,7 +56,7 @@ export default function MintPage() {
   signer
 );
 const supply = await contract.totalSupply();
-alert(`Total minted: ${supply.toString()}`);
+setTotalMinted(supply.toString());
 
     const tx = await contract.mint(1, {
   value: ethers.utils.parseEther("0.05"),
@@ -73,6 +99,15 @@ alert(
       >
         Continuum Rootspeakers
       </h1>
+<p
+  style={{
+    fontSize: "1.2rem",
+    marginTop: "10px",
+    marginBottom: "20px",
+  }}
+>
+  Total Minted: {totalMinted} / 1111
+</p>
 
       <input
         type="number"
