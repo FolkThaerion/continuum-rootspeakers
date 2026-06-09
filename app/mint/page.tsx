@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 export default function MintPage() {
   const [tokenId, setTokenId] = useState(0);
   const [totalMinted, setTotalMinted] = useState("0");
+  const [lastTxHash, setLastTxHash] = useState("");
 async function loadSupply() {
   try {
     if (!(window as any).ethereum) return;
@@ -61,7 +62,7 @@ setTotalMinted(supply.toString());
     const tx = await contract.mint(1, {
   value: ethers.utils.parseEther("0.05"),
 });
-
+setLastTxHash(tx.hash);
     await tx.wait();
 
     alert("Rootspeaker minted successfully.");
@@ -176,6 +177,20 @@ alert(data.message);
           Trigger Global Event
         </button>
       </div>
+{lastTxHash && (
+  <a
+    href={`https://sepolia.etherscan.io/tx/${lastTxHash}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      color: "cyan",
+      marginTop: "20px",
+      display: "block",
+    }}
+  >
+    View Mint Transaction
+  </a>
+)}
     </main>
   );
 }
