@@ -40,6 +40,9 @@ setRecentMints(recent);
     console.error(error);
   }
 }
+function viewToken() {
+  window.location.href = `/token/${tokenId}`;
+}
 useEffect(() => {
   loadSupply();
 }, []);
@@ -146,19 +149,38 @@ alert(
   Token Lookup
 </p>
       <input
-        type="number"
-        value={tokenId}
-        onChange={(e) => setTokenId(Number(e.target.value))}
-        min={0}
-        style={{
-          padding: "12px",
-          fontSize: "1rem",
-          width: "120px",
-          textAlign: "center",
-          marginTop: "20px",
-          marginBottom: "20px",
-        }}
-      />
+  type="number"
+  value={tokenId}
+  onChange={(e) => setTokenId(Number(e.target.value))}
+  min={0}
+  style={{
+    width: "120px",
+    padding: "12px",
+    borderRadius: "12px",
+    border: "1px solid #333",
+    background: "#111",
+    color: "white",
+    textAlign: "center",
+    fontSize: "1rem",
+    marginBottom: "20px",
+  }}
+/>
+<button
+  onClick={viewToken}
+  style={{
+    padding: "12px 24px",
+    borderRadius: "999px",
+    border: "1px solid #333",
+    background: "#111",
+    color: "white",
+    cursor: "pointer",
+    marginTop: "12px",
+    marginBottom: "30px",
+  }}
+>
+  View Rootspeaker
+</button>
+        
 
       <div
         style={{
