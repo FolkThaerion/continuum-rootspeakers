@@ -136,6 +136,15 @@ alert(
     </a>
   ))}
 </div>
+<p
+  style={{
+    marginTop: "20px",
+    marginBottom: "8px",
+    opacity: 0.7,
+  }}
+>
+  Token Lookup
+</p>
       <input
         type="number"
         value={tokenId}
