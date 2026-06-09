@@ -6,7 +6,7 @@ import { ethers } from "ethers";
 export default function MyRootspeakers() {
   const [wallet, setWallet] = useState("");
   const [ownedTokens, setOwnedTokens] = useState<number[]>([]);
-
+  const [ownedMetadata, setOwnedMetadata] = useState<any[]>([]);
   async function connectWallet() {
     try {
       const provider = new ethers.providers.Web3Provider(
@@ -45,6 +45,20 @@ for (let i = 0; i < Number(supply.toString()); i++) {
 }
 
 setOwnedTokens(owned);
+const metadataResults = await Promise.all(
+  owned.map(async (id) => {
+    const res = await fetch(`/metadata/${id}.json`);
+    const data = await res.json();
+
+    return {
+      id,
+      name: data.name,
+      image: data.image,
+    };
+  })
+);
+
+setOwnedMetadata(metadataResults);
 
     } catch (error) {
       console.error(error);
@@ -79,19 +93,19 @@ setOwnedTokens(owned);
   <div style={{ marginTop: "30px" }}>
     <h2>Owned Rootspeakers</h2>
 
-    {ownedTokens.map((id) => (
-      <a
-        key={id}
-        href={`/token/${id}`}
-        style={{
-          display: "block",
-          marginTop: "10px",
-          color: "cyan",
-        }}
-      >
-        Rootspeaker #{id}
-      </a>
-    ))}
+    {ownedMetadata.map((token) => (
+  <a
+    key={token.id}
+    href={`/token/${token.id}`}
+    style={{
+      display: "block",
+      marginTop: "12px",
+      color: "cyan",
+    }}
+  >
+    {token.name} #{token.id}
+  </a>
+))}
   </div>
 )}
         </p>
