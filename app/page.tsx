@@ -51,6 +51,18 @@ export default function HomePage() {
 <a href="/codex" style={{ color: "white", border: "1px solid #333", padding: "12px 20px", borderRadius: "999px", textDecoration: "none" }}>
   Read Codex
 </a>
+<a
+  href="/my-rootspeakers"
+  style={{
+    color: "white",
+    border: "1px solid #333",
+    padding: "12px 20px",
+    borderRadius: "999px",
+    textDecoration: "none",
+  }}
+>
+  My Rootspeakers
+</a>
       </div>
     </main>
   );
