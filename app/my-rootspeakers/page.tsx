@@ -19,7 +19,32 @@ export default function MyRootspeakers() {
       );
 
       setWallet(accounts[0]);
-      setOwnedTokens([0, 1, 2]);
+      const contract = new ethers.Contract(
+  process.env.NEXT_PUBLIC_ROOTSPEAKERS_CONTRACT!,
+  [
+    "function totalSupply() view returns (uint256)",
+    "function ownerOf(uint256 tokenId) view returns (address)"
+  ],
+  provider
+);
+
+const supply = await contract.totalSupply();
+
+const owned: number[] = [];
+
+for (let i = 0; i < Number(supply.toString()); i++) {
+  try {
+    const owner = await contract.ownerOf(i);
+
+    if (owner.toLowerCase() === accounts[0].toLowerCase()) {
+      owned.push(i);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+setOwnedTokens(owned);
 
     } catch (error) {
       console.error(error);
