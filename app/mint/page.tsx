@@ -16,8 +16,7 @@ export default function MintPage() {
     const provider = new ethers.providers.Web3Provider(
       (window as any).ethereum
     );
-const network = await provider.getNetwork();
-alert(`Chain ID: ${network.chainId}`);
+
     await provider.send("eth_requestAccounts", []);
 
     const signer = provider.getSigner();
