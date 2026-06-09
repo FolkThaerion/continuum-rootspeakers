@@ -22,13 +22,15 @@ export default function MintPage() {
     const signer = provider.getSigner();
 
     const contract = new ethers.Contract(
-      process.env.NEXT_PUBLIC_ROOTSPEAKERS_CONTRACT!,
-      [
-        "function mint(uint256 quantity) payable",
-        
-      ],
-      signer
-    );
+  process.env.NEXT_PUBLIC_ROOTSPEAKERS_CONTRACT!,
+  [
+    "function mint(uint256 quantity) payable",
+    "function totalSupply() view returns (uint256)"
+  ],
+  signer
+);
+const supply = await contract.totalSupply();
+alert(`Total minted: ${supply.toString()}`);
 
     const tx = await contract.mint(1, {
   value: ethers.utils.parseEther("0.05"),
