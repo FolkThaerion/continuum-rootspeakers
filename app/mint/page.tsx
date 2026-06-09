@@ -7,6 +7,7 @@ export default function MintPage() {
   const [tokenId, setTokenId] = useState(0);
   const [totalMinted, setTotalMinted] = useState("0");
   const [lastTxHash, setLastTxHash] = useState("");
+  const [recentMints, setRecentMints] = useState<number[]>([]);
 async function loadSupply() {
   try {
     if (!(window as any).ethereum) return;
@@ -25,6 +26,15 @@ async function loadSupply() {
 
     const supply = await contract.totalSupply();
     setTotalMinted(supply.toString());
+const total = Number(supply.toString());
+
+const recent = [];
+
+for (let i = total - 1; i >= 0 && recent.length < 5; i--) {
+  recent.push(i);
+}
+
+setRecentMints(recent);
 
   } catch (error) {
     console.error(error);
@@ -109,7 +119,23 @@ alert(
 >
   Total Minted: {totalMinted} / 1111
 </p>
+<div style={{ marginTop: "20px" }}>
+  <h2>Recent Mints</h2>
 
+  {recentMints.map((id) => (
+    <a
+      key={id}
+      href={`/token/${id}`}
+      style={{
+        color: "cyan",
+        display: "block",
+        marginTop: "8px",
+      }}
+    >
+      Rootspeaker #{id}
+    </a>
+  ))}
+</div>
       <input
         type="number"
         value={tokenId}
