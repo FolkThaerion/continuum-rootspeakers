@@ -43,6 +43,9 @@ fetch("/world/state.json")
 function trait(name: string) {
   return token?.attributes.find((a) => a.trait_type === name)?.value || "None";
 }
+const evolutionRequirement = 15;
+const currentCycle = Number(world?.cycle || 0);
+const evolutionReady = currentCycle >= evolutionRequirement;
   return (
     <main style={{ minHeight: "100vh", background: "black", color: "white", padding: "40px" }}>
       <h1>{token.name}</h1>
@@ -103,7 +106,39 @@ function trait(name: string) {
       <p style={{ maxWidth: "700px", marginTop: "30px" }}>
         {token.description}
       </p>
+{world && (
+  <div
+    style={{
+      border: evolutionReady ? "1px solid lime" : "1px solid #333",
+      borderRadius: "16px",
+      padding: "20px",
+      marginTop: "20px",
+      marginBottom: "20px",
+      background: evolutionReady
+        ? "rgba(0,255,0,0.08)"
+        : "#111",
+      color: "white",
+      boxShadow: evolutionReady
+        ? "0 0 18px rgba(0,255,0,0.3)"
+        : "none",
+    }}
+  >
+    <h2>🌱 Evolution Status</h2>
 
+    <p><strong>Current Stage:</strong> {trait("Stage")}</p>
+    <p><strong>Evolution Requirement:</strong> Cycle {evolutionRequirement}</p>
+    <p><strong>Current World Cycle:</strong> {world.cycle}</p>
+
+    <p
+      style={{
+        color: evolutionReady ? "lime" : "#aaa",
+        fontWeight: "bold",
+      }}
+    >
+      Status: {evolutionReady ? "READY TO EVOLVE" : "Dormant"}
+    </p>
+  </div>
+)}
       
 
       
