@@ -46,6 +46,10 @@ function trait(name: string) {
 const evolutionRequirement = 15;
 const currentCycle = Number(world?.cycle || 0);
 const evolutionReady = currentCycle >= evolutionRequirement;
+const evolutionProgress = Math.min(
+  100,
+  Math.floor((currentCycle / evolutionRequirement) * 100)
+);
   return (
     <main style={{ minHeight: "100vh", background: "black", color: "white", padding: "40px" }}>
       <h1>{token.name}</h1>
@@ -126,6 +130,30 @@ const evolutionReady = currentCycle >= evolutionRequirement;
     <p><strong>Current Stage:</strong> {trait("Stage")}</p>
     <p><strong>Evolution Requirement:</strong> Cycle {evolutionRequirement}</p>
     <p><strong>Current World Cycle:</strong> {world.cycle}</p>
+     <p>
+  <strong>Progress:</strong> {evolutionProgress}%
+</p>
+
+<div
+  style={{
+    width: "100%",
+    height: "12px",
+    background: "#222",
+    borderRadius: "999px",
+    overflow: "hidden",
+    marginTop: "10px",
+    marginBottom: "15px",
+  }}
+>
+  <div
+    style={{
+      width: `${evolutionProgress}%`,
+      height: "100%",
+      background: evolutionReady ? "lime" : "cyan",
+      transition: "width 0.5s ease",
+    }}
+  />
+</div>
 
     <p
       style={{
