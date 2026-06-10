@@ -83,10 +83,11 @@ setOwnedMetadata(metadataResults);
 >
     <h1
   style={{
-    fontSize: "2rem",
-    marginBottom: "20px",
+    fontSize: "2.2rem",
     textAlign: "center",
-    textShadow: "0 0 10px rgba(0,255,255,0.15)",
+    marginBottom: "20px",
+    fontWeight: "600",
+    textShadow: "0 0 6px rgba(0,255,255,0.1)",
   }}
 >
   My Rootspeakers
