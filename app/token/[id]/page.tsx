@@ -25,13 +25,18 @@ export default function TokenPage(props: any) {
   const { id } = React.use(props.params) as { id: string };
  const [token, setToken] = useState<Metadata | null>(null);
 const [history, setHistory] = useState<TokenHistory[]>([]);
+const [world, setWorld] = useState<any>(null);
   useEffect(() => {
     fetch(`/metadata/${id}`)
       .then((res) => res.json())
       .then(setToken);
 fetch(`/token-history/${id}.json`)
   .then((res) => res.json())
-  .then(setHistory); 
+  .then(setHistory);
+
+fetch("/world/state.json")
+  .then((res) => res.json())
+  .then(setWorld);
  }, [id]);
 
   if (!token) return <main>Loading...</main>;
@@ -68,6 +73,33 @@ function trait(name: string) {
 <p><strong>Ancient Era:</strong> {trait("Ancient Era")}</p>
   <p><strong>Token ID:</strong> #{id}</p>
 </div>
+{world && (
+  <div
+    style={{
+      border: "1px solid cyan",
+      borderRadius: "16px",
+      padding: "20px",
+      marginTop: "20px",
+      marginBottom: "20px",
+      background: "rgba(0,255,255,0.08)",
+      color: "white",
+    }}
+  >
+    <h2>🌌 World Effects</h2>
+
+    <p><strong>Current Era:</strong> {world.era}</p>
+
+    <p><strong>Current Event:</strong> {world.lastEvent}</p>
+
+    <p style={{ color: "cyan", fontWeight: "bold" }}>
+      ✓ Status: Convergence-Touched
+    </p>
+
+    <p style={{ color: "cyan" }}>
+      ✓ Affected By: {world.lastEvent}
+    </p>
+  </div>
+)}
       <p style={{ maxWidth: "700px", marginTop: "30px" }}>
         {token.description}
       </p>
