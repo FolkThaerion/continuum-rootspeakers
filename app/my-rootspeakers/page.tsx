@@ -81,7 +81,16 @@ setOwnedMetadata(metadataResults);
     color: "white",
   }}
 >
-      <h1>My Rootspeakers</h1>
+    <h1
+  style={{
+    fontSize: "2rem",
+    marginBottom: "20px",
+    textAlign: "center",
+    textShadow: "0 0 10px rgba(0,255,255,0.15)",
+  }}
+>
+  My Rootspeakers
+</h1>
 {world && (
   <div
     style={{
@@ -135,6 +144,14 @@ setOwnedMetadata(metadataResults);
     </p>
   </div>
 )}
+<hr
+  style={{
+    border: "none",
+    borderTop: "1px solid #222",
+    maxWidth: "500px",
+    margin: "40px auto",
+  }}
+/>
       <button
         onClick={connectWallet}
         style={{
@@ -199,6 +216,31 @@ setOwnedMetadata(metadataResults);
 
 >
   ✓ Affected By: {world?.lastEvent}
+<div
+  style={{
+    marginTop: "8px",
+    color:
+      world?.era === "Era of Convergence"
+        ? "cyan"
+        : world?.era === "Age of Fractures"
+        ? "crimson"
+        : world?.era === "Genesis Era"
+        ? "gold"
+        : "#aaa",
+    fontWeight: "bold",
+  }}
+>
+  Status: {
+    world?.era === "Era of Convergence"
+      ? "Convergence-Touched"
+      : world?.era === "Age of Fractures"
+      ? "Fracture-Touched"
+      : world?.era === "Genesis Era"
+      ? "Genesis-Blessed"
+      : "World-Touched"
+  }
+</div>
+
 </div>
           <p style={{ color: "cyan" }}>
             Rootspeaker #{token.id}
