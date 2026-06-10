@@ -103,18 +103,7 @@ const evolutionReady = currentCycle >= evolutionRequirement;
     </p>
   </div>
 )}
-      <p
-  style={{
-    maxWidth: "700px",
-    margin: "30px auto",
-    textAlign: "center",
-    lineHeight: "1.8",
-    color: "#ddd",
-    fontStyle: "italic",
-  }}
->
-  {token.description}
-</p>
+      
 {world && (
   <div
     style={{
@@ -148,9 +137,18 @@ const evolutionReady = currentCycle >= evolutionRequirement;
     </p>
   </div>
 )}
-<p style={{ maxWidth: "700px", marginTop: "30px" }}>
+<p
+  style={{
+    maxWidth: "700px",
+    margin: "30px auto",
+    textAlign: "center",
+    lineHeight: "1.8",
+    color: "#ddd",
+    fontStyle: "italic",
+  }}
+>
   {token.description}
-</p>      
+</p>    
 
       
 <h2 style={{ marginTop: "40px" }}>
