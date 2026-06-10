@@ -73,17 +73,26 @@ setOwnedMetadata(metadataResults);
 
   return (
     <main
-      style={{
-        minHeight: "100vh",
-        padding: "40px",
-        textAlign: "center",
-      }}
-    >
+  style={{
+    minHeight: "100vh",
+    padding: "40px",
+    textAlign: "center",
+    background: "#050505",
+    color: "white",
+  }}
+>
       <h1>My Rootspeakers</h1>
 {world && (
   <div
     style={{
-      border: "1px solid #333",
+      border:
+  world?.era === "Era of Convergence"
+    ? "2px solid cyan"
+    : "1px solid #333",
+    boxShadow:
+  world?.era === "Era of Convergence"
+    ? "0 0 20px rgba(0,255,255,0.25)"
+    : "none",
       borderRadius: "20px",
       padding: "20px",
       marginBottom: "30px",
@@ -94,6 +103,20 @@ setOwnedMetadata(metadataResults);
     }}
   >
     <h2>🌌 Current World Status</h2>
+<div
+  style={{
+    display: "inline-block",
+    padding: "8px 16px",
+    borderRadius: "999px",
+    border: "1px solid cyan",
+    color: "cyan",
+    marginBottom: "16px",
+    boxShadow: "0 0 12px rgba(0,255,255,0.35)",
+    fontWeight: "bold",
+  }}
+>
+  🌀 CONVERGENCE ACTIVE
+</div>
 
     <p>
       <strong>Era:</strong> {world.era}
