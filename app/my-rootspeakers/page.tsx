@@ -87,29 +87,58 @@ setOwnedMetadata(metadataResults);
       </button>
 
       {wallet && (
-        <p style={{ marginTop: "20px" }}>
-          Connected: {wallet}
-{ownedTokens.length > 0 && (
+  <div style={{ marginTop: "20px" }}>
+    <p>Connected: {wallet}</p>
+{ownedMetadata.length > 0 && (
   <div style={{ marginTop: "30px" }}>
     <h2>Owned Rootspeakers</h2>
 
     {ownedMetadata.map((token) => (
-  <a
-    key={token.id}
-    href={`/token/${token.id}`}
-    style={{
-      display: "block",
-      marginTop: "12px",
-      color: "cyan",
-    }}
-  >
-    {token.name} #{token.id}
-  </a>
-))}
+      <a
+        key={token.id}
+        href={`/token/${token.id}`}
+        style={{
+          display: "block",
+          marginTop: "24px",
+          color: "white",
+          textDecoration: "none",
+        }}
+      >
+        <div
+          style={{
+            border: "1px solid #333",
+            borderRadius: "20px",
+            padding: "20px",
+            background: "#111",
+            maxWidth: "420px",
+            margin: "0 auto",
+          }}
+        >
+          <img
+            src={token.image}
+            alt={token.name}
+            style={{
+              width: "100%",
+              borderRadius: "16px",
+              marginBottom: "16px",
+            }}
+          />
+
+          <h3>{token.name}</h3>
+
+          <p style={{ color: "cyan" }}>
+            Rootspeaker #{token.id}
+          </p>
+        </div>
+      </a>
+    ))}
   </div>
 )}
-        </p>
-      )}
+
+  </div>
+)}
+        
+      
     </main>
   );
 }
