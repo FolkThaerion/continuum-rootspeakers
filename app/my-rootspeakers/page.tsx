@@ -1,12 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ethers } from "ethers";
 
 export default function MyRootspeakers() {
   const [wallet, setWallet] = useState("");
   const [ownedTokens, setOwnedTokens] = useState<number[]>([]);
   const [ownedMetadata, setOwnedMetadata] = useState<any[]>([]);
+  const [world, setWorld] = useState<any>(null);
+  useEffect(() => {
+  fetch("/world/state.json")
+    .then((res) => res.json())
+    .then(setWorld);
+}, []);
   async function connectWallet() {
     try {
       const provider = new ethers.providers.Web3Provider(
@@ -74,7 +80,38 @@ setOwnedMetadata(metadataResults);
       }}
     >
       <h1>My Rootspeakers</h1>
+{world && (
+  <div
+    style={{
+      border: "1px solid #333",
+      borderRadius: "20px",
+      padding: "20px",
+      marginBottom: "30px",
+      background: "#111",
+      color: "white",
+      maxWidth: "500px",
+      margin: "0 auto 30px auto",
+    }}
+  >
+    <h2>🌌 Current World Status</h2>
 
+    <p>
+      <strong>Era:</strong> {world.era}
+    </p>
+
+    <p>
+      <strong>Event:</strong> {world.lastEvent}
+    </p>
+
+    <p>
+      <strong>Cycle:</strong> {world.cycle}
+    </p>
+
+    <p>
+      <strong>Condition:</strong> {world.condition}
+    </p>
+  </div>
+)}
       <button
         onClick={connectWallet}
         style={{
