@@ -56,11 +56,19 @@ const metadataResults = await Promise.all(
     const res = await fetch(`/metadata/${id}.json`);
     const data = await res.json();
 
-    return {
-      id,
-      name: data.name,
-      image: data.image,
-    };
+    const trait = (name: string) =>
+  data.attributes.find(
+    (attr: any) => attr.trait_type === name
+  )?.value || "None";
+
+return {
+  id,
+  name: data.name,
+  image: data.image,
+  path: trait("Path"),
+  stage: trait("Stage"),
+  rarity: trait("Rarity"),
+};
   })
 );
 
@@ -204,6 +212,9 @@ setOwnedMetadata(metadataResults);
           />
 
           <h3>{token.name}</h3>
+<p>🌌 {token.path}</p>
+<p>🌀 {token.stage}</p>
+<p>⭐ {token.rarity}</p>
          <div
   style={{
     marginTop: "12px",
