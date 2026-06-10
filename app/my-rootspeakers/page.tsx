@@ -185,7 +185,21 @@ setOwnedMetadata(metadataResults);
           />
 
           <h3>{token.name}</h3>
+         <div
+  style={{
+    marginTop: "12px",
+    marginBottom: "12px",
+    padding: "8px",
+    borderRadius: "12px",
+    background: "rgba(0,255,255,0.08)",
+    border: "1px solid rgba(0,255,255,0.25)",
+    color: "cyan",
+    fontSize: "0.9rem",
+  }}
 
+>
+  ✓ Affected By: {world?.lastEvent}
+</div>
           <p style={{ color: "cyan" }}>
             Rootspeaker #{token.id}
           </p>
