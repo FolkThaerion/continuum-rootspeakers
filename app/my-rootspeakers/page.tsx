@@ -81,13 +81,14 @@ setOwnedMetadata(metadataResults);
     color: "white",
   }}
 >
-    <h1
+   <h1
   style={{
-    fontSize: "2.2rem",
+    fontSize: "2rem",
     textAlign: "center",
-    marginBottom: "20px",
-    fontWeight: "600",
-    textShadow: "0 0 6px rgba(0,255,255,0.1)",
+    width: "100%",
+    margin: "0 auto 20px auto",
+    fontWeight: "700",
+    textShadow: "0 0 10px rgba(0,255,255,0.12)",
   }}
 >
   My Rootspeakers
