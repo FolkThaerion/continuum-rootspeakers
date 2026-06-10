@@ -59,7 +59,7 @@ function trait(name: string) {
 >
   <h2>Rootspeaker Profile</h2>
 
-  <p><strong>Name:</strong> The Silent Witness — Orryx</p>
+  <p><strong>Name:</strong> {token.name}</p>
   <p><strong>Path:</strong> {trait("Path")}</p>
 <p><strong>Stage:</strong> {trait("Stage")}</p>
 <p><strong>Anomaly:</strong> {trait("Anomaly")}</p>
