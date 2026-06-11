@@ -43,7 +43,18 @@ fetch("/world/state.json")
 function trait(name: string) {
   return token?.attributes.find((a) => a.trait_type === name)?.value || "None";
 }
-const evolutionRequirement = 15;
+const stage = String(trait("Stage"));
+
+const evolutionRequirement =
+  stage === "Root Listener"
+    ? 15
+    : stage === "Pattern Speaker"
+    ? 30
+    : stage === "Galaxy Speaker"
+    ? 50
+    : stage === "Living Confluence"
+    ? 75
+    : 15;
 const currentCycle = Number(world?.cycle || 0);
 const evolutionReady = currentCycle >= evolutionRequirement;
 const evolutionProgress = Math.min(
