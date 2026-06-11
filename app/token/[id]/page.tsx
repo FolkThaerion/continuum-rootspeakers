@@ -163,6 +163,9 @@ const cyclesRemaining = Math.max(
 <p>
   <strong>Cycles Remaining:</strong> {cyclesRemaining}
 </p>
+<p>
+  <strong>Target Cycle:</strong> {evolutionRequirement}
+</p>
 
 <div
   style={{
