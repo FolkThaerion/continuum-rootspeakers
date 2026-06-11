@@ -185,6 +185,17 @@ const evolutionProgress = Math.min(
   Next Evolution: {nextEvolution}
 </p>
 <div
+  <p
+  style={{
+    marginTop: "15px",
+    color: "#00ffff",
+    fontWeight: "bold",
+  }}
+>
+  Next Evolution: {nextEvolution}
+</p>
+
+<div
   style={{
     marginTop: "15px",
     padding: "12px",
@@ -197,19 +208,20 @@ const evolutionProgress = Math.min(
 
   <p>✓ Reach Cycle {evolutionRequirement}</p>
   <p>✓ Current Cycle: {world.cycle}</p>
-  <p>✗ Evolution Trigger
-    <p
-      style={{
-        color: evolutionReady ? "lime" : "#aaa",
-        fontWeight: "bold",
-      }}
-    >
+  <p>✗ Evolution Trigger Locked</p>
+</div>
 
-      Status: {evolutionReady ? "READY TO EVOLVE" : "Dormant"}
-    </p>
-  </div>
-)}
 <p
+  style={{
+    color: evolutionReady ? "lime" : "#aaa",
+    fontWeight: "bold",
+  }}
+>
+  Status: {evolutionReady ? "READY TO EVOLVE" : "Dormant"}
+</p>
+
+<div
+  
   style={{
     maxWidth: "700px",
     margin: "30px auto",
