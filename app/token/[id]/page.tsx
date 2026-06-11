@@ -196,6 +196,15 @@ const cyclesRemaining = Math.max(
 >
   Next Evolution: {nextEvolution}
 </p>
+<p
+  style={{
+    color: "#7CFF7C",
+    fontWeight: "bold",
+    marginTop: "10px",
+  }}
+>
+  🌱 Evolution Tier: {trait("Stage")}
+</p>
 
 
 <div
