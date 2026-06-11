@@ -214,7 +214,29 @@ const cyclesRemaining = Math.max(
 >
   🏅 Evolution Rank: II
 </p>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(0,255,255,0.05)",
+    border: "1px solid #333",
+  }}
+>
+  <h3>🔮 Relic Bonus</h3>
 
+  <p>
+    <strong>Relic:</strong> {trait("Relic")}
+  </p>
+
+  <p>
+    <strong>Effect:</strong> +5% Evolution Resonance
+  </p>
+
+  <p>
+    <strong>Status:</strong> Active
+  </p>
+</div>
 
 <div
   style={{
