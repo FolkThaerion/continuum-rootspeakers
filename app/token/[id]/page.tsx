@@ -71,6 +71,10 @@ const evolutionProgress = Math.min(
   100,
   Math.floor((currentCycle / evolutionRequirement) * 100)
 );
+const cyclesRemaining = Math.max(
+  0,
+  evolutionRequirement - currentCycle
+);
   return (
     <main style={{ minHeight: "100vh", background: "black", color: "white", padding: "40px" }}>
       <h1>{token.name}</h1>
@@ -155,6 +159,9 @@ const evolutionProgress = Math.min(
     <p><strong>Current World Cycle:</strong> {world.cycle}</p>
      <p>
   <strong>Progress:</strong> {evolutionProgress}%
+</p>
+<p>
+  <strong>Cycles Remaining:</strong> {cyclesRemaining}
 </p>
 
 <div
