@@ -197,9 +197,17 @@ const evolutionProgress = Math.min(
 >
   <strong>Requirements:</strong>
 
-  <p>✓ Reach Cycle {evolutionRequirement}</p>
-  <p>✓ Current Cycle: {world.cycle}</p>
-  <p>✗ Evolution Trigger Locked</p>
+  <p>
+  {evolutionReady ? "✓" : "✗"} Reach Cycle {evolutionRequirement}
+</p>
+
+<p>
+  ✓ Current Cycle: {world.cycle}
+</p>
+
+<p>
+  ✗ Evolution Trigger Locked
+</p>
 </div>
 
 <p
