@@ -75,6 +75,16 @@ const cyclesRemaining = Math.max(
   0,
   evolutionRequirement - currentCycle
 );
+const relic = trait("Relic");
+
+const relicEffect =
+  relic === "Echo of Cycle 1"
+    ? "+5% Evolution Resonance"
+    : relic === "Echo of Cycle 2"
+    ? "+10% Evolution Resonance"
+    : relic === "Echo of Cycle 3"
+    ? "+15% Evolution Resonance"
+    : "Unknown Effect";
   return (
     <main style={{ minHeight: "100vh", background: "black", color: "white", padding: "40px" }}>
       <h1>{token.name}</h1>
@@ -230,8 +240,8 @@ const cyclesRemaining = Math.max(
   </p>
 
   <p>
-    <strong>Effect:</strong> +5% Evolution Resonance
-  </p>
+  <strong>Effect:</strong> {relicEffect}
+</p>
 
   <p>
     <strong>Status:</strong> Active
