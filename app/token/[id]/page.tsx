@@ -132,7 +132,9 @@ const evolutionProgress = Math.min(
 {world && (
   <div
     style={{
-      border: evolutionReady ? "1px solid lime" : "1px solid #333",
+      border: evolutionReady
+        ? "1px solid lime"
+        : "1px solid #333",
       borderRadius: "16px",
       padding: "20px",
       marginTop: "20px",
