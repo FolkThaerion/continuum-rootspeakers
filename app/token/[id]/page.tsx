@@ -101,6 +101,16 @@ const effectiveProgress = Math.min(
   evolutionProgress + relicBonus
 );
 const evolutionReadiness = effectiveProgress;
+const readinessColor =
+  evolutionReadiness >= 100
+    ? "violet"
+    : evolutionReadiness >= 75
+    ? "gold"
+    : evolutionReadiness >= 50
+    ? "lime"
+    : evolutionReadiness >= 25
+    ? "cyan"
+    : "#aaa";
 
 return (
     <main style={{ minHeight: "100vh", background: "black", color: "white", padding: "40px" }}>
@@ -163,16 +173,12 @@ return (
 {world && (
   <div
     style={{
-      border: evolutionReady
-        ? "1px solid lime"
-        : "1px solid #333",
+      border: evolutionReady ? "1px solid lime" : "1px solid #333",
       borderRadius: "16px",
       padding: "20px",
       marginTop: "20px",
       marginBottom: "20px",
-      background: evolutionReady
-        ? "rgba(0,255,0,0.08)"
-        : "#111",
+      background: evolutionReady ? "rgba(0,255,0,0.08)" : "#111",
       color: "white",
       boxShadow: evolutionReady
         ? "0 0 18px rgba(0,255,0,0.3)"
@@ -184,154 +190,103 @@ return (
     <p><strong>Current Stage:</strong> {trait("Stage")}</p>
     <p><strong>Evolution Requirement:</strong> Cycle {evolutionRequirement}</p>
     <p><strong>Current World Cycle:</strong> {world.cycle}</p>
-     <p>
-  <strong>Progress:</strong> {evolutionProgress}%
-</p>
-<p>
-  <strong>Relic Bonus:</strong> +{relicBonus}%
-</p>
+    <p><strong>Progress:</strong> {evolutionProgress}%</p>
+    <p><strong>Relic Bonus:</strong> +{relicBonus}%</p>
+    <p><strong>Effective Progress:</strong> {effectiveProgress}%</p>
+    <p><strong>Cycles Remaining:</strong> {cyclesRemaining}</p>
+    <p><strong>Target Cycle:</strong> {evolutionRequirement}</p>
 
-<p>
-  <strong>Effective Progress:</strong> {effectiveProgress}%
-</p>
-<p>
-  <strong>Cycles Remaining:</strong> {cyclesRemaining}
-</p>
-<p>
-  <strong>Target Cycle:</strong> {evolutionRequirement}
-</p>
+    <div
+      style={{
+        width: "100%",
+        height: "12px",
+        background: "#222",
+        borderRadius: "999px",
+        overflow: "hidden",
+        marginTop: "10px",
+        marginBottom: "15px",
+      }}
+    >
+      <div
+        style={{
+          width: `${effectiveProgress}%`,
+          height: "100%",
+          background: evolutionReady ? "lime" : "cyan",
+          transition: "width 0.5s ease",
+        }}
+      />
+    </div>
 
-<div
-  style={{
-    width: "100%",
-    height: "12px",
-    background: "#222",
-    borderRadius: "999px",
-    overflow: "hidden",
-    marginTop: "10px",
-    marginBottom: "15px",
-  }}
->
-  <div
-    style={{
-      width: `${effectiveProgress}%`,
-      height: "100%",
-      background: evolutionReady ? "lime" : "cyan",
-      transition: "width 0.5s ease",
-    }}
-  />
-</div>
-<p
-  style={{
-    marginTop: "15px",
-    color: "#00ffff",
-    fontWeight: "bold",
-  }}
->
-  Next Evolution: {nextEvolution}
-</p>
-<p
-  style={{
-    color: "#7CFF7C",
-    fontWeight: "bold",
-    marginTop: "10px",
-  }}
->
-  🌱 Evolution Tier: {trait("Stage")}
-</p>
-<p
-  style={{
-    color: "#ffd700",
-    fontWeight: "bold",
-    marginTop: "10px",
-  }}
->
-  🏅 Evolution Rank: II
-</p>
-<div
-  style={{
-    marginTop: "15px",
-    padding: "12px",
-    borderRadius: "12px",
-    background: "rgba(0,255,255,0.05)",
-    border: "1px solid #333",
-  }}
->
-  <h3>🔮 Relic Bonus</h3>
+    <p style={{ marginTop: "15px", color: "#00ffff", fontWeight: "bold" }}>
+      Next Evolution: {nextEvolution}
+    </p>
 
-  <p>
-    <strong>Relic:</strong> {trait("Relic")}
-  </p>
+    <p style={{ color: "#7CFF7C", fontWeight: "bold", marginTop: "10px" }}>
+      🌱 Evolution Tier: {trait("Stage")}
+    </p>
 
-  <p>
-  <strong>Effect:</strong> {relicEffect}
-</p>
+    <p style={{ color: "#ffd700", fontWeight: "bold", marginTop: "10px" }}>
+      🏅 Evolution Rank: II
+    </p>
 
-  <p>
-    <strong>Status:</strong> Active
-  </p>
-</div>
+    <div
+      style={{
+        marginTop: "15px",
+        padding: "12px",
+        borderRadius: "12px",
+        background: "rgba(0,255,255,0.05)",
+        border: "1px solid #333",
+      }}
+    >
+      <h3>🔮 Relic Bonus</h3>
+      <p><strong>Relic:</strong> {trait("Relic")}</p>
+      <p><strong>Effect:</strong> {relicEffect}</p>
+      <p><strong>Status:</strong> Active</p>
+    </div>
 
-<div
-  style={{
-    marginTop: "15px",
-    padding: "12px",
-    borderRadius: "12px",
-    background: "rgba(255,255,255,0.04)",
-    border: "1px solid #333",
-  }}
->
-  <strong>Requirements:</strong>
+    <div
+      style={{
+        marginTop: "15px",
+        padding: "12px",
+        borderRadius: "12px",
+        background: "rgba(255,255,255,0.04)",
+        border: "1px solid #333",
+      }}
+    >
+      <strong>Requirements:</strong>
+      <p>{evolutionReady ? "✓" : "✗"} Reach Cycle {evolutionRequirement}</p>
+      <p>✓ Current Cycle: {world.cycle}</p>
+      <p>✗ Evolution Trigger Locked</p>
+    </div>
 
-  <p>
-  {evolutionReady ? "✓" : "✗"} Reach Cycle {evolutionRequirement}
-</p>
+    <p style={{ color: readinessColor, fontWeight: "bold" }}>
+      <strong>⚡ Evolution Readiness:</strong> {evolutionReadiness}%
+    </p>
 
-<p>
-  ✓ Current Cycle: {world.cycle}
-</p>
+    <p
+      style={{
+        color: evolutionReady ? "lime" : "#aaa",
+        fontWeight: "bold",
+      }}
+    >
+      Status: {evolutionReady ? "READY TO EVOLVE" : "Dormant"}
+    </p>
 
-<p>
-  ✗ Evolution Trigger Locked
-</p>
-</div>
-
-<p
-  style={{
-    color: evolutionReady ? "lime" : "#aaa",
-    fontWeight: "bold",
-  }}
->
-<p>
-  <strong>⚡ Evolution Readiness:</strong> {evolutionReadiness}%
-</p>
-  Status: {evolutionReady ? "READY TO EVOLVE" : "Dormant"}
-</p>
-{evolutionReady ? (
-  <p
-    style={{
-      color: "lime",
-      fontWeight: "bold",
-      marginTop: "12px",
-    }}
-  >
-    🌱 Evolution Available — the Rootspeaker is ready to ascend.
-  </p>
-) : (
-  <p
-    style={{
-      color: "#888",
-      marginTop: "12px",
-    }}
-  >
-    Evolution remains dormant until the required cycle is reached.
-  </p>
+    {evolutionReady ? (
+      <p style={{ color: "lime", fontWeight: "bold", marginTop: "12px" }}>
+        🌱 Evolution Available — the Rootspeaker is ready to ascend.
+      </p>
+    ) : (
+      <p style={{ color: "#888", marginTop: "12px" }}>
+        Evolution remains dormant until the required cycle is reached.
+      </p>
+    )}
+  </div>
 )}
-</div>
-)}
+ 
 
-  
-  <p
+
+   <p
   style={{
     maxWidth: "700px",
     margin: "30px auto",
