@@ -100,6 +100,7 @@ const effectiveProgress = Math.min(
   100,
   evolutionProgress + relicBonus
 );
+const evolutionReadiness = effectiveProgress;
 
 return (
     <main style={{ minHeight: "100vh", background: "black", color: "white", padding: "40px" }}>
@@ -301,6 +302,9 @@ return (
     fontWeight: "bold",
   }}
 >
+<p>
+  <strong>⚡ Evolution Readiness:</strong> {evolutionReadiness}%
+</p>
   Status: {evolutionReady ? "READY TO EVOLVE" : "Dormant"}
 </p>
 {evolutionReady ? (
