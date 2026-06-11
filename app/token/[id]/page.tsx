@@ -55,6 +55,16 @@ const evolutionRequirement =
     : stage === "Living Confluence"
     ? 75
     : 15;
+const nextEvolution =
+  stage === "Root Listener"
+    ? "Pattern Speaker"
+    : stage === "Pattern Speaker"
+    ? "Galaxy Speaker"
+    : stage === "Galaxy Speaker"
+    ? "Living Confluence"
+    : stage === "Living Confluence"
+    ? "Transcendent Confluence"
+    : "Unknown";
 const currentCycle = Number(world?.cycle || 0);
 const evolutionReady = currentCycle >= evolutionRequirement;
 const evolutionProgress = Math.min(
@@ -165,13 +175,30 @@ const evolutionProgress = Math.min(
     }}
   />
 </div>
-
+<p
+  style={{
+    marginTop: "15px",
+    color: "#00ffff",
+    fontWeight: "bold",
+  }}
+>
+  Next Evolution: {nextEvolution}
+</p>
     <p
       style={{
         color: evolutionReady ? "lime" : "#aaa",
         fontWeight: "bold",
       }}
     >
+<p
+  style={{
+    marginTop: "15px",
+    color: "#00ffff",
+    fontWeight: "bold",
+  }}
+>
+  Next Evolution: {nextEvolution}
+</p>
       Status: {evolutionReady ? "READY TO EVOLVE" : "Dormant"}
     </p>
   </div>
