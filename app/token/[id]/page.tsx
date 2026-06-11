@@ -190,15 +190,7 @@ const evolutionProgress = Math.min(
         fontWeight: "bold",
       }}
     >
-<p
-  style={{
-    marginTop: "15px",
-    color: "#00ffff",
-    fontWeight: "bold",
-  }}
->
-  Next Evolution: {nextEvolution}
-</p>
+
       Status: {evolutionReady ? "READY TO EVOLVE" : "Dormant"}
     </p>
   </div>
