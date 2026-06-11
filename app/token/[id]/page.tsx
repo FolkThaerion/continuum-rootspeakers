@@ -184,16 +184,7 @@ const evolutionProgress = Math.min(
 >
   Next Evolution: {nextEvolution}
 </p>
-<div
-  <p
-  style={{
-    marginTop: "15px",
-    color: "#00ffff",
-    fontWeight: "bold",
-  }}
->
-  Next Evolution: {nextEvolution}
-</p>
+
 
 <div
   style={{
@@ -219,9 +210,11 @@ const evolutionProgress = Math.min(
 >
   Status: {evolutionReady ? "READY TO EVOLVE" : "Dormant"}
 </p>
+</div>
+)}
 
-<div
   
+  <p
   style={{
     maxWidth: "700px",
     margin: "30px auto",
@@ -232,9 +225,8 @@ const evolutionProgress = Math.min(
   }}
 >
   {token.description}
-</p>    
+</p>
 
-      
 <h2 style={{ marginTop: "40px" }}>
   Evolution History
 </h2>
@@ -263,7 +255,9 @@ const evolutionProgress = Math.min(
       </p>
     )}
   </div>
-))}   
- </main>
+))}
+
+
+</main>
   );
 }
