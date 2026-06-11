@@ -213,7 +213,7 @@ return (
 >
   <div
     style={{
-      width: `${evolutionProgress}%`,
+      width: `${effectiveProgress}%`,
       height: "100%",
       background: evolutionReady ? "lime" : "cyan",
       transition: "width 0.5s ease",
