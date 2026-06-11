@@ -75,7 +75,17 @@ const cyclesRemaining = Math.max(
   0,
   evolutionRequirement - currentCycle
 );
-const relic = trait("Relic");
+
+  const relic = trait("Relic");
+
+const relicBonus =
+  relic === "Echo of Cycle 1"
+    ? 5
+    : relic === "Echo of Cycle 2"
+    ? 10
+    : relic === "Echo of Cycle 3"
+    ? 15
+    : 0;
 
 const relicEffect =
   relic === "Echo of Cycle 1"
@@ -85,7 +95,13 @@ const relicEffect =
     : relic === "Echo of Cycle 3"
     ? "+15% Evolution Resonance"
     : "Unknown Effect";
-  return (
+
+const effectiveProgress = Math.min(
+  100,
+  evolutionProgress + relicBonus
+);
+
+return (
     <main style={{ minHeight: "100vh", background: "black", color: "white", padding: "40px" }}>
       <h1>{token.name}</h1>
 
@@ -169,6 +185,13 @@ const relicEffect =
     <p><strong>Current World Cycle:</strong> {world.cycle}</p>
      <p>
   <strong>Progress:</strong> {evolutionProgress}%
+</p>
+<p>
+  <strong>Relic Bonus:</strong> +{relicBonus}%
+</p>
+
+<p>
+  <strong>Effective Progress:</strong> {effectiveProgress}%
 </p>
 <p>
   <strong>Cycles Remaining:</strong> {cyclesRemaining}
