@@ -179,6 +179,48 @@ const readinessToNextRank =
     : evolutionReadiness < 100
     ? 100 - evolutionReadiness
     : 0;
+const evolutionAbility =
+  evolutionRank === "Ascendant"
+    ? "Reality Shaping"
+    : evolutionRank === "IV"
+    ? "World Resonance"
+    : evolutionRank === "III"
+    ? "Echo Manipulation"
+    : evolutionRank === "II"
+    ? "Relic Synchronization"
+    : "Cycle Awareness";
+
+const abilityDescription =
+  evolutionRank === "Ascendant"
+    ? "Can influence world evolution events."
+    : evolutionRank === "IV"
+    ? "Can resonate with active world states."
+    : evolutionRank === "III"
+    ? "Can strengthen relic effects."
+    : evolutionRank === "II"
+    ? "Can synchronize with multiple relic echoes."
+    : "Can sense approaching evolutionary shifts.";
+const evolutionAura =
+  evolutionRank === "Ascendant"
+    ? "Cosmic Violet"
+    : evolutionRank === "IV"
+    ? "Golden Radiance"
+    : evolutionRank === "III"
+    ? "Emerald Resonance"
+    : evolutionRank === "II"
+    ? "Azure Echo"
+    : "Dormant Gray";
+
+const auraColor =
+  evolutionRank === "Ascendant"
+    ? "violet"
+    : evolutionRank === "IV"
+    ? "gold"
+    : evolutionRank === "III"
+    ? "lime"
+    : evolutionRank === "II"
+    ? "cyan"
+    : "#888";
 const rankProgress =
   evolutionReadiness >= 100
     ? 100
@@ -408,6 +450,44 @@ return (
 
   <p><strong>Current Rank:</strong> {evolutionRank}</p>
   <p><strong>Reward:</strong> {rankReward}</p>
+</div>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(0,120,255,0.06)",
+    border: "1px solid #333",
+  }}
+>
+  <h3>✨ Evolution Ability</h3>
+
+  <p>
+    <strong>Ability:</strong> {evolutionAbility}
+  </p>
+
+  <p>
+    <strong>Effect:</strong> {abilityDescription}
+  </p>
+</div>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(255,255,255,0.04)",
+    border: `1px solid ${auraColor}`,
+  }}
+>
+  <h3>🌌 Evolution Aura</h3>
+
+  <p>
+    <strong>Aura:</strong> {evolutionAura}
+  </p>
+
+  <p style={{ color: auraColor }}>
+    Resonance Signature Active
+  </p>
 </div>
 <div style={{ marginTop: "12px" }}>
   <strong>📈 Rank Progress</strong>
