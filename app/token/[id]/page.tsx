@@ -584,6 +584,25 @@ return (
   <p><strong>Influence:</strong> 12</p>
   <p><strong>Reputation Rank:</strong> Local Figure</p>
 </div>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(255,255,255,0.04)",
+    border: "1px solid #333",
+  }}
+>
+  <h3>🏰 Faction Alignment</h3>
+
+  <p><strong>Faction:</strong> Convergence-Touched</p>
+
+  <p><strong>Alignment:</strong> Loyal</p>
+
+  <p><strong>Influence:</strong> 12</p>
+
+  <p><strong>Standing:</strong> Trusted Operative</p>
+</div>
 <div style={{ marginTop: "12px" }}>
   <strong>📈 Rank Progress</strong>
 
