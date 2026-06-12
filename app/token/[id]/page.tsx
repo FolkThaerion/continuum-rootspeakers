@@ -127,7 +127,16 @@ const evolutionRank =
     : evolutionReadiness >= 25
     ? "II"
     : "I";
-
+const rankReward =
+  evolutionRank === "Ascendant"
+    ? "Reality Shaper"
+    : evolutionRank === "IV"
+    ? "+20% Evolution Resonance"
+    : evolutionRank === "III"
+    ? "+15% Evolution Resonance"
+    : evolutionRank === "II"
+    ? "+10% Evolution Resonance"
+    : "+5% Evolution Resonance";
 const rankColor =
   evolutionRank === "Ascendant"
     ? "violet"
@@ -362,6 +371,20 @@ return (
   <p>{milestone75 ? "✓" : "○"} 75% — Rank IV Threshold</p>
 
   <p>{milestone100 ? "✓" : "○"} 100% — Ascendant Evolution</p>
+</div>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(0,255,150,0.05)",
+    border: "1px solid #333",
+  }}
+>
+  <h3>🎁 Evolution Rewards</h3>
+
+  <p><strong>Current Rank:</strong> {evolutionRank}</p>
+  <p><strong>Reward:</strong> {rankReward}</p>
 </div>
 <div style={{ marginTop: "12px" }}>
   <strong>📈 Rank Progress</strong>
