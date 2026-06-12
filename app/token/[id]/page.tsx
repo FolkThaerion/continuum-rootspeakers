@@ -622,6 +622,27 @@ return (
 
   <p><strong>Next Unlock:</strong> Frontier Outpost</p>
 </div>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(120,80,0,0.15)",
+    border: "1px solid #333",
+  }}
+>
+  <h3>🏛 Settlement Development</h3>
+
+  <p><strong>Settlement:</strong> Frontier Outpost</p>
+
+  <p><strong>Level:</strong> I</p>
+
+  <p><strong>Population:</strong> 24</p>
+
+  <p><strong>Development:</strong> 18%</p>
+
+  <p><strong>Next Upgrade:</strong> Trading Post</p>
+</div>
 <div style={{ marginTop: "12px" }}>
   <strong>📈 Rank Progress</strong>
 
