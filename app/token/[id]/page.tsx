@@ -111,7 +111,16 @@ const readinessColor =
     : evolutionReadiness >= 25
     ? "cyan"
     : "#aaa";
-
+const evolutionRank =
+  evolutionReadiness >= 100
+    ? "Ascendant"
+    : evolutionReadiness >= 75
+    ? "IV"
+    : evolutionReadiness >= 50
+    ? "III"
+    : evolutionReadiness >= 25
+    ? "II"
+    : "I";
 return (
     <main style={{ minHeight: "100vh", background: "black", color: "white", padding: "40px" }}>
       <h1>{token.name}</h1>
@@ -226,7 +235,8 @@ return (
     </p>
 
     <p style={{ color: "#ffd700", fontWeight: "bold", marginTop: "10px" }}>
-      🏅 Evolution Rank: II
+     🏅 Evolution Rank: {evolutionRank}
+
     </p>
 
     <div
