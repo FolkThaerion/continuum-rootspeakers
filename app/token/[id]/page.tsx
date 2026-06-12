@@ -101,6 +101,7 @@ const effectiveProgress = Math.min(
   evolutionProgress + relicBonus
 );
 const evolutionReadiness = effectiveProgress;
+
 const readinessColor =
   evolutionReadiness >= 100
     ? "violet"
@@ -111,6 +112,7 @@ const readinessColor =
     : evolutionReadiness >= 25
     ? "cyan"
     : "#aaa";
+
 const evolutionRank =
   evolutionReadiness >= 100
     ? "Ascendant"
@@ -121,6 +123,17 @@ const evolutionRank =
     : evolutionReadiness >= 25
     ? "II"
     : "I";
+
+const rankColor =
+  evolutionRank === "Ascendant"
+    ? "violet"
+    : evolutionRank === "IV"
+    ? "gold"
+    : evolutionRank === "III"
+    ? "lime"
+    : evolutionRank === "II"
+    ? "cyan"
+    : "#aaa";
 return (
     <main style={{ minHeight: "100vh", background: "black", color: "white", padding: "40px" }}>
       <h1>{token.name}</h1>
@@ -234,10 +247,17 @@ return (
       🌱 Evolution Tier: {trait("Stage")}
     </p>
 
-    <p style={{ color: "#ffd700", fontWeight: "bold", marginTop: "10px" }}>
-     🏅 Evolution Rank: {evolutionRank}
+    <p
+  style={{
+    color: rankColor,
+    fontWeight: "bold",
+    marginTop: "10px",
+  }}
+>
+  🏅 Evolution Rank: {evolutionRank}
+</p>
 
-    </p>
+    
 
     <div
       style={{
