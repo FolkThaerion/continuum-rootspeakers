@@ -664,6 +664,27 @@ return (
 
   <p><strong>Next Reward:</strong> Ancient Relic</p>
 </div>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(80,40,120,0.15)",
+    border: "1px solid #333",
+  }}
+>
+  <h3>🏺 Relic Collection</h3>
+
+  <p><strong>Collected:</strong> 2</p>
+
+  <p><strong>Active Relic:</strong> Echo of Cycle 1</p>
+
+  <p><strong>Rarity:</strong> Ancient</p>
+
+  <p><strong>Collection Bonus:</strong> +5% Resonance</p>
+
+  <p><strong>Next Relic:</strong> Unknown</p>
+</div>
 <div style={{ marginTop: "12px" }}>
   <strong>📈 Rank Progress</strong>
 
