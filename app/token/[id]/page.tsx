@@ -137,6 +137,16 @@ const rankReward =
     : evolutionRank === "II"
     ? "+10% Evolution Resonance"
     : "+5% Evolution Resonance";
+const evolutionTitle =
+  evolutionRank === "Ascendant"
+    ? "Worldshaper"
+    : evolutionRank === "IV"
+    ? "Convergence Master"
+    : evolutionRank === "III"
+    ? "Resonance Sage"
+    : evolutionRank === "II"
+    ? "Echo Keeper"
+    : "Root Wanderer";
 const rankColor =
   evolutionRank === "Ascendant"
     ? "violet"
@@ -381,6 +391,19 @@ return (
     border: "1px solid #333",
   }}
 >
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(180,120,255,0.05)",
+    border: "1px solid #333",
+  }}
+>
+  <h3>👑 Evolution Title</h3>
+
+  <p><strong>Current Title:</strong> {evolutionTitle}</p>
+</div>
   <h3>🎁 Evolution Rewards</h3>
 
   <p><strong>Current Rank:</strong> {evolutionRank}</p>
