@@ -101,6 +101,10 @@ const effectiveProgress = Math.min(
   evolutionProgress + relicBonus
 );
 const evolutionReadiness = effectiveProgress;
+const milestone25 = evolutionReadiness >= 25;
+const milestone50 = evolutionReadiness >= 50;
+const milestone75 = evolutionReadiness >= 75;
+const milestone100 = evolutionReadiness >= 100;
 
 const readinessColor =
   evolutionReadiness >= 100
@@ -339,6 +343,25 @@ return (
   <p><strong>Next Rank:</strong> {nextRank}</p>
   <p><strong>Needed:</strong> {readinessToNextRank}% Readiness</p>
   <p><strong>Estimated Evolution:</strong> Cycle {evolutionRequirement}</p>
+</div>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(255,255,255,0.04)",
+    border: "1px solid #333",
+  }}
+>
+  <h3>🏆 Evolution Milestones</h3>
+
+  <p>{milestone25 ? "✓" : "○"} 25% — Rank II Threshold</p>
+
+  <p>{milestone50 ? "✓" : "○"} 50% — Rank III Threshold</p>
+
+  <p>{milestone75 ? "✓" : "○"} 75% — Rank IV Threshold</p>
+
+  <p>{milestone100 ? "✓" : "○"} 100% — Ascendant Evolution</p>
 </div>
 <div style={{ marginTop: "12px" }}>
   <strong>📈 Rank Progress</strong>
