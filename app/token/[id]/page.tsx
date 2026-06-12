@@ -603,6 +603,25 @@ return (
 
   <p><strong>Standing:</strong> Trusted Operative</p>
 </div>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(0,80,120,0.15)",
+    border: "1px solid #333",
+  }}
+>
+  <h3>🗺 Territory Influence</h3>
+
+  <p><strong>Region:</strong> Astra-Vey Frontier</p>
+
+  <p><strong>Control:</strong> 8%</p>
+
+  <p><strong>Influence:</strong> Growing</p>
+
+  <p><strong>Next Unlock:</strong> Frontier Outpost</p>
+</div>
 <div style={{ marginTop: "12px" }}>
   <strong>📈 Rank Progress</strong>
 
