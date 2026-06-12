@@ -156,6 +156,16 @@ const readinessToNextRank =
     : evolutionReadiness < 100
     ? 100 - evolutionReadiness
     : 0;
+const rankProgress =
+  evolutionReadiness >= 100
+    ? 100
+    : evolutionReadiness >= 75
+    ? ((evolutionReadiness - 75) / 25) * 100
+    : evolutionReadiness >= 50
+    ? ((evolutionReadiness - 50) / 25) * 100
+    : evolutionReadiness >= 25
+    ? ((evolutionReadiness - 25) / 25) * 100
+    : (evolutionReadiness / 25) * 100;
 return (
     <main style={{ minHeight: "100vh", background: "black", color: "white", padding: "40px" }}>
       <h1>{token.name}</h1>
@@ -330,7 +340,32 @@ return (
   <p><strong>Needed:</strong> {readinessToNextRank}% Readiness</p>
   <p><strong>Estimated Evolution:</strong> Cycle {evolutionRequirement}</p>
 </div>
+<div style={{ marginTop: "12px" }}>
+  <strong>📈 Rank Progress</strong>
 
+  <div
+    style={{
+      height: "12px",
+      background: "#222",
+      borderRadius: "999px",
+      overflow: "hidden",
+      marginTop: "8px",
+    }}
+  >
+    <div
+      style={{
+        width: `${rankProgress}%`,
+        height: "100%",
+        background: rankColor,
+        transition: "width 0.5s ease",
+      }}
+    />
+  </div>
+
+  <p style={{ marginTop: "8px" }}>
+    {evolutionRank} → {nextRank} ({Math.floor(rankProgress)}%)
+  </p>
+</div>
     <p
       style={{
         color: evolutionReady ? "lime" : "#aaa",
