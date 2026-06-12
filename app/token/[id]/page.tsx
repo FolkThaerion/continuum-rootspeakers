@@ -552,6 +552,22 @@ return (
 
   <p>👑 Ascendant Rootspeaker</p>
 </div>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(255,215,0,0.05)",
+    border: "1px solid #333",
+  }}
+>
+  <h3>🏅 Achievement Badges</h3>
+
+  <p>🏅 First Awakening</p>
+  <p>🔮 Relic Discoverer</p>
+  <p>🌊 Convergence-Touched</p>
+  <p>⏳ Cycle Survivor</p>
+</div>
 <div style={{ marginTop: "12px" }}>
   <strong>📈 Rank Progress</strong>
 
