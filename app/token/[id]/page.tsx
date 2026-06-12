@@ -179,6 +179,12 @@ const readinessToNextRank =
     : evolutionReadiness < 100
     ? 100 - evolutionReadiness
     : 0;
+const rankCountdownMessage =
+  readinessToNextRank === 0
+    ? "Threshold reached"
+    : readinessToNextRank <= 5
+    ? "Threshold almost reached"
+    : "Progressing toward next rank";
 const evolutionAbility =
   evolutionRank === "Ascendant"
     ? "Reality Shaping"
@@ -404,6 +410,22 @@ return (
   <p><strong>Next Rank:</strong> {nextRank}</p>
   <p><strong>Needed:</strong> {readinessToNextRank}% Readiness</p>
   <p><strong>Estimated Evolution:</strong> Cycle {evolutionRequirement}</p>
+</div>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(255,255,255,0.04)",
+    border: "1px solid #333",
+  }}
+>
+  <h3>⏳ Evolution Countdown</h3>
+
+  <p><strong>Current Readiness:</strong> {evolutionReadiness}%</p>
+  <p><strong>Next Rank:</strong> {nextRank}</p>
+  <p><strong>Remaining:</strong> {readinessToNextRank}%</p>
+  <p><strong>Status:</strong> {rankCountdownMessage}</p>
 </div>
 <div
   style={{
