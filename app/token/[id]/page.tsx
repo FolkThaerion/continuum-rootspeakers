@@ -527,6 +527,31 @@ return (
   <p>Cycle 11 — Convergence-Touched</p>
   <p>Next Event — Rank II Evolution</p>
 </div>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(255,215,0,0.05)",
+    border: "1px solid #333",
+  }}
+>
+  <h3>🏛 Evolution Path</h3>
+
+  <p>🌱 Root Wanderer</p>
+  <p>↓</p>
+
+  <p>🔹 Cycle Seeker</p>
+  <p>↓</p>
+
+  <p>🌿 Confluence Walker</p>
+  <p>↓</p>
+
+  <p>✨ Resonance Keeper</p>
+  <p>↓</p>
+
+  <p>👑 Ascendant Rootspeaker</p>
+</div>
 <div style={{ marginTop: "12px" }}>
   <strong>📈 Rank Progress</strong>
 
