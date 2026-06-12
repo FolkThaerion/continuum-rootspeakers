@@ -643,6 +643,27 @@ return (
 
   <p><strong>Next Upgrade:</strong> Trading Post</p>
 </div>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(120,0,0,0.15)",
+    border: "1px solid #333",
+  }}
+>
+  <h3>⚔️ Active Expedition</h3>
+
+  <p><strong>Destination:</strong> Silent Frontier</p>
+
+  <p><strong>Status:</strong> Exploring</p>
+
+  <p><strong>Progress:</strong> 32%</p>
+
+  <p><strong>Discovery Chance:</strong> Moderate</p>
+
+  <p><strong>Next Reward:</strong> Ancient Relic</p>
+</div>
 <div style={{ marginTop: "12px" }}>
   <strong>📈 Rank Progress</strong>
 
