@@ -706,6 +706,27 @@ return (
 
   <p><strong>Status:</strong> Active</p>
 </div>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(0,120,80,0.15)",
+    border: "1px solid #333",
+  }}
+>
+  <h3>🧬 Mutation Tracker</h3>
+
+  <p><strong>Mutation State:</strong> Stable</p>
+
+  <p><strong>Exposure:</strong> Silence Tide</p>
+
+  <p><strong>Mutation Chance:</strong> 4%</p>
+
+  <p><strong>Potential Trait:</strong> Echo Sight</p>
+
+  <p><strong>Status:</strong> Monitoring</p>
+</div>
 <div style={{ marginTop: "12px" }}>
   <strong>📈 Rank Progress</strong>
 
