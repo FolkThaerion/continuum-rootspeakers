@@ -815,6 +815,30 @@ return (
 
   <p>🔒 Next Achievement: Ancient Pathfinder</p>
 </div>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(80,20,20,0.25)",
+    border: "1px solid #333",
+  }}
+>
+  <h3>🎲 Dynamic Event</h3>
+
+  <p>
+    While exploring the Silent Frontier, Echo Wisp discovers a strange
+    resonance signal beneath the ruins.
+  </p>
+
+  <p><strong>Choice A:</strong> Investigate the signal</p>
+
+  <p><strong>Choice B:</strong> Secure the relic cache</p>
+
+  <p><strong>Choice C:</strong> Return to Frontier Outpost</p>
+
+  <p><strong>Status:</strong> Awaiting Decision</p>
+</div>
 <div style={{ marginTop: "12px" }}>
   <strong>📈 Rank Progress</strong>
 
