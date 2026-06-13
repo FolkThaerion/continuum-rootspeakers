@@ -794,6 +794,27 @@ return (
 
   <p>🌱 Cycle 1 — Rootspeaker Awakening</p>
 </div>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(90,70,20,0.2)",
+    border: "1px solid #333",
+  }}
+>
+  <h3>🏆 Achievement Gallery</h3>
+
+  <p>🥇 First Awakening</p>
+
+  <p>🔮 Relic Discoverer</p>
+
+  <p>🌊 Convergence-Touched</p>
+
+  <p>⏳ Cycle Survivor</p>
+
+  <p>🔒 Next Achievement: Ancient Pathfinder</p>
+</div>
 <div style={{ marginTop: "12px" }}>
   <strong>📈 Rank Progress</strong>
 
