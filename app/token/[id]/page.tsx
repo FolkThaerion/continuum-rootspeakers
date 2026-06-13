@@ -26,6 +26,8 @@ export default function TokenPage(props: any) {
  const [token, setToken] = useState<Metadata | null>(null);
 const [history, setHistory] = useState<TokenHistory[]>([]);
 const [world, setWorld] = useState<any>(null);
+
+const [decision, setDecision] = useState<string | null>(null);
   useEffect(() => {
     fetch(`/metadata/${id}`)
       .then((res) => res.json())
@@ -40,6 +42,21 @@ fetch("/world/state.json")
  }, [id]);
 
   if (!token) return <main>Loading...</main>;
+function chooseDecision(choice: string) {
+  setDecision(choice);
+
+  if (choice === "A") {
+    alert("You investigate the signal.");
+  }
+
+  if (choice === "B") {
+    alert("You secure the relic cache.");
+  }
+
+  if (choice === "C") {
+    alert("You return to Frontier Outpost.");
+  }
+}
 function trait(name: string) {
   return token?.attributes.find((a) => a.trait_type === name)?.value || "None";
 }
@@ -831,27 +848,40 @@ return (
     resonance signal beneath the ruins.
   </p>
 
-  <button
-  onClick={() => alert("You investigate the signal.")}
->
+  <button onClick={() => chooseDecision("A")}>
   Investigate the Signal
 </button>
 
 <button
-  onClick={() => alert("You secure the relic cache.")}
+  onClick={() => chooseDecision("B")}
   style={{ marginLeft: "10px" }}
 >
   Secure Relic Cache
 </button>
 
 <button
-  onClick={() => alert("You return to Frontier Outpost.")}
+  onClick={() => chooseDecision("C")}
   style={{ marginLeft: "10px" }}
 >
   Return to Outpost
 </button>
 
-  <p><strong>Status:</strong> Awaiting Decision</p>
+{decision === "A" && (
+  <p>🔮 Echo Wisp discovers an ancient resonance chamber.</p>
+)}
+
+{decision === "B" && (
+  <p>🏺 You secure a cache containing forgotten relic fragments.</p>
+)}
+
+{decision === "C" && (
+  <p>🏛 You return safely to Frontier Outpost with your findings.</p>
+)}
+
+<p>
+  <strong>Status:</strong>{" "}
+  {decision ? "Decision Recorded" : "Awaiting Decision"}
+</p>
 </div>
 <div style={{ marginTop: "12px" }}>
   <strong>📈 Rank Progress</strong>
