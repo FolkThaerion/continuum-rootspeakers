@@ -773,6 +773,27 @@ return (
 
   <p><strong>Status:</strong> Following</p>
 </div>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(80,60,20,0.2)",
+    border: "1px solid #333",
+  }}
+>
+  <h3>📅 World Events Timeline</h3>
+
+  <p>🌊 Cycle 11 — The Silence Tide Begins</p>
+
+  <p>🏺 Cycle 10 — Echo of Cycle 1 Discovered</p>
+
+  <p>🌍 Cycle 8 — Convergence Era Declared</p>
+
+  <p>✨ Cycle 3 — First Resonance Surge</p>
+
+  <p>🌱 Cycle 1 — Rootspeaker Awakening</p>
+</div>
 <div style={{ marginTop: "12px" }}>
   <strong>📈 Rank Progress</strong>
 
