@@ -33,6 +33,9 @@ const [reputation, setReputation] = useState(12);
 const [relics, setRelics] = useState(2);
 const [companionBond, setCompanionBond] = useState(12);
 
+
+
+
 useEffect(() => {
   fetch(`/metadata/${id}`)
     .then((res) => res.json())
@@ -126,6 +129,7 @@ const effectiveProgress = Math.min(
   evolutionProgress + relicBonus
 );
 const evolutionReadiness = effectiveProgress;
+const rankUpReady = evolutionReadiness >= 25;
 const milestone25 = evolutionReadiness >= 25;
 const milestone50 = evolutionReadiness >= 50;
 const milestone75 = evolutionReadiness >= 75;
@@ -451,6 +455,21 @@ return (
   <p><strong>Next Rank:</strong> {nextRank}</p>
   <p><strong>Remaining:</strong> {readinessToNextRank}%</p>
   <p><strong>Status:</strong> {rankCountdownMessage}</p>
+{rankUpReady && (
+  <div
+    style={{
+      marginTop: "12px",
+      padding: "10px",
+      borderRadius: "12px",
+      background: "rgba(0,255,0,0.08)",
+      border: "1px solid lime",
+      color: "lime",
+      fontWeight: "bold",
+    }}
+  >
+    🌱 Rank-Up Available — this Rootspeaker is ready to become Rank II.
+  </div>
+)}
 </div>
 <div
   style={{
