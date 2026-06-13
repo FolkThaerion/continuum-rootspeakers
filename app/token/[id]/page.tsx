@@ -28,6 +28,15 @@ const [history, setHistory] = useState<TokenHistory[]>([]);
 const [world, setWorld] = useState<any>(null);
 
 const [decision, setDecision] = useState<string | null>(null);
+
+const [reputation, setReputation] = useState(12);
+const [relics, setRelics] = useState(2);
+const [companionBond, setCompanionBond] = useState(12);
+
+useEffect(() => {
+  fetch(`/metadata/${id}`)
+    .then((res) => res.json())
+    .then(setToken);
   useEffect(() => {
     fetch(`/metadata/${id}`)
       .then((res) => res.json())
@@ -46,15 +55,16 @@ function chooseDecision(choice: string) {
   setDecision(choice);
 
   if (choice === "A") {
-    alert("You investigate the signal.");
+    setReputation((r) => r + 5);
+    setCompanionBond((b) => b + 3);
   }
 
   if (choice === "B") {
-    alert("You secure the relic cache.");
+    setRelics((r) => r + 1);
   }
 
   if (choice === "C") {
-    alert("You return to Frontier Outpost.");
+    setReputation((r) => r + 2);
   }
 }
 function trait(name: string) {
@@ -598,7 +608,7 @@ return (
 
   <p><strong>Standing:</strong> Known Wanderer</p>
   <p><strong>Faction:</strong> Convergence-Touched</p>
-  <p><strong>Influence:</strong> 12</p>
+  <p><strong>Influence:</strong> {reputation}</p>
   <p><strong>Reputation Rank:</strong> Local Figure</p>
 </div>
 <div
@@ -692,7 +702,7 @@ return (
 >
   <h3>🏺 Relic Collection</h3>
 
-  <p><strong>Collected:</strong> 2</p>
+  <p><strong>Collected:</strong> {relics}</p>
 
   <p><strong>Active Relic:</strong> Echo of Cycle 1</p>
 
@@ -782,7 +792,7 @@ return (
 
   <p><strong>Type:</strong> Relic Spirit</p>
 
-  <p><strong>Bond Level:</strong> 12%</p>
+  <p><strong>Bond Level:</strong> {companionBond}%</p>
 
   <p><strong>Ability:</strong> Detect Hidden Relics</p>
 
