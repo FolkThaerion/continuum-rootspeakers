@@ -831,11 +831,25 @@ return (
     resonance signal beneath the ruins.
   </p>
 
-  <p><strong>Choice A:</strong> Investigate the signal</p>
+  <button
+  onClick={() => alert("You investigate the signal.")}
+>
+  Investigate the Signal
+</button>
 
-  <p><strong>Choice B:</strong> Secure the relic cache</p>
+<button
+  onClick={() => alert("You secure the relic cache.")}
+  style={{ marginLeft: "10px" }}
+>
+  Secure Relic Cache
+</button>
 
-  <p><strong>Choice C:</strong> Return to Frontier Outpost</p>
+<button
+  onClick={() => alert("You return to Frontier Outpost.")}
+  style={{ marginLeft: "10px" }}
+>
+  Return to Outpost
+</button>
 
   <p><strong>Status:</strong> Awaiting Decision</p>
 </div>
