@@ -750,6 +750,29 @@ return (
 
   <p><strong>Status:</strong> Organized</p>
 </div>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(40,80,60,0.2)",
+    border: "1px solid #333",
+  }}
+>
+  <h3>👥 Companion</h3>
+
+  <p><strong>Name:</strong> Echo Wisp</p>
+
+  <p><strong>Type:</strong> Relic Spirit</p>
+
+  <p><strong>Bond Level:</strong> 12%</p>
+
+  <p><strong>Ability:</strong> Detect Hidden Relics</p>
+
+  <p><strong>Mood:</strong> Curious</p>
+
+  <p><strong>Status:</strong> Following</p>
+</div>
 <div style={{ marginTop: "12px" }}>
   <strong>📈 Rank Progress</strong>
 
