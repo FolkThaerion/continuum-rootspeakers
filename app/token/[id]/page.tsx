@@ -37,18 +37,15 @@ useEffect(() => {
   fetch(`/metadata/${id}`)
     .then((res) => res.json())
     .then(setToken);
-  useEffect(() => {
-    fetch(`/metadata/${id}`)
-      .then((res) => res.json())
-      .then(setToken);
-fetch(`/token-history/${id}.json`)
-  .then((res) => res.json())
-  .then(setHistory);
 
-fetch("/world/state.json")
-  .then((res) => res.json())
-  .then(setWorld);
- }, [id]);
+  fetch(`/token-history/${id}.json`)
+    .then((res) => res.json())
+    .then(setHistory);
+
+  fetch("/world/state.json")
+    .then((res) => res.json())
+    .then(setWorld);
+}, [id]);
 
   if (!token) return <main>Loading...</main>;
 function chooseDecision(choice: string) {
