@@ -685,6 +685,27 @@ return (
 
   <p><strong>Next Relic:</strong> Unknown</p>
 </div>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(80,80,20,0.15)",
+    border: "1px solid #333",
+  }}
+>
+  <h3>📜 Quest Log</h3>
+
+  <p><strong>Active Quest:</strong> Echoes of the Silence Tide</p>
+
+  <p><strong>Objective:</strong> Recover a lost relic</p>
+
+  <p><strong>Progress:</strong> 1 / 3 Clues Found</p>
+
+  <p><strong>Reward:</strong> Ancient Relic Cache</p>
+
+  <p><strong>Status:</strong> Active</p>
+</div>
 <div style={{ marginTop: "12px" }}>
   <strong>📈 Rank Progress</strong>
 
