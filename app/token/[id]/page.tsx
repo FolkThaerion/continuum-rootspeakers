@@ -49,6 +49,7 @@ useEffect(() => {
 
   if (!token) return <main>Loading...</main>;
 function chooseDecision(choice: string) {
+if (decision) return;
   setDecision(choice);
 
   if (choice === "A") {
