@@ -727,6 +727,29 @@ return (
 
   <p><strong>Status:</strong> Monitoring</p>
 </div>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(60,60,100,0.15)",
+    border: "1px solid #333",
+  }}
+>
+  <h3>🎒 Inventory</h3>
+
+  <p><strong>Capacity:</strong> 4 / 20</p>
+
+  <p><strong>Relics:</strong> 2</p>
+
+  <p><strong>Artifacts:</strong> 1</p>
+
+  <p><strong>Resources:</strong> 1</p>
+
+  <p><strong>Rare Item:</strong> Ancient Compass</p>
+
+  <p><strong>Status:</strong> Organized</p>
+</div>
 <div style={{ marginTop: "12px" }}>
   <strong>📈 Rank Progress</strong>
 
