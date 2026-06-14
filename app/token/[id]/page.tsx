@@ -32,6 +32,27 @@ const [decision, setDecision] = useState<string | null>(null);
 const [reputation, setReputation] = useState(12);
 const [relics, setRelics] = useState(2);
 const [companionBond, setCompanionBond] = useState(12);
+useEffect(() => {
+  const saved = localStorage.getItem(`rootspeaker-${id}`);
+
+  if (saved) {
+    const data = JSON.parse(saved);
+
+    setReputation(data.reputation ?? 12);
+    setRelics(data.relics ?? 2);
+    setCompanionBond(data.companionBond ?? 12);
+  }
+}, [id]);
+useEffect(() => {
+  localStorage.setItem(
+    `rootspeaker-${id}`,
+    JSON.stringify({
+      reputation,
+      relics,
+      companionBond,
+    })
+  );
+}, [reputation, relics, companionBond, id]);
 const [eventIndex, setEventIndex] = useState(0);
 
 const events = [
