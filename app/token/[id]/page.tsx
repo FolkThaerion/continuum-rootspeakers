@@ -171,9 +171,13 @@ const relicEffect =
     ? "+15% Evolution Resonance"
     : "Unknown Effect";
 
+const statProgressBonus = Math.floor(
+  reputation / 10 + relics * 2 + companionBond / 10
+);
+
 const effectiveProgress = Math.min(
   100,
-  evolutionProgress + relicBonus
+  evolutionProgress + relicBonus + statProgressBonus
 );
 const evolutionReadiness = effectiveProgress;
 const rankUpReady = evolutionReadiness >= 25;
