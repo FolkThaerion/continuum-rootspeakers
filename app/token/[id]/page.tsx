@@ -886,6 +886,23 @@ return (
     border: "1px solid #333",
   }}
 >
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(20,80,20,0.25)",
+    border: "1px solid #333",
+  }}
+>
+  <h3>📊 Rootspeaker Stats</h3>
+
+  <p>⭐ Reputation: {reputation}</p>
+
+  <p>🏺 Relics: {relics}</p>
+
+  <p>👥 Companion Bond: {companionBond}</p>
+</div>
   <h3>🎲 Dynamic Event</h3>
 
   <h3>🎲 {events[eventIndex].title}</h3>
