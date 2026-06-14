@@ -32,7 +32,25 @@ const [decision, setDecision] = useState<string | null>(null);
 const [reputation, setReputation] = useState(12);
 const [relics, setRelics] = useState(2);
 const [companionBond, setCompanionBond] = useState(12);
+const [eventIndex, setEventIndex] = useState(0);
 
+const events = [
+  {
+    title: "Silent Frontier Signal",
+    description:
+      "Echo Wisp discovers a strange resonance signal beneath the ruins.",
+  },
+  {
+    title: "Ancient Relic Cache",
+    description:
+      "A hidden vault emerges from the shifting sands.",
+  },
+  {
+    title: "Convergence Rift",
+    description:
+      "A tear in reality opens near the frontier.",
+  },
+];
 
 
 
@@ -811,7 +829,29 @@ return (
 
   <p><strong>Bond Level:</strong> {companionBond}%</p>
 
-  <p><strong>Ability:</strong> Detect Hidden Relics</p>
+    <strong>Status:</strong>{" "}
+  {decision ? "Decision Recorded" : "Awaiting Decision"}</p>
+ 
+{decision && (
+  <button
+    onClick={() => {
+  setDecision(null);
+  setEventIndex((i) => (i + 1) % events.length);
+}}
+    style={{
+      marginTop: "12px",
+      padding: "10px 16px",
+      borderRadius: "999px",
+      border: "1px solid #333",
+      background: "#111",
+      color: "white",
+      cursor: "pointer",
+    }}
+  >
+    Generate New Event
+  </button>
+)}
+<p><strong>Ability:</strong> Detect Hidden Relics</p>
 
   <p><strong>Mood:</strong> Curious</p>
 
@@ -870,10 +910,9 @@ return (
 >
   <h3>🎲 Dynamic Event</h3>
 
-  <p>
-    While exploring the Silent Frontier, Echo Wisp discovers a strange
-    resonance signal beneath the ruins.
-  </p>
+  <h3>🎲 {events[eventIndex].title}</h3>
+
+<p>{events[eventIndex].description}</p>
 
   <button onClick={() => chooseDecision("A")}>
   Investigate the Signal
