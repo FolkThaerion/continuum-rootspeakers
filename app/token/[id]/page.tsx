@@ -829,8 +829,10 @@ return (
 
   <p><strong>Bond Level:</strong> {companionBond}%</p>
 
-    <strong>Status:</strong>{" "}
-  {decision ? "Decision Recorded" : "Awaiting Decision"}</p>
+    <p>
+  <strong>Status:</strong>{" "}
+  {decision ? "Decision Recorded" : "Awaiting Decision"}
+</p>
  
 {decision && (
   <button
