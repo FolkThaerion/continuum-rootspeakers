@@ -823,41 +823,17 @@ return (
 >
   <h3>👥 Companion</h3>
 
-  <p><strong>Name:</strong> Echo Wisp</p>
+<p><strong>Name:</strong> Echo Wisp</p>
 
-  <p><strong>Type:</strong> Relic Spirit</p>
+<p><strong>Type:</strong> Relic Spirit</p>
 
-  <p><strong>Bond Level:</strong> {companionBond}%</p>
+<p><strong>Bond Level:</strong> {companionBond}%</p>
 
-    <p>
-  <strong>Status:</strong>{" "}
-  {decision ? "Decision Recorded" : "Awaiting Decision"}
-</p>
- 
-{decision && (
-  <button
-    onClick={() => {
-  setDecision(null);
-  setEventIndex((i) => (i + 1) % events.length);
-}}
-    style={{
-      marginTop: "12px",
-      padding: "10px 16px",
-      borderRadius: "999px",
-      border: "1px solid #333",
-      background: "#111",
-      color: "white",
-      cursor: "pointer",
-    }}
-  >
-    Generate New Event
-  </button>
-)}
 <p><strong>Ability:</strong> Detect Hidden Relics</p>
 
-  <p><strong>Mood:</strong> Curious</p>
+<p><strong>Mood:</strong> Curious</p>
 
-  <p><strong>Status:</strong> Following</p>
+<p><strong>Status:</strong> Following</p>
 </div>
 <div
   style={{
@@ -950,6 +926,25 @@ return (
   <strong>Status:</strong>{" "}
   {decision ? "Decision Recorded" : "Awaiting Decision"}
 </p>
+{decision && (
+  <button
+    onClick={() => {
+      setDecision(null);
+      setEventIndex((i) => (i + 1) % events.length);
+    }}
+    style={{
+      marginTop: "12px",
+      padding: "10px 16px",
+      borderRadius: "999px",
+      border: "1px solid #333",
+      background: "#111",
+      color: "white",
+      cursor: "pointer",
+    }}
+  >
+    Generate New Event
+  </button>
+)}
 </div>
 <div style={{ marginTop: "12px" }}>
   <strong>📈 Rank Progress</strong>
