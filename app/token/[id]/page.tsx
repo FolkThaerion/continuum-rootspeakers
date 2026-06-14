@@ -39,6 +39,32 @@ const achievementLegendary =
   achievementFirstAwakening &&
   achievementRelicHunter &&
   achievementSpiritbound;
+const rankI = evolutionReadiness < 25;
+
+const rankII =
+  evolutionReadiness >= 25 &&
+  evolutionReadiness < 50;
+
+const rankIII =
+  evolutionReadiness >= 50 &&
+  evolutionReadiness < 75;
+
+const rankIV =
+  evolutionReadiness >= 75 &&
+  evolutionReadiness < 100;
+
+const rankV =
+  evolutionReadiness >= 100;
+const currentRank =
+  rankV
+    ? "Rank V — Living Confluence"
+    : rankIV
+    ? "Rank IV — Relic Sage"
+    : rankIII
+    ? "Rank III — Echo Walker"
+    : rankII
+    ? "Rank II — Resonant Keeper"
+    : "Rank I — Root Listener";
 useEffect(() => {
   const saved = localStorage.getItem(`rootspeaker-${id}`);
 
@@ -1023,9 +1049,13 @@ return (
     />
   </div>
 
-  <p style={{ marginTop: "8px" }}>
-    {evolutionRank} → {nextRank} ({Math.floor(rankProgress)}%)
-  </p>
+  <p style={{ marginTop: "8px", fontWeight: "bold" }}>
+  {currentRank}
+</p>
+
+<p>
+  Evolution Readiness: {evolutionReadiness}%
+</p>
 </div>
     <p
       style={{
