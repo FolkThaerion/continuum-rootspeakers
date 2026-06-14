@@ -208,6 +208,16 @@ const currentRank =
     : rankII
     ? "Rank II — Resonant Keeper"
     : "Rank I — Root Listener";
+const currentRankAbility =
+  rankV
+    ? "Reality Weaving"
+    : rankIV
+    ? "Temporal Memory Sight"
+    : rankIII
+    ? "Echo Reconstruction"
+    : rankII
+    ? "Resonance Scan"
+    : "Detect Hidden Relics";
 const milestone25 = evolutionReadiness >= 25;
 const milestone50 = evolutionReadiness >= 50;
 const milestone75 = evolutionReadiness >= 75;
@@ -1061,6 +1071,9 @@ return (
 
 <p>
   Evolution Readiness: {evolutionReadiness}%
+</p>
+<p>
+  <strong>Unlocked Ability:</strong> 🔮 {currentRankAbility}
 </p>
 </div>
     <p
