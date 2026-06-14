@@ -32,6 +32,13 @@ const [decision, setDecision] = useState<string | null>(null);
 const [reputation, setReputation] = useState(12);
 const [relics, setRelics] = useState(2);
 const [companionBond, setCompanionBond] = useState(12);
+const achievementFirstAwakening = reputation >= 15;
+const achievementRelicHunter = relics >= 5;
+const achievementSpiritbound = companionBond >= 20;
+const achievementLegendary =
+  achievementFirstAwakening &&
+  achievementRelicHunter &&
+  achievementSpiritbound;
 useEffect(() => {
   const saved = localStorage.getItem(`rootspeaker-${id}`);
 
@@ -888,15 +895,25 @@ return (
 >
   <h3>🏆 Achievement Gallery</h3>
 
+{achievementFirstAwakening && (
   <p>🥇 First Awakening</p>
+)}
 
-  <p>🔮 Relic Discoverer</p>
+{achievementRelicHunter && (
+  <p>🏺 Relic Hunter</p>
+)}
 
-  <p>🌊 Convergence-Touched</p>
+{achievementSpiritbound && (
+  <p>👥 Spiritbound</p>
+)}
 
-  <p>⏳ Cycle Survivor</p>
+{achievementLegendary && (
+  <p>🌟 Legendary Rootspeaker</p>
+)}
 
-  <p>🔒 Next Achievement: Ancient Pathfinder</p>
+{!achievementLegendary && (
+  <p>🔒 Next Achievement: Legendary Rootspeaker</p>
+)}
 </div>
 <div
   style={{
