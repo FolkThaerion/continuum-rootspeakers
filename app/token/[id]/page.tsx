@@ -31,6 +31,7 @@ export default function TokenPage(props: any) {
   const [decision, setDecision] = useState<string | null>(null);
   const [eventIndex, setEventIndex] = useState(0);
   const [hasEvolved, setHasEvolved] = useState(false);
+  const [evolvedStage, setEvolvedStage] = useState<string | null>(null);
 
   const [reputation, setReputation] = useState(12);
   const [relics, setRelics] = useState(2);
@@ -72,11 +73,20 @@ export default function TokenPage(props: any) {
     const saved = localStorage.getItem(`rootspeaker-${id}`);
 
     if (saved) {
-      const data = JSON.parse(saved);
-      setReputation(data.reputation ?? 12);
-      setRelics(data.relics ?? 2);
-      setCompanionBond(data.companionBond ?? 12);
-    }
+  const data = JSON.parse(saved);
+
+  setReputation(data.reputation ?? 12);
+  setRelics(data.relics ?? 2);
+  setCompanionBond(data.companionBond ?? 12);
+
+  if (data.evolvedStage) {
+    setEvolvedStage(data.evolvedStage);
+  }
+
+  if (data.hasEvolved) {
+    setHasEvolved(true);
+  }
+}
 
     setStatsLoaded(true);
   }, [id]);
@@ -85,13 +95,15 @@ export default function TokenPage(props: any) {
     if (!statsLoaded) return;
 
     localStorage.setItem(
-      `rootspeaker-${id}`,
-      JSON.stringify({
-        reputation,
-        relics,
-        companionBond,
-      })
-    );
+  `rootspeaker-${id}`,
+  JSON.stringify({
+    reputation,
+    relics,
+    companionBond,
+    evolvedStage,
+    hasEvolved,
+  })
+);
   }, [reputation, relics, companionBond, id, statsLoaded]);
 
   if (!token) return <main>Loading...</main>;
@@ -119,7 +131,8 @@ export default function TokenPage(props: any) {
     return token?.attributes.find((a) => a.trait_type === name)?.value || "None";
   }
 
-  const stage = String(trait("Stage"));
+  const baseStage = String(trait("Stage"));
+const stage = evolvedStage || baseStage;
   const relic = String(trait("Relic"));
 
   const evolutionRequirement =
@@ -1029,7 +1042,10 @@ export default function TokenPage(props: any) {
 
             {canEvolve && (
               <button
-                onClick={() => setHasEvolved(true)}
+                onClick={() => {
+  setHasEvolved(true);
+  setEvolvedStage(nextEvolution);
+}}
                 style={{
                   marginTop: "15px",
                   padding: "12px 18px",
