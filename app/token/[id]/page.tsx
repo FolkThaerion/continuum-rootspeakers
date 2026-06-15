@@ -657,7 +657,7 @@ return (
   <p>Cycle 1 — Rootspeaker awakened</p>
   <p>Cycle 1 — Echo of Cycle 1 discovered</p>
   <p>Cycle 11 — Convergence-Touched</p>
-  <p>Next Event — Rank II Evolution</p>
+  <p>Next Event — Rank {nextRank} Ascension</p>
 </div>
 <div
   style={{
