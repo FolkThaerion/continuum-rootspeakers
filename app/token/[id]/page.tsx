@@ -180,7 +180,7 @@ const effectiveProgress = Math.min(
   evolutionProgress + relicBonus + statProgressBonus
 );
 const evolutionReadiness = effectiveProgress;
-const rankUpReady = evolutionReadiness >= 25;
+const rankUpReady = evolutionReadiness >= 75;
 const rankI = evolutionReadiness < 25;
 
 const rankII =
