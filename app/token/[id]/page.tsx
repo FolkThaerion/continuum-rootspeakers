@@ -157,8 +157,11 @@ const stage = evolvedStage || baseStage;
       ? "Transcendent Confluence"
       : "Unknown";
 
+
   const currentCycle = Number(world?.cycle || 0);
   const evolutionReady = currentCycle >= evolutionRequirement;
+  
+  
 
   const evolutionProgress = Math.min(
     100,
