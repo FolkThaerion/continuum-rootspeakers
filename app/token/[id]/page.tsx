@@ -555,7 +555,7 @@ return (
       fontWeight: "bold",
     }}
   >
-    🌱 Rank-Up Available — this Rootspeaker is ready to become Rank II.
+    🌱 Rank-Up Available — this Rootspeaker is ready to become Rank {nextRank}.
   </div>
 )}
 </div>
