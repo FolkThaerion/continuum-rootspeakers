@@ -427,7 +427,7 @@ const evolutionReady =
 
         <p><strong>Name:</strong> {token.name}</p>
         <p><strong>Path:</strong> {trait("Path")}</p>
-        <p><strong>Stage:</strong> {trait("Stage")}</p>
+        <p><strong>Stage:</strong> {stage}</p>
         <p><strong>Anomaly:</strong> {trait("Anomaly")}</p>
         <p><strong>Rarity:</strong> {trait("Rarity")}</p>
         <p><strong>Relic:</strong> {trait("Relic")}</p>
@@ -1050,6 +1050,9 @@ const evolutionReady =
                 onClick={() => {
   setHasEvolved(true);
   setEvolvedStage(nextEvolution);
+  setReputation((r) => r + 25);
+  setRelics((r) => r + 5);
+  setCompanionBond((b) => b + 10);
 }}
                 style={{
                   marginTop: "15px",
