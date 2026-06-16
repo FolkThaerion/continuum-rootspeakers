@@ -1043,15 +1043,15 @@ const displayRank = hasEvolved
               Status: {evolutionReady ? "READY TO EVOLVE" : "Dormant"}
             </p>
 
-            {evolutionReady ? (
-              <p style={{ color: "lime", fontWeight: "bold", marginTop: "12px" }}>
-                🌱 Evolution Available — the Rootspeaker is ready to ascend.
-              </p>
-            ) : (
-              <p style={{ color: "#888", marginTop: "12px" }}>
-                Evolution remains dormant until the required cycle is reached.
-              </p>
-            )}
+            {evolutionReady && !hasEvolved ? (
+  <p style={{ color: "lime", fontWeight: "bold", marginTop: "12px" }}>
+    🌱 Evolution Available — the Rootspeaker is ready to ascend.
+  </p>
+) : !hasEvolved ? (
+  <p style={{ color: "#888", marginTop: "12px" }}>
+    Evolution remains dormant until the required cycle is reached.
+  </p>
+) : null}
 
             {canEvolve && !hasEvolved && (
               <button
