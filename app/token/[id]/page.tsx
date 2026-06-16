@@ -70,26 +70,21 @@ export default function TokenPage(props: any) {
   }, [id]);
 
   useEffect(() => {
-    const saved = localStorage.getItem(`rootspeaker-${id}`);
+  const saved = localStorage.getItem(`rootspeaker-${id}`);
 
-    if (saved) {
-  const data = JSON.parse(saved);
+  if (saved) {
+    const data = JSON.parse(saved);
 
-  setReputation(data.reputation ?? 12);
-  setRelics(data.relics ?? 2);
-  setCompanionBond(data.companionBond ?? 12);
+    setReputation(data.reputation ?? 12);
+    setRelics(data.relics ?? 2);
+    setCompanionBond(data.companionBond ?? 12);
 
-  if (data.evolvedStage) {
-    setEvolvedStage(data.evolvedStage);
+    setHasEvolved(data.hasEvolved ?? false);
+    setEvolvedStage(data.evolvedStage ?? null);
   }
 
-  if (data.hasEvolved) {
-    setHasEvolved(true);
-  }
-}
-
-    setStatsLoaded(true);
-  }, [id]);
+  setStatsLoaded(true);
+}, [id]);
 
   useEffect(() => {
     if (!statsLoaded) return;
@@ -100,11 +95,11 @@ export default function TokenPage(props: any) {
     reputation,
     relics,
     companionBond,
-    evolvedStage,
     hasEvolved,
+    evolvedStage,
   })
 );
-  }, [reputation, relics, companionBond, id, statsLoaded]);
+}, [reputation, relics, companionBond, hasEvolved, evolvedStage, id, statsLoaded]);
 
   if (!token) return <main>Loading...</main>;
 
