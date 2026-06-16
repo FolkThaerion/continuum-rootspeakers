@@ -1117,7 +1117,7 @@ const displayRank = hasEvolved
   </>
 )}
 
-            {rankIVUnlocked && (
+            {rankIVUnlocked && !hasEvolved && (
               <div
                 style={{
                   marginTop: "15px",
@@ -1134,6 +1134,26 @@ const displayRank = hasEvolved
                 <p>⭐ +10 Reputation</p>
               </div>
             )}
+{hasEvolved && (
+  <div
+    style={{
+      marginTop: "15px",
+      padding: "12px",
+      borderRadius: "12px",
+      background: "rgba(255,215,0,0.08)",
+      border: "1px solid gold",
+    }}
+  >
+    <h3>🏆 Ascension Rewards</h3>
+
+    <p>✨ Ability: Reality Weaving</p>
+    <p>👑 Title: Worldshaper</p>
+    <p>🌌 Aura: Cosmic Violet</p>
+    <p>🏺 +5 Relics</p>
+    <p>⭐ +25 Reputation</p>
+    <p>🤝 +10 Companion Bond</p>
+  </div>
+)}
           </div>
         </div>
       )}
