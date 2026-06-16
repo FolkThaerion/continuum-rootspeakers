@@ -1070,20 +1070,40 @@ const evolutionReady =
             )}
 
             {hasEvolved && (
-              <div
-                style={{
-                  marginTop: "15px",
-                  padding: "12px",
-                  borderRadius: "12px",
-                  background: "rgba(0,255,0,0.08)",
-                  border: "1px solid lime",
-                  color: "lime",
-                  fontWeight: "bold",
-                }}
-              >
-                🌱 Evolution Complete — this Rootspeaker has begun its ascension.
-              </div>
-            )}
+  <>
+    <div
+      style={{
+        marginTop: "15px",
+        padding: "12px",
+        borderRadius: "12px",
+        background: "rgba(0,255,0,0.08)",
+        border: "1px solid lime",
+        color: "lime",
+        fontWeight: "bold",
+      }}
+    >
+      🌱 Evolution Complete — this Rootspeaker has begun its ascension.
+    </div>
+
+    <button
+      onClick={() => {
+        setHasEvolved(false);
+        setEvolvedStage(null);
+      }}
+      style={{
+        marginTop: "12px",
+        padding: "10px 16px",
+        borderRadius: "999px",
+        border: "1px solid #555",
+        background: "#111",
+        color: "white",
+        cursor: "pointer",
+      }}
+    >
+      Reset Evolution Test
+    </button>
+  </>
+)}
 
             {rankIVUnlocked && (
               <div
