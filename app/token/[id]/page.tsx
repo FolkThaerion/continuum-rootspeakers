@@ -476,7 +476,10 @@ const displayRank = hasEvolved
         >
           <h2>🌱 Evolution Status</h2>
 
-         <p><strong>Current Stage:</strong> {hasEvolved ? "Transcendent Confluence" : stage}<p>
+         <p>
+  <strong>Current Stage:</strong>{" "}
+  {hasEvolved ? "Transcendent Confluence" : stage}
+</p>
           <p><strong>Evolution Requirement:</strong> Cycle {evolutionRequirement}</p>
           <p><strong>Current World Cycle:</strong> {world.cycle}</p>
           <p><strong>Progress:</strong> {evolutionProgress}%</p>
