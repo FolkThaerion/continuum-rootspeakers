@@ -476,9 +476,7 @@ const displayRank = hasEvolved
         >
           <h2>🌱 Evolution Status</h2>
 
-          <p>
-  <strong>Current Stage:</strong> {hasEvolved ? nextEvolution : stage}
-</p>
+         <p><strong>Current Stage:</strong> {hasEvolved ? "Transcendent Confluence" : stage}<p>
           <p><strong>Evolution Requirement:</strong> Cycle {evolutionRequirement}</p>
           <p><strong>Current World Cycle:</strong> {world.cycle}</p>
           <p><strong>Progress:</strong> {evolutionProgress}%</p>
@@ -509,8 +507,8 @@ const displayRank = hasEvolved
           </div>
 
           <p style={{ marginTop: "15px", color: "#00ffff", fontWeight: "bold" }}>
-            Next Evolution: {nextEvolution}
-          </p>
+  Next Evolution: {hasEvolved ? "Reality Weaver" : nextEvolution}
+</p>
 
           <p style={{ color: "#7CFF7C", fontWeight: "bold", marginTop: "10px" }}>
             🌱 Evolution Tier: {trait("Stage")}
