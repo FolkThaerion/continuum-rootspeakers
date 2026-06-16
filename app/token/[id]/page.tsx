@@ -27,6 +27,7 @@ export default function TokenPage(props: any) {
   const [token, setToken] = useState<Metadata | null>(null);
   const [history, setHistory] = useState<TokenHistory[]>([]);
   const [world, setWorld] = useState<any>(null);
+  const [realityWeaveUsed, setRealityWeaveUsed] = useState(false);
 
   const [decision, setDecision] = useState<string | null>(null);
   const [eventIndex, setEventIndex] = useState(0);
@@ -81,6 +82,7 @@ export default function TokenPage(props: any) {
 
     setHasEvolved(data.hasEvolved ?? false);
     setEvolvedStage(data.evolvedStage ?? null);
+    setRealityWeaveUsed(data.realityWeaveUsed ?? false);
   }
 
   setStatsLoaded(true);
@@ -97,6 +99,7 @@ export default function TokenPage(props: any) {
     companionBond,
     hasEvolved,
     evolvedStage,
+    realityWeaveUsed,
   })
 );
 }, [reputation, relics, companionBond, hasEvolved, evolvedStage, id, statsLoaded]);
@@ -1147,6 +1150,47 @@ const displayRank = hasEvolved
     <p>🏺 +5 Relics</p>
     <p>⭐ +25 Reputation</p>
     <p>🤝 +10 Companion Bond</p>
+  </div>
+)}
+{hasEvolved && (
+  <div
+    style={{
+      marginTop: "15px",
+      padding: "12px",
+      borderRadius: "12px",
+      background: "rgba(180,0,255,0.08)",
+      border: "1px solid violet",
+    }}
+  >
+    <h3>🌌 Reality Weaving</h3>
+
+    <p>The Worldshaper can bend the frontier’s fate.</p>
+
+    {!realityWeaveUsed ? (
+      <button
+        onClick={() => {
+          setRelics((r) => r + 10);
+          setReputation((r) => r + 15);
+          setRealityWeaveUsed(true);
+        }}
+        style={{
+          marginTop: "12px",
+          padding: "10px 16px",
+          borderRadius: "999px",
+          border: "1px solid violet",
+          background: "rgba(180,0,255,0.12)",
+          color: "violet",
+          fontWeight: "bold",
+          cursor: "pointer",
+        }}
+      >
+        🌌 Weave Reality
+      </button>
+    ) : (
+      <p style={{ color: "violet", fontWeight: "bold" }}>
+        Reality has already been woven.
+      </p>
+    )}
   </div>
 )}
           </div>
