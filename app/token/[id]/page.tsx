@@ -170,6 +170,7 @@ const stage = evolvedStage || baseStage;
 
   const cyclesRemaining = Math.max(0, evolutionRequirement - currentCycle);
 
+
   const relicBonus =
     relic === "Echo of Cycle 1"
       ? 5
@@ -228,6 +229,9 @@ const evolutionReady =
       : rankII
       ? "Rank II — Resonant Keeper"
       : "Rank I — Root Listener";
+const displayRank = hasEvolved
+  ? "Rank MAX — Transcendent Confluence"
+  : currentRank;
 
   const currentRankAbility =
     rankV
@@ -1021,8 +1025,8 @@ const evolutionReady =
             </div>
 
             <p style={{ marginTop: "8px", fontWeight: "bold" }}>
-              {currentRank}
-            </p>
+  {displayRank}
+</p>
 
             <p>Evolution Readiness: {evolutionReadiness}%</p>
 
