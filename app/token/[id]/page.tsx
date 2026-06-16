@@ -427,7 +427,9 @@ const evolutionReady =
 
         <p><strong>Name:</strong> {token.name}</p>
         <p><strong>Path:</strong> {trait("Path")}</p>
-        <p><strong>Stage:</strong> {stage}</p>
+        <p>
+  <strong>Stage:</strong> {hasEvolved ? nextEvolution : stage}
+</p>
         <p><strong>Anomaly:</strong> {trait("Anomaly")}</p>
         <p><strong>Rarity:</strong> {trait("Rarity")}</p>
         <p><strong>Relic:</strong> {trait("Relic")}</p>
@@ -472,7 +474,9 @@ const evolutionReady =
         >
           <h2>🌱 Evolution Status</h2>
 
-          <p><strong>Current Stage:</strong> {trait("Stage")}</p>
+          <p>
+  <strong>Current Stage:</strong> {hasEvolved ? nextEvolution : stage}
+</p>
           <p><strong>Evolution Requirement:</strong> Cycle {evolutionRequirement}</p>
           <p><strong>Current World Cycle:</strong> {world.cycle}</p>
           <p><strong>Progress:</strong> {evolutionProgress}%</p>
