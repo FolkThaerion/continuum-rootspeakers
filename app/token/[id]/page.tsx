@@ -159,7 +159,7 @@ const stage = evolvedStage || baseStage;
 
 
   const currentCycle = Number(world?.cycle || 0);
-  const evolutionReady = currentCycle >= evolutionRequirement;
+  
   
   
 
@@ -198,6 +198,8 @@ const stage = evolvedStage || baseStage;
   );
 
   const evolutionReadiness = effectiveProgress;
+const evolutionReady =
+  evolutionReadiness >= 75;
 
   const evolutionRank =
     evolutionReadiness >= 100
