@@ -1035,13 +1035,17 @@ const displayRank = hasEvolved
             </p>
 
             <p
-              style={{
-                color: evolutionReady ? "lime" : "#aaa",
-                fontWeight: "bold",
-              }}
-            >
-              Status: {evolutionReady ? "READY TO EVOLVE" : "Dormant"}
-            </p>
+  style={{
+    color: hasEvolved ? "cyan" : evolutionReady ? "lime" : "#aaa",
+    fontWeight: "bold",
+  }}
+>
+  Status: {hasEvolved
+    ? "ASCENDED"
+    : evolutionReady
+    ? "READY TO EVOLVE"
+    : "Dormant"}
+</p>
 
             {evolutionReady && !hasEvolved ? (
   <p style={{ color: "lime", fontWeight: "bold", marginTop: "12px" }}>
