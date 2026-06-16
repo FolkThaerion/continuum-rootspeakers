@@ -1045,7 +1045,7 @@ const evolutionReady =
               </p>
             )}
 
-            {canEvolve && (
+            {canEvolve && !hasEvolved && (
               <button
                 onClick={() => {
   setHasEvolved(true);
