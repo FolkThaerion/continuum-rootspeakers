@@ -1169,10 +1169,15 @@ const displayRank = hasEvolved
     {!realityWeaveUsed ? (
       <button
         onClick={() => {
-          setRelics((r) => r + 10);
-          setReputation((r) => r + 15);
-          setRealityWeaveUsed(true);
-        }}
+  setRelics((r) => r + 10);
+  setReputation((r) => r + 15);
+  setRealityWeaveUsed(true);
+
+  setWorld((w: any) => ({
+    ...w,
+    cycle: (w?.cycle || 0) + 5,
+  }));
+}}
         style={{
           marginTop: "12px",
           padding: "10px 16px",
