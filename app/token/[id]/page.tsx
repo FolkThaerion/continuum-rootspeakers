@@ -144,16 +144,17 @@ const stage = evolvedStage || baseStage;
       ? 75
       : 15;
 
-  const nextEvolution =
-    stage === "Root Listener"
-      ? "Pattern Speaker"
-      : stage === "Pattern Speaker"
-      ? "Galaxy Speaker"
-      : stage === "Galaxy Speaker"
-      ? "Living Confluence"
-      : stage === "Living Confluence"
-      ? "Transcendent Confluence"
-      : "Unknown";
+    const nextEvolution = hasEvolved
+  ? "Reality Weaver"
+  : evolutionReadiness >= 100
+  ? "Reality Weaver"
+  : evolutionReadiness >= 75
+  ? "Living Confluence"
+  : evolutionReadiness >= 50
+  ? "Harmonic Nexus"
+  : evolutionReadiness >= 25
+  ? "Awakened Rootspeaker"
+  : "Root Listener";
 
 
   const currentCycle = Number(world?.cycle || 0);
@@ -200,16 +201,17 @@ const stage = evolvedStage || baseStage;
 const evolutionReady =
   evolutionReadiness >= 75;
 
-  const evolutionRank =
-    evolutionReadiness >= 100
-      ? "Ascendant"
-      : evolutionReadiness >= 75
-      ? "IV"
-      : evolutionReadiness >= 50
-      ? "III"
-      : evolutionReadiness >= 25
-      ? "II"
-      : "I";
+  const evolutionRank = hasEvolved
+  ? "MAX"
+  : evolutionReadiness >= 100
+  ? "Ascendant"
+  : evolutionReadiness >= 75
+  ? "IV"
+  : evolutionReadiness >= 50
+  ? "III"
+  : evolutionReadiness >= 25
+  ? "II"
+  : "I";
 
   const rankI = evolutionReadiness < 25;
   const rankII = evolutionReadiness >= 25 && evolutionReadiness < 50;
