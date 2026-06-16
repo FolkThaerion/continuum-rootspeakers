@@ -1097,9 +1097,10 @@ const displayRank = hasEvolved
 
     <button
       onClick={() => {
-        setHasEvolved(false);
-        setEvolvedStage(null);
-      }}
+  setHasEvolved(false);
+  setEvolvedStage(null);
+  setRealityWeaveUsed(false);
+}}
       style={{
         marginTop: "12px",
         padding: "10px 16px",
