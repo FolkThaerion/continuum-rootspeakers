@@ -577,9 +577,9 @@ const displayRank = hasEvolved
 <button
   onClick={() => {
     setForgedArtifacts((current) =>
-      current.includes("Test Artifact")
-        ? current
-        : [...current, "Test Artifact"]
+      current.includes("Celestial Navigator")
+  ? current
+  : [...current, "Celestial Navigator"]
     );
   }}
   style={{
@@ -597,9 +597,7 @@ const displayRank = hasEvolved
 </button>
   </div>
 )}
-<p style={{ color: "yellow" }}>
-  Debug Forged Count: {forgedArtifacts.length}
-</p>
+
 {forgedArtifacts.length > 0 && (
   <div
     style={{
