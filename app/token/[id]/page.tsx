@@ -146,15 +146,15 @@ const stage = evolvedStage || baseStage;
 
     const nextEvolution = hasEvolved
   ? "Reality Weaver"
-  : evolutionReadiness >= 100
-  ? "Reality Weaver"
-  : evolutionReadiness >= 75
+  : stage === "Root Listener"
+  ? "Pattern Speaker"
+  : stage === "Pattern Speaker"
+  ? "Galaxy Speaker"
+  : stage === "Galaxy Speaker"
   ? "Living Confluence"
-  : evolutionReadiness >= 50
-  ? "Harmonic Nexus"
-  : evolutionReadiness >= 25
-  ? "Awakened Rootspeaker"
-  : "Root Listener";
+  : stage === "Living Confluence"
+  ? "Transcendent Confluence"
+  : "Unknown";
 
 
   const currentCycle = Number(world?.cycle || 0);
