@@ -29,6 +29,7 @@ export default function TokenPage(props: any) {
   const [world, setWorld] = useState<any>(null);
   const [realityWeaveUsed, setRealityWeaveUsed] = useState(false);
   const [worldEvent, setWorldEvent] = useState("Silence Tide");
+  const [legendaryRelic, setLegendaryRelic] = useState<string | null>(null);
 
   const [decision, setDecision] = useState<string | null>(null);
   const [eventIndex, setEventIndex] = useState(0);
@@ -63,7 +64,14 @@ const WORLD_EVENTS = [
   "Temporal Storm",
   "Echo Harvest",
 ];
-
+const LEGENDARY_RELICS = [
+  "Chronicle Core",
+  "Void Lantern",
+  "Worldseed Fragment",
+  "Echo Crown",
+  "Heart of the First Root",
+  "Astral Compass",
+];
   useEffect(() => {
     fetch(`/metadata/${id}.json`)
       .then((res) => res.json())
@@ -92,6 +100,7 @@ const WORLD_EVENTS = [
     setHasEvolved(data.hasEvolved ?? false);
     setEvolvedStage(data.evolvedStage ?? null);
     setRealityWeaveUsed(data.realityWeaveUsed ?? false);
+    setLegendaryRelic(data.legendaryRelic ?? null);
   }
 
   setStatsLoaded(true);
@@ -110,6 +119,7 @@ const WORLD_EVENTS = [
     evolvedStage,
     realityWeaveUsed,
     worldEvent,
+    legendaryRelic,
   })
 );
 }, [reputation, relics, companionBond, hasEvolved, evolvedStage, id, statsLoaded]);
@@ -472,7 +482,20 @@ const displayRank = hasEvolved
   <h3>🌍 Active World Event</h3>
   <p>{worldEvent}</p>
 </div>
-
+{legendaryRelic && (
+  <div
+    style={{
+      marginTop: "15px",
+      padding: "12px",
+      borderRadius: "12px",
+      background: "rgba(255,215,0,0.08)",
+      border: "1px solid gold",
+    }}
+  >
+    <h3>🏺 Legendary Relic Discovered</h3>
+    <p>{legendaryRelic}</p>
+  </div>
+)}
           <p><strong>Era:</strong> {world.era}</p>
           <p><strong>Condition:</strong> {world.condition}</p>
           <p><strong>Cycle:</strong> {world.cycle}</p>
@@ -1242,6 +1265,14 @@ if (randomEvent === "Temporal Storm") {
 
 if (randomEvent === "Echo Harvest") {
   setCompanionBond((b) => b + 20);
+}
+if (randomEvent === "Void Eclipse") {
+  const relic =
+    LEGENDARY_RELICS[
+      Math.floor(Math.random() * LEGENDARY_RELICS.length)
+    ];
+
+  setLegendaryRelic(relic);
 }
 
   setWorld((w: any) => ({
