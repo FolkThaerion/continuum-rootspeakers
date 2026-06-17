@@ -616,25 +616,7 @@ const displayRank = hasEvolved
 >
   🌱 Forge Living Worldseed
 </button>
-<button
-  onClick={() => {
-    setForgedArtifacts((current) =>
-      current.filter((artifact) => artifact !== "Test Artifact")
-    );
-  }}
-  style={{
-    marginTop: "12px",
-    padding: "10px 16px",
-    borderRadius: "999px",
-    border: "1px solid red",
-    background: "rgba(255,0,0,0.12)",
-    color: "red",
-    fontWeight: "bold",
-    cursor: "pointer",
-  }}
->
-  🗑 Remove Test Artifact
-</button>
+
   </div>
 )}
 
