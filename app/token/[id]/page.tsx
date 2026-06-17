@@ -518,6 +518,21 @@ const displayRank = hasEvolved
     +10 Reputation Bonus
   </div>
 )}
+{legendaryRelics.length >= 6 && (
+  <div
+    style={{
+      marginTop: "12px",
+      padding: "12px",
+      borderRadius: "12px",
+      background: "rgba(180,120,255,0.08)",
+      border: "1px solid violet",
+    }}
+  >
+    🏺 Ancient Relic Forge Unlocked
+    <br />
+    Craft legendary artifacts from relics.
+  </div>
+)}
 
 </div>
 )}
