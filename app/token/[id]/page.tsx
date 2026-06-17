@@ -29,7 +29,7 @@ export default function TokenPage(props: any) {
   const [world, setWorld] = useState<any>(null);
   const [realityWeaveUsed, setRealityWeaveUsed] = useState(false);
   const [worldEvent, setWorldEvent] = useState("Silence Tide");
-  const [legendaryRelic, setLegendaryRelic] = useState<string | null>(null);
+  const [legendaryRelics, setLegendaryRelics] = useState<string[]>([]);
 
   const [decision, setDecision] = useState<string | null>(null);
   const [eventIndex, setEventIndex] = useState(0);
@@ -100,7 +100,7 @@ const LEGENDARY_RELICS = [
     setHasEvolved(data.hasEvolved ?? false);
     setEvolvedStage(data.evolvedStage ?? null);
     setRealityWeaveUsed(data.realityWeaveUsed ?? false);
-    setLegendaryRelic(data.legendaryRelic ?? null);
+    setLegendaryRelics(data.legendaryRelics ?? []);
   }
 
   setStatsLoaded(true);
@@ -119,7 +119,7 @@ const LEGENDARY_RELICS = [
     evolvedStage,
     realityWeaveUsed,
     worldEvent,
-    legendaryRelic,
+    legendaryRelics,
   })
 );
 }, [reputation, relics, companionBond, hasEvolved, evolvedStage, id, statsLoaded]);
@@ -482,7 +482,7 @@ const displayRank = hasEvolved
   <h3>🌍 Active World Event</h3>
   <p>{worldEvent}</p>
 </div>
-{legendaryRelic && (
+{legendaryRelics.length > 0 && (
   <div
     style={{
       marginTop: "15px",
@@ -492,8 +492,14 @@ const displayRank = hasEvolved
       border: "1px solid gold",
     }}
   >
-    <h3>🏺 Legendary Relic Discovered</h3>
-    <p>{legendaryRelic}</p>
+    <h3>🏺 Legendary Relic Collection</h3>
+<p>
+  <strong>Collected:</strong> {legendaryRelics.length} / {LEGENDARY_RELICS.length}
+</p>
+
+    {legendaryRelics.map((relic) => (
+      <p key={relic}>✓ {relic}</p>
+    ))}
   </div>
 )}
           <p><strong>Era:</strong> {world.era}</p>
@@ -1272,7 +1278,11 @@ if (randomEvent === "Void Eclipse") {
       Math.floor(Math.random() * LEGENDARY_RELICS.length)
     ];
 
-  setLegendaryRelic(relic);
+  setLegendaryRelics((current) =>
+  current.includes(relic)
+    ? current
+    : [...current, relic]
+);
 }
 
   setWorld((w: any) => ({
