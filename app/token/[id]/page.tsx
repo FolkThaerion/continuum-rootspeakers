@@ -577,53 +577,58 @@ const displayRank = hasEvolved
             <strong>⚡ Evolution Readiness:</strong> {evolutionReadiness}%
           </p>
 
-          <div
-            style={{
-              marginTop: "15px",
-              padding: "12px",
-              borderRadius: "12px",
-              background: "rgba(255,215,0,0.06)",
-              border: "1px solid #333",
-            }}
-          >
-            <h3>🔮 Evolution Forecast</h3>
-            <p><strong>Current Rank:</strong> {evolutionRank}</p>
-            <p><strong>Next Rank:</strong> {nextRank}</p>
-            <p><strong>Needed:</strong> {readinessToNextRank}% Readiness</p>
-            <p><strong>Estimated Evolution:</strong> Cycle {evolutionRequirement}</p>
-          </div>
+          {!hasEvolved && (
+  <div
+    style={{
+      marginTop: "15px",
+      padding: "12px",
+      borderRadius: "12px",
+      background: "rgba(255,215,0,0.06)",
+      border: "1px solid #333",
+    }}
+  >
+    <h3>🔮 Evolution Forecast</h3>
+    <p><strong>Current Rank:</strong> {evolutionRank}</p>
+    <p><strong>Next Rank:</strong> {nextRank}</p>
+    <p><strong>Needed:</strong> {readinessToNextRank}% Readiness</p>
+    <p><strong>Estimated Evolution:</strong> Cycle {evolutionRequirement}</p>
+  </div>
+)}
 
-          <div
-            style={{
-              marginTop: "15px",
-              padding: "12px",
-              borderRadius: "12px",
-              background: "rgba(255,255,255,0.04)",
-              border: "1px solid #333",
-            }}
-          >
-            <h3>⏳ Evolution Countdown</h3>
-            <p><strong>Current Readiness:</strong> {evolutionReadiness}%</p>
-            <p><strong>Next Rank:</strong> {nextRank}</p>
-            <p><strong>Remaining:</strong> {readinessToNextRank}%</p>
-            <p><strong>Status:</strong> {rankCountdownMessage}</p>
+          {!hasEvolved && (
+  <div
+    style={{
+      marginTop: "15px",
+      padding: "12px",
+      borderRadius: "12px",
+      background: "rgba(255,215,0,0.06)",
+      border: "1px solid #333",
+    }}
+  >
+    <h3>⏳ Evolution Countdown</h3>
+    <p><strong>Current Readiness:</strong> {evolutionReadiness}%</p>
+    <p><strong>Next Rank:</strong> {nextRank}</p>
+    <p><strong>Remaining:</strong> {readinessToNextRank}%</p>
+    <p><strong>Status:</strong> {rankCountdownMessage}</p>
+  </div>
+)}
 
-            {rankUpReady && (
-              <div
-                style={{
-                  marginTop: "12px",
-                  padding: "10px",
-                  borderRadius: "12px",
-                  background: "rgba(0,255,0,0.08)",
-                  border: "1px solid lime",
-                  color: "lime",
-                  fontWeight: "bold",
-                }}
-              >
-                🌱 Rank-Up Available — this Rootspeaker is ready to become Rank {nextRank}.
-              </div>
-            )}
-          </div>
+            {!hasEvolved && rankUpReady && (
+  <div
+    style={{
+      marginTop: "12px",
+      padding: "10px",
+      borderRadius: "12px",
+      background: "rgba(0,255,0,0.08)",
+      border: "1px solid lime",
+      color: "lime",
+      fontWeight: "bold",
+    }}
+  >
+    🌱 Rank-Up Available — this Rootspeaker is ready to become Rank {nextRank}.
+  </div>
+)}
+          
 
           <div
             style={{
