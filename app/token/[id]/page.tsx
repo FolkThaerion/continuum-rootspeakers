@@ -548,6 +548,20 @@ const displayRank = hasEvolved
     Craft legendary artifacts from relics.
   </div>
 )}
+</div>
+)}
+    
+   
+
+
+
+
+          <p><strong>Era:</strong> {world.era}</p>
+          <p><strong>Condition:</strong> {world.condition}</p>
+          <p><strong>Cycle:</strong> {world.cycle}</p>
+          <p><strong>Last Event:</strong> {world.lastEvent}</p>
+        </div>
+      )}
 {legendaryRelics.length >= 6 && (
   <div
     style={{
@@ -571,52 +585,53 @@ const displayRank = hasEvolved
     <br />
 
     <p>
-  <strong>Forge Status:</strong> READY
-</p>
+      <strong>Forge Status:</strong> READY
+    </p>
 
-<button
-  onClick={() => {
-    setForgedArtifacts((current) =>
-      current.includes("Celestial Navigator")
-  ? current
-  : [...current, "Celestial Navigator"]
-    );
-  }}
-  style={{
-    marginTop: "12px",
-    padding: "10px 16px",
-    borderRadius: "999px",
-    border: "1px solid gold",
-    background: "rgba(255,215,0,0.12)",
-    color: "gold",
-    fontWeight: "bold",
-    cursor: "pointer",
-  }}
->
-  ⚒ Forge Celestial Navigator
-</button>
-<button
-  onClick={() => {
-    setForgedArtifacts((current) =>
-      current.includes("Living Worldseed")
-        ? current
-        : [...current, "Living Worldseed"]
-    );
-  }}
-  style={{
-    marginTop: "12px",
-    padding: "10px 16px",
-    borderRadius: "999px",
-    border: "1px solid lime",
-    background: "rgba(0,255,0,0.12)",
-    color: "lime",
-    fontWeight: "bold",
-    cursor: "pointer",
-  }}
->
-  🌱 Forge Living Worldseed
-</button>
+    <button
+      onClick={() => {
+        setForgedArtifacts((current) =>
+          current.includes("Celestial Navigator")
+            ? current
+            : [...current, "Celestial Navigator"]
+        );
+      }}
+      style={{
+        marginTop: "12px",
+        padding: "10px 16px",
+        borderRadius: "999px",
+        border: "1px solid gold",
+        background: "rgba(255,215,0,0.12)",
+        color: "gold",
+        fontWeight: "bold",
+        cursor: "pointer",
+      }}
+    >
+      ⚒ Forge Celestial Navigator
+    </button>
 
+    <button
+      onClick={() => {
+        setForgedArtifacts((current) =>
+          current.includes("Living Worldseed")
+            ? current
+            : [...current, "Living Worldseed"]
+        );
+      }}
+      style={{
+        marginTop: "12px",
+        marginLeft: "10px",
+        padding: "10px 16px",
+        borderRadius: "999px",
+        border: "1px solid lime",
+        background: "rgba(0,255,0,0.12)",
+        color: "lime",
+        fontWeight: "bold",
+        cursor: "pointer",
+      }}
+    >
+      🌱 Forge Living Worldseed
+    </button>
   </div>
 )}
 
@@ -635,18 +650,25 @@ const displayRank = hasEvolved
     {forgedArtifacts.map((artifact) => (
       <p key={artifact}>⭐ {artifact}</p>
     ))}
-  </div>
-)}
 
-</div>
-)}
-
-          <p><strong>Era:</strong> {world.era}</p>
-          <p><strong>Condition:</strong> {world.condition}</p>
-          <p><strong>Cycle:</strong> {world.cycle}</p>
-          <p><strong>Last Event:</strong> {world.lastEvent}</p>
+    {forgedArtifacts.includes("Celestial Navigator") &&
+      forgedArtifacts.includes("Living Worldseed") && (
+        <div
+          style={{
+            marginTop: "12px",
+            padding: "12px",
+            borderRadius: "12px",
+            background: "rgba(255,255,255,0.08)",
+            border: "1px solid white",
+          }}
+        >
+          🌟 Artifact Mastery Unlocked
+          <br />
+          Title: Reality Architect
         </div>
       )}
+  </div>
+)}
 
       {world && (
         <div
