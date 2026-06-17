@@ -597,6 +597,9 @@ const displayRank = hasEvolved
 </button>
   </div>
 )}
+<p style={{ color: "yellow" }}>
+  Debug Forged Count: {forgedArtifacts.length}
+</p>
 {forgedArtifacts.length > 0 && (
   <div
     style={{
