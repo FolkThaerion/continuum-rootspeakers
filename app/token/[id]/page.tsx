@@ -30,6 +30,7 @@ export default function TokenPage(props: any) {
   const [realityWeaveUsed, setRealityWeaveUsed] = useState(false);
   const [worldEvent, setWorldEvent] = useState("Silence Tide");
   const [legendaryRelics, setLegendaryRelics] = useState<string[]>([]);
+  const [forgedArtifacts, setForgedArtifacts] = useState<string[]>([]);
 
   const [decision, setDecision] = useState<string | null>(null);
   const [eventIndex, setEventIndex] = useState(0);
@@ -101,6 +102,7 @@ const LEGENDARY_RELICS = [
     setEvolvedStage(data.evolvedStage ?? null);
     setRealityWeaveUsed(data.realityWeaveUsed ?? false);
     setLegendaryRelics(data.legendaryRelics ?? []);
+    setForgedArtifacts(data.forgedArtifacts ?? []);
   }
 
   setStatsLoaded(true);
@@ -120,9 +122,22 @@ const LEGENDARY_RELICS = [
     realityWeaveUsed,
     worldEvent,
     legendaryRelics,
+    forgedArtifacts,
   })
 );
-}, [reputation, relics, companionBond, hasEvolved, evolvedStage, id, statsLoaded]);
+}, [
+  reputation,
+  relics,
+  companionBond,
+  hasEvolved,
+  evolvedStage,
+  realityWeaveUsed,
+  worldEvent,
+  legendaryRelics,
+  forgedArtifacts,
+  id,
+  statsLoaded,
+]);
 
   if (!token) return <main>Loading...</main>;
 
@@ -561,8 +576,12 @@ const displayRank = hasEvolved
 
 <button
   onClick={() => {
-    alert("Celestial Navigator forged!");
-  }}
+  setForgedArtifacts((current) =>
+    current.includes("Celestial Navigator")
+      ? current
+      : [...current, "Celestial Navigator"]
+  );
+}}
   style={{
     marginTop: "12px",
     padding: "10px 16px",
@@ -576,6 +595,23 @@ const displayRank = hasEvolved
 >
   ⚒ Forge Celestial Navigator
 </button>
+  </div>
+)}
+{forgedArtifacts.length > 0 && (
+  <div
+    style={{
+      marginTop: "15px",
+      padding: "12px",
+      borderRadius: "12px",
+      background: "rgba(255,255,0,0.06)",
+      border: "1px solid gold",
+    }}
+  >
+    <h3>⭐ Forged Artifacts</h3>
+
+    {forgedArtifacts.map((artifact) => (
+      <p key={artifact}>⭐ {artifact}</p>
+    ))}
   </div>
 )}
 
@@ -1098,7 +1134,7 @@ const displayRank = hasEvolved
             }}
           >
             <h3>🎲 {events[eventIndex].title}</h3>
-            <p>{events[eventIndex].description}</p>
+<p>{events[eventIndex].description}</p>
 
             <button onClick={() => chooseDecision("A")}>
               Investigate the Signal
