@@ -55,6 +55,14 @@ export default function TokenPage(props: any) {
       description: "A tear in reality opens near the frontier.",
     },
   ];
+const WORLD_EVENTS = [
+  "Silence Tide",
+  "Convergence Bloom",
+  "Relic Rain",
+  "Void Eclipse",
+  "Temporal Storm",
+  "Echo Harvest",
+];
 
   useEffect(() => {
     fetch(`/metadata/${id}.json`)
@@ -1213,7 +1221,10 @@ const displayRank = hasEvolved
   setRelics((r) => r + 10);
   setReputation((r) => r + 15);
   setRealityWeaveUsed(true);
-  setWorldEvent("Convergence Bloom");
+  const randomEvent =
+  WORLD_EVENTS[Math.floor(Math.random() * WORLD_EVENTS.length)];
+
+setWorldEvent(randomEvent);
 
   setWorld((w: any) => ({
     ...w,
