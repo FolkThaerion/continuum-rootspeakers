@@ -482,6 +482,7 @@ const displayRank = hasEvolved
   <h3>🌍 Active World Event</h3>
   <p>{worldEvent}</p>
 </div>
+
 {legendaryRelics.length > 0 && (
   <div
     style={{
@@ -493,15 +494,34 @@ const displayRank = hasEvolved
     }}
   >
     <h3>🏺 Legendary Relic Collection</h3>
+
 <p>
   <strong>Collected:</strong> {legendaryRelics.length} / {LEGENDARY_RELICS.length}
 </p>
 
-    {legendaryRelics.map((relic) => (
-      <p key={relic}>✓ {relic}</p>
-    ))}
+{legendaryRelics.map((relic) => (
+  <p key={relic}>✓ {relic}</p>
+))}
+
+{legendaryRelics.length >= 3 && (
+  <div
+    style={{
+      marginTop: "12px",
+      padding: "12px",
+      borderRadius: "12px",
+      background: "rgba(255,215,0,0.08)",
+      border: "1px solid gold",
+    }}
+  >
+    🏆 Relic Mastery I Unlocked
+    <br />
+    +10 Reputation Bonus
   </div>
 )}
+
+</div>
+)}
+
           <p><strong>Era:</strong> {world.era}</p>
           <p><strong>Condition:</strong> {world.condition}</p>
           <p><strong>Cycle:</strong> {world.cycle}</p>
