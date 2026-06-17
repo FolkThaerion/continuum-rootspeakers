@@ -357,16 +357,15 @@ const displayRank = hasEvolved
       ? "Can synchronize with multiple relic echoes."
       : "Can sense approaching evolutionary shifts.";
 
-  const evolutionAura =
-    evolutionRank === "Ascendant"
-      ? "Cosmic Violet"
-      : evolutionRank === "IV"
-      ? "Golden Radiance"
-      : evolutionRank === "III"
-      ? "Emerald Resonance"
-      : evolutionRank === "II"
-      ? "Azure Echo"
-      : "Dormant Gray";
+  const evolutionAura = hasEvolved
+  ? "Cosmic Violet"
+  : evolutionRank === "IV"
+  ? "Golden Radiance"
+  : evolutionRank === "III"
+  ? "Emerald Glow"
+  : evolutionRank === "II"
+  ? "Azure Echo"
+  : "Dormant Gray";
 
   const auraColor =
     evolutionRank === "Ascendant"
