@@ -28,6 +28,7 @@ export default function TokenPage(props: any) {
   const [history, setHistory] = useState<TokenHistory[]>([]);
   const [world, setWorld] = useState<any>(null);
   const [realityWeaveUsed, setRealityWeaveUsed] = useState(false);
+  const [worldEvent, setWorldEvent] = useState("Silence Tide");
 
   const [decision, setDecision] = useState<string | null>(null);
   const [eventIndex, setEventIndex] = useState(0);
@@ -100,6 +101,7 @@ export default function TokenPage(props: any) {
     hasEvolved,
     evolvedStage,
     realityWeaveUsed,
+    worldEvent,
   })
 );
 }, [reputation, relics, companionBond, hasEvolved, evolvedStage, id, statsLoaded]);
@@ -450,6 +452,18 @@ const displayRank = hasEvolved
           }}
         >
           <h2>🌌 World Effects</h2>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(0,255,255,0.08)",
+    border: "1px solid cyan",
+  }}
+>
+  <h3>🌍 Active World Event</h3>
+  <p>{worldEvent}</p>
+</div>
 
           <p><strong>Era:</strong> {world.era}</p>
           <p><strong>Condition:</strong> {world.condition}</p>
@@ -1125,6 +1139,7 @@ const displayRank = hasEvolved
   setHasEvolved(false);
   setEvolvedStage(null);
   setRealityWeaveUsed(false);
+  setWorldEvent("Silence Tide");
 }}
       style={{
         marginTop: "12px",
@@ -1198,6 +1213,7 @@ const displayRank = hasEvolved
   setRelics((r) => r + 10);
   setReputation((r) => r + 15);
   setRealityWeaveUsed(true);
+  setWorldEvent("Convergence Bloom");
 
   setWorld((w: any) => ({
     ...w,
