@@ -1225,6 +1225,24 @@ const displayRank = hasEvolved
   WORLD_EVENTS[Math.floor(Math.random() * WORLD_EVENTS.length)];
 
 setWorldEvent(randomEvent);
+if (randomEvent === "Relic Rain") {
+  setRelics((r) => r + 10);
+}
+
+if (randomEvent === "Convergence Bloom") {
+  setReputation((r) => r + 25);
+}
+
+if (randomEvent === "Temporal Storm") {
+  setWorld((w: any) => ({
+    ...w,
+    cycle: (w?.cycle || 0) + 10,
+  }));
+}
+
+if (randomEvent === "Echo Harvest") {
+  setCompanionBond((b) => b + 20);
+}
 
   setWorld((w: any) => ({
     ...w,
