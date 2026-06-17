@@ -556,8 +556,26 @@ const displayRank = hasEvolved
     <br />
 
     <p>
-      <strong>Forge Status:</strong> READY
-    </p>
+  <strong>Forge Status:</strong> READY
+</p>
+
+<button
+  onClick={() => {
+    alert("Celestial Navigator forged!");
+  }}
+  style={{
+    marginTop: "12px",
+    padding: "10px 16px",
+    borderRadius: "999px",
+    border: "1px solid gold",
+    background: "rgba(255,215,0,0.12)",
+    color: "gold",
+    fontWeight: "bold",
+    cursor: "pointer",
+  }}
+>
+  ⚒ Forge Celestial Navigator
+</button>
   </div>
 )}
 
