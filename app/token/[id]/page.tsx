@@ -533,6 +533,33 @@ const displayRank = hasEvolved
     Craft legendary artifacts from relics.
   </div>
 )}
+{legendaryRelics.length >= 6 && (
+  <div
+    style={{
+      marginTop: "15px",
+      padding: "12px",
+      borderRadius: "12px",
+      background: "rgba(120,80,255,0.08)",
+      border: "1px solid violet",
+    }}
+  >
+    <h3>⚒ Ancient Relic Forge</h3>
+
+    <p>🔭 Astral Compass + Chronicle Core</p>
+    <p>→ Celestial Navigator</p>
+
+    <br />
+
+    <p>🌱 Worldseed Fragment + Echo Crown</p>
+    <p>→ Living Worldseed</p>
+
+    <br />
+
+    <p>
+      <strong>Forge Status:</strong> READY
+    </p>
+  </div>
+)}
 
 </div>
 )}
