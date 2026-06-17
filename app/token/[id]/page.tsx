@@ -482,13 +482,25 @@ const displayRank = hasEvolved
   <strong>Current Stage:</strong>{" "}
   {hasEvolved ? "Transcendent Confluence" : stage}
 </p>
-          <p><strong>Evolution Requirement:</strong> Cycle {evolutionRequirement}</p>
+          {!hasEvolved && (
+  <p>
+    <strong>Evolution Requirement:</strong> Cycle {evolutionRequirement}
+  </p>
+)}
           <p><strong>Current World Cycle:</strong> {world.cycle}</p>
           <p><strong>Progress:</strong> {evolutionProgress}%</p>
           <p><strong>Relic Bonus:</strong> +{relicBonus}%</p>
           <p><strong>Effective Progress:</strong> {effectiveProgress}%</p>
-          <p><strong>Cycles Remaining:</strong> {cyclesRemaining}</p>
-          <p><strong>Target Cycle:</strong> {evolutionRequirement}</p>
+          {!hasEvolved && (
+  <p>
+    <strong>Cycles Remaining:</strong> {cyclesRemaining}
+  </p>
+)}
+          {!hasEvolved && (
+  <p>
+    <strong>Target Cycle:</strong> {evolutionRequirement}
+  </p>
+)}
 
           <div
             style={{
@@ -511,9 +523,17 @@ const displayRank = hasEvolved
             />
           </div>
 
-          <p style={{ marginTop: "15px", color: "#00ffff", fontWeight: "bold" }}>
-  Next Evolution: {hasEvolved ? "Reality Weaver" : nextEvolution}
-</p>
+          {!hasEvolved && (
+  <p style={{ marginTop: "15px", color: "#00ffff", fontWeight: "bold" }}>
+    Next Evolution: {nextEvolution}
+  </p>
+)}
+
+{hasEvolved && (
+  <p style={{ marginTop: "15px", color: "#00ffff", fontWeight: "bold" }}>
+    Ascension Path: Reality Weaver
+  </p>
+)}
 
           <p style={{ color: "#7CFF7C", fontWeight: "bold", marginTop: "10px" }}>
             🌱 Evolution Tier: {trait("Stage")}
