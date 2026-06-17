@@ -326,16 +326,15 @@ const displayRank = hasEvolved
       ? "+10% Evolution Resonance"
       : "+5% Evolution Resonance";
 
-  const evolutionTitle =
-    evolutionRank === "Ascendant"
-      ? "Worldshaper"
-      : evolutionRank === "IV"
-      ? "Convergence Master"
-      : evolutionRank === "III"
-      ? "Resonance Sage"
-      : evolutionRank === "II"
-      ? "Echo Keeper"
-      : "Root Wanderer";
+  const evolutionTitle = hasEvolved
+  ? "Worldshaper"
+  : evolutionRank === "IV"
+  ? "Convergence Master"
+  : evolutionRank === "III"
+  ? "Resonance Sage"
+  : evolutionRank === "II"
+  ? "Echo Keeper"
+  : "Root Wanderer";
 
   const evolutionAbility =
     evolutionRank === "Ascendant"
