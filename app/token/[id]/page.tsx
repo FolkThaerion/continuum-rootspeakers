@@ -235,6 +235,11 @@ const stage = evolvedStage || baseStage;
   const evolutionReadiness = effectiveProgress;
 const evolutionReady =
   evolutionReadiness >= 75;
+const settlementBonus = forgedArtifacts.includes("Living Worldseed")
+  ? 10
+  : 0;
+
+const settlementDevelopment = 18 + settlementBonus;
 
   const evolutionRank = hasEvolved
   ? "MAX"
@@ -1024,7 +1029,7 @@ const displayRank = hasEvolved
             <p><strong>Settlement:</strong> Frontier Outpost</p>
             <p><strong>Level:</strong> I</p>
             <p><strong>Population:</strong> 24</p>
-            <p><strong>Development:</strong> 18%</p>
+            <p><strong>Development:</strong> {settlementDevelopment}%</p>
             <p><strong>Next Upgrade:</strong> Trading Post</p>
           </div>
 
