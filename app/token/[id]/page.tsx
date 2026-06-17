@@ -595,6 +595,27 @@ const displayRank = hasEvolved
 >
   ⚒ Forge Celestial Navigator
 </button>
+<button
+  onClick={() => {
+    setForgedArtifacts((current) =>
+      current.includes("Living Worldseed")
+        ? current
+        : [...current, "Living Worldseed"]
+    );
+  }}
+  style={{
+    marginTop: "12px",
+    padding: "10px 16px",
+    borderRadius: "999px",
+    border: "1px solid lime",
+    background: "rgba(0,255,0,0.12)",
+    color: "lime",
+    fontWeight: "bold",
+    cursor: "pointer",
+  }}
+>
+  🌱 Forge Living Worldseed
+</button>
   </div>
 )}
 
