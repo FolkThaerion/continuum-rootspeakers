@@ -576,12 +576,12 @@ const displayRank = hasEvolved
 
 <button
   onClick={() => {
-  setForgedArtifacts((current) =>
-    current.includes("Celestial Navigator")
-      ? current
-      : [...current, "Celestial Navigator"]
-  );
-}}
+    setForgedArtifacts((current) =>
+      current.includes("Test Artifact")
+        ? current
+        : [...current, "Test Artifact"]
+    );
+  }}
   style={{
     marginTop: "12px",
     padding: "10px 16px",
