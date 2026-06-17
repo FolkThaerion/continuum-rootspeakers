@@ -336,16 +336,15 @@ const displayRank = hasEvolved
   ? "Echo Keeper"
   : "Root Wanderer";
 
-  const evolutionAbility =
-    evolutionRank === "Ascendant"
-      ? "Reality Shaping"
-      : evolutionRank === "IV"
-      ? "World Resonance"
-      : evolutionRank === "III"
-      ? "Echo Manipulation"
-      : evolutionRank === "II"
-      ? "Relic Synchronization"
-      : "Cycle Awareness";
+  const evolutionAbility = hasEvolved
+  ? "Reality Weaving"
+  : evolutionRank === "IV"
+  ? "World Resonance"
+  : evolutionRank === "III"
+  ? "Echo Manipulation"
+  : evolutionRank === "II"
+  ? "Relic Synchronization"
+  : "Cycle Awareness";
 
   const abilityDescription =
     evolutionRank === "Ascendant"
