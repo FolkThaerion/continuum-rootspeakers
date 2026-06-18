@@ -239,11 +239,13 @@ const settlementBonus = forgedArtifacts.includes("Living Worldseed")
   ? 10
   : 0;
 
-const settlementDevelopment =
+const settlementDevelopment = Math.min(
+  100,
   18 +
-  settlementBonus +
-  Math.floor(reputation / 10) +
-  relics;
+    settlementBonus +
+    Math.floor(reputation / 10) +
+    Math.floor(relics / 50)
+);
 
 const settlementPopulation =
   24 + Math.floor(settlementDevelopment / 5);
