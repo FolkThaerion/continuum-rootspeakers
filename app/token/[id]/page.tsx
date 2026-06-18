@@ -265,6 +265,13 @@ const buildingPopulationBonus = unlockedBuildings.includes("Frontier Hall")
   : 0;
 
 const totalPopulation = settlementPopulation + buildingPopulationBonus;
+const reputationBuildingBonus =
+  unlockedBuildings.includes("Trading Post")
+    ? 10
+    : 0;
+
+const totalReputation =
+  reputation + reputationBuildingBonus;
 
 const nextSettlementUpgrade =
   settlementLevel === "I"
@@ -1017,7 +1024,7 @@ const displayRank = hasEvolved
             <h3>🌍 World Reputation</h3>
             <p><strong>Standing:</strong> Known Wanderer</p>
             <p><strong>Faction:</strong> Convergence-Touched</p>
-            <p><strong>Influence:</strong> {reputation}</p>
+            <p><strong>Influence:</strong> {totalReputation}</p>
             <p><strong>Reputation Rank:</strong> Local Figure</p>
           </div>
 
