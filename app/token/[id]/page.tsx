@@ -390,7 +390,7 @@ const diplomaticRelations =
     ? 1
     : 0;
 
-const diplomaticStatus =
+  const diplomaticStatus =
   diplomaticRelations >= 3
     ? "Council Member"
     : diplomaticRelations >= 2
@@ -398,6 +398,19 @@ const diplomaticStatus =
     : diplomaticRelations >= 1
     ? "Known Contact"
     : "Unknown";
+
+const councilSeats =
+  diplomaticRelations;
+
+const councilRank =
+  factionInfluence >= 75
+    ? "High Council"
+    : factionInfluence >= 50
+    ? "Council Delegate"
+    : "Observer";
+
+const councilVotingPower =
+  councilSeats * 10;
 
 
   const evolutionRank = hasEvolved
@@ -1189,6 +1202,29 @@ const displayRank = hasEvolved
 
   <p>
     <strong>Primary Ally:</strong> Harmonic Concord
+  </p>
+</div>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(180,120,255,0.08)",
+    border: "1px solid violet",
+  }}
+>
+  <h3>🌌 Galactic Council</h3>
+
+  <p>
+    <strong>Seats:</strong> {councilSeats}
+  </p>
+
+  <p>
+    <strong>Rank:</strong> {councilRank}
+  </p>
+
+  <p>
+    <strong>Voting Power:</strong> {councilVotingPower}
   </p>
 </div>
 
