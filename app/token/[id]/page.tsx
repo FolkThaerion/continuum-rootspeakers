@@ -412,6 +412,24 @@ const councilRank =
 const councilVotingPower =
   councilSeats * 10;
 
+const activePolicy =
+  councilVotingPower >= 30
+    ? "Nexus Expansion Mandate"
+    : councilVotingPower >= 20
+    ? "Trade Stabilization Accord"
+    : councilVotingPower >= 10
+    ? "Frontier Cooperation Pact"
+    : "No Active Policy";
+
+const policyEffect =
+  activePolicy === "Nexus Expansion Mandate"
+    ? "+10 Region Control"
+    : activePolicy === "Trade Stabilization Accord"
+    ? "+10 Treasury Growth"
+    : activePolicy === "Frontier Cooperation Pact"
+    ? "+5 Colony Stability"
+    : "None";
+
 
   const evolutionRank = hasEvolved
   ? "MAX"
@@ -1225,6 +1243,25 @@ const displayRank = hasEvolved
 
   <p>
     <strong>Voting Power:</strong> {councilVotingPower}
+  </p>
+</div>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(255,255,255,0.06)",
+    border: "1px solid #aaa",
+  }}
+>
+  <h3>📜 Civilization Policy</h3>
+
+  <p>
+    <strong>Active Policy:</strong> {activePolicy}
+  </p>
+
+  <p>
+    <strong>Effect:</strong> {policyEffect}
   </p>
 </div>
 
