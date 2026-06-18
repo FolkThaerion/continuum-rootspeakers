@@ -361,6 +361,13 @@ const treasuryStatus =
     ? "Growing"
     : "Developing";
 
+const treasuryBonus =
+  treasury >= 500
+    ? 20
+    : treasury >= 250
+    ? 10
+    : 5;
+
 
 
 
@@ -1212,6 +1219,9 @@ const displayRank = hasEvolved
   <p>
     <strong>Income Per Cycle:</strong> {tradeIncome}
   </p>
+<p>
+  <strong>Economic Bonus:</strong> +{treasuryBonus} Reputation
+</p>
 </div>
 
           <div
