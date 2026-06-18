@@ -317,6 +317,30 @@ const nexusInfluence =
     ? 10
     : 0;
 
+const regionControl =
+  8 + nexusInfluence;
+
+const regionStatus =
+  regionControl >= 50
+    ? "Established"
+    : regionControl >= 25
+    ? "Expanding"
+    : "Frontier";
+
+const colonyCount =
+  regionControl >= 75
+    ? 3
+    : regionControl >= 50
+    ? 2
+    : regionControl >= 25
+    ? 1
+    : 0;
+
+const colonyStatus =
+  colonyCount > 0
+    ? "Operational"
+    : "Not Established";
+
 
 
 
@@ -1096,6 +1120,29 @@ const displayRank = hasEvolved
             <p><strong>Influence:</strong> Growing</p>
             <p><strong>Next Unlock:</strong> Frontier Outpost</p>
           </div>
+<div
+  style={{
+    marginTop: "12px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(255,200,0,0.08)",
+    border: "1px solid gold",
+  }}
+>
+  <h4>🏘 Frontier Colonies</h4>
+
+  <p>
+    <strong>Colonies:</strong> {colonyCount}
+  </p>
+
+  <p>
+    <strong>Status:</strong> {colonyStatus}
+  </p>
+
+  <p>
+    <strong>Primary Colony:</strong> Veilwatch Outpost
+  </p>
+</div>
 
           <div
             style={{
