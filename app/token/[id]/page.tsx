@@ -351,6 +351,16 @@ const tradeStatus =
     ? "Active"
     : "Inactive";
 
+const treasury =
+  tradeIncome * 10;
+
+const treasuryStatus =
+  treasury >= 500
+    ? "Prosperous"
+    : treasury >= 250
+    ? "Growing"
+    : "Developing";
+
 
 
 
@@ -1178,6 +1188,29 @@ const displayRank = hasEvolved
 
   <p>
     <strong>Primary Route:</strong> Veilwatch Exchange
+  </p>
+</div>
+<div
+  style={{
+    marginTop: "12px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(255,215,0,0.08)",
+    border: "1px solid gold",
+  }}
+>
+  <h4>💰 Treasury</h4>
+
+  <p>
+    <strong>Reserve:</strong> {treasury}
+  </p>
+
+  <p>
+    <strong>Status:</strong> {treasuryStatus}
+  </p>
+
+  <p>
+    <strong>Income Per Cycle:</strong> {tradeIncome}
   </p>
 </div>
 
