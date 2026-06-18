@@ -310,6 +310,12 @@ const tradeRouteBonus =
 const totalExpeditionProgress =
   expeditionProgress + tradeRouteBonus;
 
+const nexusInfluence =
+  settlementLevel === "III"
+    ? 25
+    : settlementLevel === "II"
+    ? 10
+    : 0;
 
 
 
@@ -1166,6 +1172,9 @@ const displayRank = hasEvolved
     <p>✓ Settlement Fully Developed</p>
     <p>✓ Harmonic Citadel Active</p>
     <p>✓ Nexus Influence Expanding</p>
+    <p>
+  <strong>Influence:</strong> {nexusInfluence}%
+</p> 
   </div>
 )}
 </div>
