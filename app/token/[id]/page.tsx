@@ -390,7 +390,7 @@ const diplomaticRelations =
     ? 1
     : 0;
 
-  const diplomaticStatus =
+const diplomaticStatus =
   diplomaticRelations >= 3
     ? "Council Member"
     : diplomaticRelations >= 2
@@ -412,6 +412,28 @@ const councilRank =
 const councilVotingPower =
   councilSeats * 10;
 
+const empireTerritories =
+  colonyCount +
+  Math.floor(councilVotingPower / 10);
+
+const empireStatus =
+  empireTerritories >= 6
+    ? "Interstellar Empire"
+    : empireTerritories >= 4
+    ? "Regional Empire"
+    : empireTerritories >= 2
+    ? "Expanding State"
+    : "Emerging Power";
+
+const empireBonus =
+  empireTerritories >= 6
+    ? 30
+    : empireTerritories >= 4
+    ? 20
+    : empireTerritories >= 2
+    ? 10
+    : 0;
+
 const activePolicy =
   councilVotingPower >= 30
     ? "Nexus Expansion Mandate"
@@ -430,18 +452,6 @@ const policyEffect =
     ? "+5 Colony Stability"
     : "None";
 
-const empireTerritories =
-  colonyCount +
-  Math.floor(councilVotingPower / 10);
-
-const empireStatus =
-  empireTerritories >= 6
-    ? "Interstellar Empire"
-    : empireTerritories >= 4
-    ? "Regional Empire"
-    : empireTerritories >= 2
-    ? "Expanding State"
-    : "Emerging Power";
 
 
   const evolutionRank = hasEvolved
@@ -1299,6 +1309,9 @@ const displayRank = hasEvolved
   <p>
     <strong>Capital:</strong> World Nexus Prime
   </p>
+<p>
+  <strong>Empire Bonus:</strong> +{empireBonus} Reputation
+</p>
 </div>
 
           <div
