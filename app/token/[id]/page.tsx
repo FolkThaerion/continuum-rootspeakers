@@ -1116,8 +1116,8 @@ const displayRank = hasEvolved
           >
             <h3>🗺 Territory Influence</h3>
             <p><strong>Region:</strong> Astra-Vey Frontier</p>
-            <p><strong>Control:</strong> 8%</p>
-            <p><strong>Influence:</strong> Growing</p>
+            <p><strong>Control:</strong> {regionControl}%</p>
+<p><strong>Status:</strong> {regionStatus}</p>
             <p><strong>Next Unlock:</strong> Frontier Outpost</p>
           </div>
 <div
