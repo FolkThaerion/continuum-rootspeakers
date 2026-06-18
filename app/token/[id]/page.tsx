@@ -31,6 +31,9 @@ export default function TokenPage(props: any) {
   const [worldEvent, setWorldEvent] = useState("Silence Tide");
   const [legendaryRelics, setLegendaryRelics] = useState<string[]>([]);
   const [forgedArtifacts, setForgedArtifacts] = useState<string[]>([]);
+  const [selectedPolicy, setSelectedPolicy] = useState(
+  "Nexus Expansion Mandate"
+);
 
   const [decision, setDecision] = useState<string | null>(null);
   const [eventIndex, setEventIndex] = useState(0);
@@ -103,6 +106,9 @@ const LEGENDARY_RELICS = [
     setRealityWeaveUsed(data.realityWeaveUsed ?? false);
     setLegendaryRelics(data.legendaryRelics ?? []);
     setForgedArtifacts(data.forgedArtifacts ?? []);
+    setSelectedPolicy(
+  data.selectedPolicy ?? "Nexus Expansion Mandate"
+);
   }
 
   setStatsLoaded(true);
@@ -123,6 +129,7 @@ const LEGENDARY_RELICS = [
     worldEvent,
     legendaryRelics,
     forgedArtifacts,
+    selectedPolicy,
   })
 );
 }, [
@@ -434,14 +441,7 @@ const empireBonus =
     ? 10
     : 0;
 
-const activePolicy =
-  councilVotingPower >= 30
-    ? "Nexus Expansion Mandate"
-    : councilVotingPower >= 20
-    ? "Trade Stabilization Accord"
-    : councilVotingPower >= 10
-    ? "Frontier Cooperation Pact"
-    : "No Active Policy";
+const activePolicy = selectedPolicy;
 
 const policyEffect =
   activePolicy === "Nexus Expansion Mandate"
@@ -1284,8 +1284,36 @@ const displayRank = hasEvolved
   </p>
 
   <p>
-    <strong>Effect:</strong> {policyEffect}
-  </p>
+  <strong>Effect:</strong> {policyEffect}
+</p>
+<div style={{ marginTop: "12px", display: "flex", gap: "8px", flexWrap: "wrap" }}>
+  {[
+    "Nexus Expansion Mandate",
+    "Trade Stabilization Accord",
+    "Frontier Cooperation Pact",
+  ].map((policy) => (
+    <button
+      key={policy}
+      onClick={() => setSelectedPolicy(policy)}
+      style={{
+        padding: "8px 12px",
+        borderRadius: "999px",
+        border:
+          selectedPolicy === policy
+            ? "1px solid lime"
+            : "1px solid #555",
+        background:
+          selectedPolicy === policy
+            ? "rgba(0,255,0,0.12)"
+            : "#111",
+        color: "white",
+        cursor: "pointer",
+      }}
+    >
+      {policy}
+    </button>
+  ))}
+</div>
 </div>
 <div
   style={{
