@@ -263,6 +263,10 @@ const nextSettlementUpgrade =
     : settlementLevel === "II"
     ? "Harmonic Citadel"
     : "World Nexus";
+const settlementStatus =
+  settlementLevel === "III"
+    ? "Fully Developed"
+    : nextSettlementUpgrade;
 
 const unlockedBuildings = ["Frontier Hall"];
 
@@ -1101,7 +1105,15 @@ const displayRank = hasEvolved
             <p><strong>Level:</strong> {settlementLevel}</p>
             <p><strong>Population:</strong> {totalPopulation}</p>
             <p><strong>Development:</strong> {settlementDevelopment}%</p>
-            <p><strong>Next Upgrade:</strong> {nextSettlementUpgrade}</p>
+            <p>
+  <strong>
+    {settlementLevel === "III"
+      ? "Settlement Status"
+      : "Next Upgrade"}
+    :
+  </strong>{" "}
+  {settlementStatus}
+</p>
 <div
   style={{
     marginTop: "12px",
