@@ -240,6 +240,11 @@ const settlementBonus = forgedArtifacts.includes("Living Worldseed")
   : 0;
 
 const settlementDevelopment = 18 + settlementBonus;
+const expeditionBonus = forgedArtifacts.includes("Celestial Navigator")
+  ? 10
+  : 0;
+
+const expeditionProgress = 32 + expeditionBonus;
 
   const evolutionRank = hasEvolved
   ? "MAX"
@@ -1045,7 +1050,7 @@ const displayRank = hasEvolved
             <h3>⚔️ Active Expedition</h3>
             <p><strong>Destination:</strong> Silent Frontier</p>
             <p><strong>Status:</strong> Exploring</p>
-            <p><strong>Progress:</strong> 32%</p>
+            <p><strong>Progress:</strong> {expeditionProgress}%</p>
             <p><strong>Discovery Chance:</strong> Moderate</p>
             <p><strong>Next Reward:</strong> Ancient Relic</p>
           </div>
