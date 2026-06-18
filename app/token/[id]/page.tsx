@@ -430,6 +430,19 @@ const policyEffect =
     ? "+5 Colony Stability"
     : "None";
 
+const empireTerritories =
+  colonyCount +
+  Math.floor(councilVotingPower / 10);
+
+const empireStatus =
+  empireTerritories >= 6
+    ? "Interstellar Empire"
+    : empireTerritories >= 4
+    ? "Regional Empire"
+    : empireTerritories >= 2
+    ? "Expanding State"
+    : "Emerging Power";
+
 
   const evolutionRank = hasEvolved
   ? "MAX"
@@ -1262,6 +1275,29 @@ const displayRank = hasEvolved
 
   <p>
     <strong>Effect:</strong> {policyEffect}
+  </p>
+</div>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(255,140,0,0.08)",
+    border: "1px solid orange",
+  }}
+>
+  <h3>🚀 Empire Expansion</h3>
+
+  <p>
+    <strong>Territories:</strong> {empireTerritories}
+  </p>
+
+  <p>
+    <strong>Status:</strong> {empireStatus}
+  </p>
+
+  <p>
+    <strong>Capital:</strong> World Nexus Prime
   </p>
 </div>
 
