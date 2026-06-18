@@ -240,6 +240,19 @@ const settlementBonus = forgedArtifacts.includes("Living Worldseed")
   : 0;
 
 const settlementDevelopment = 18 + settlementBonus;
+const settlementLevel =
+  settlementDevelopment >= 75
+    ? "III"
+    : settlementDevelopment >= 40
+    ? "II"
+    : "I";
+
+const nextSettlementUpgrade =
+  settlementLevel === "I"
+    ? "Trading Post"
+    : settlementLevel === "II"
+    ? "Harmonic Citadel"
+    : "World Nexus";
 const expeditionBonus = forgedArtifacts.includes("Celestial Navigator")
   ? 10
   : 0;
@@ -1032,10 +1045,10 @@ const displayRank = hasEvolved
           >
             <h3>🏛 Settlement Development</h3>
             <p><strong>Settlement:</strong> Frontier Outpost</p>
-            <p><strong>Level:</strong> I</p>
+            <p><strong>Level:</strong> {settlementLevel}</p>
             <p><strong>Population:</strong> 24</p>
             <p><strong>Development:</strong> {settlementDevelopment}%</p>
-            <p><strong>Next Upgrade:</strong> Trading Post</p>
+            <p><strong>Next Upgrade:</strong> {nextSettlementUpgrade}</p>
           </div>
 
           <div
