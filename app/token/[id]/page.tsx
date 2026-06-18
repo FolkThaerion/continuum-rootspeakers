@@ -1110,6 +1110,29 @@ const displayRank = hasEvolved
   {unlockedBuildings.map((building) => (
     <p key={building}>🏛 {building}</p>
   ))}
+<div
+  style={{
+    marginTop: "12px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(255,255,255,0.04)",
+    border: "1px solid #333",
+  }}
+>
+  <h4>⚡ Building Effects</h4>
+
+  {unlockedBuildings.includes("Frontier Hall") && (
+    <p>🏛 Frontier Hall → +5 Population</p>
+  )}
+
+  {unlockedBuildings.includes("Trading Post") && (
+    <p>📦 Trading Post → +10 Reputation, +5 Expedition Progress</p>
+  )}
+
+  {unlockedBuildings.includes("Harmonic Citadel") && (
+    <p>🎵 Harmonic Citadel → +15 Evolution Readiness</p>
+  )}
+</div>
 </div>
           </div>
 
