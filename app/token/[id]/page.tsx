@@ -1127,6 +1127,29 @@ const displayRank = hasEvolved
 </p>
             <p><strong>Reputation Rank:</strong> Local Figure</p>
           </div>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(120,180,255,0.08)",
+    border: "1px solid #66aaff",
+  }}
+>
+  <h3>🏛 Faction Influence</h3>
+
+  <p>
+    <strong>Influence:</strong> {factionInfluence}%
+  </p>
+
+  <p>
+    <strong>Rank:</strong> {factionRank}
+  </p>
+
+  <p>
+    <strong>Faction:</strong> Convergence-Touched
+  </p>
+</div>
 
           <div
             style={{
