@@ -240,6 +240,8 @@ const settlementBonus = forgedArtifacts.includes("Living Worldseed")
   : 0;
 
 const settlementDevelopment = 18 + settlementBonus;
+const settlementPopulation =
+  24 + Math.floor(settlementDevelopment / 5);
 const settlementLevel =
   settlementDevelopment >= 75
     ? "III"
@@ -1046,7 +1048,7 @@ const displayRank = hasEvolved
             <h3>🏛 Settlement Development</h3>
             <p><strong>Settlement:</strong> Frontier Outpost</p>
             <p><strong>Level:</strong> {settlementLevel}</p>
-            <p><strong>Population:</strong> 24</p>
+            <p><strong>Population:</strong> {settlementPopulation}</p>
             <p><strong>Development:</strong> {settlementDevelopment}%</p>
             <p><strong>Next Upgrade:</strong> {nextSettlementUpgrade}</p>
           </div>
