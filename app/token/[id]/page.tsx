@@ -240,14 +240,26 @@ const settlementBonus = forgedArtifacts.includes("Living Worldseed")
   : 0;
 
 const settlementDevelopment = 18 + settlementBonus;
+
 const settlementPopulation =
   24 + Math.floor(settlementDevelopment / 5);
+
 const settlementLevel =
   settlementDevelopment >= 75
     ? "III"
     : settlementDevelopment >= 40
     ? "II"
     : "I";
+
+const unlockedBuildings = ["Frontier Hall"];
+
+if (settlementLevel === "II" || settlementLevel === "III") {
+  unlockedBuildings.push("Trading Post");
+}
+
+if (settlementLevel === "III") {
+  unlockedBuildings.push("Harmonic Citadel");
+}
 
 const nextSettlementUpgrade =
   settlementLevel === "I"
@@ -1051,6 +1063,21 @@ const displayRank = hasEvolved
             <p><strong>Population:</strong> {settlementPopulation}</p>
             <p><strong>Development:</strong> {settlementDevelopment}%</p>
             <p><strong>Next Upgrade:</strong> {nextSettlementUpgrade}</p>
+<div
+  style={{
+    marginTop: "12px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(255,255,255,0.05)",
+    border: "1px solid #333",
+  }}
+>
+  <h4>🏗 Settlement Buildings</h4>
+
+  {unlockedBuildings.map((building) => (
+    <p key={building}>🏛 {building}</p>
+  ))}
+</div>
           </div>
 
           <div
