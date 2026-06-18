@@ -381,6 +381,24 @@ const factionRank =
     ? "Trusted Ally"
     : "Local Contact";
 
+const diplomaticRelations =
+  factionInfluence >= 75
+    ? 3
+    : factionInfluence >= 50
+    ? 2
+    : factionInfluence >= 25
+    ? 1
+    : 0;
+
+const diplomaticStatus =
+  diplomaticRelations >= 3
+    ? "Council Member"
+    : diplomaticRelations >= 2
+    ? "Recognized Power"
+    : diplomaticRelations >= 1
+    ? "Known Contact"
+    : "Unknown";
+
 
   const evolutionRank = hasEvolved
   ? "MAX"
@@ -1148,6 +1166,29 @@ const displayRank = hasEvolved
 
   <p>
     <strong>Faction:</strong> Convergence-Touched
+  </p>
+</div>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(100,255,180,0.08)",
+    border: "1px solid #55ffaa",
+  }}
+>
+  <h3>🤝 Diplomatic Relations</h3>
+
+  <p>
+    <strong>Allies:</strong> {diplomaticRelations}
+  </p>
+
+  <p>
+    <strong>Status:</strong> {diplomaticStatus}
+  </p>
+
+  <p>
+    <strong>Primary Ally:</strong> Harmonic Concord
   </p>
 </div>
 
