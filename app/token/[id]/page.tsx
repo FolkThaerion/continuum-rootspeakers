@@ -291,8 +291,6 @@ const reputationBuildingBonus =
     ? 10
     : 0;
 
-const totalReputation =
-  reputation + reputationBuildingBonus;
 
 const expeditionBonus =
   forgedArtifacts.includes("Celestial Navigator")
@@ -368,7 +366,10 @@ const treasuryBonus =
     ? 10
     : 5;
 
-
+const totalReputation =
+  reputation +
+  reputationBuildingBonus +
+  treasuryBonus;
 
 
 
@@ -1113,6 +1114,9 @@ const displayRank = hasEvolved
             <p><strong>Standing:</strong> Known Wanderer</p>
             <p><strong>Faction:</strong> Convergence-Touched</p>
             <p><strong>Influence:</strong> {totalReputation}</p>
+            <p>
+  <strong>Treasury Bonus:</strong> +{treasuryBonus}
+</p>
             <p><strong>Reputation Rank:</strong> Local Figure</p>
           </div>
 
