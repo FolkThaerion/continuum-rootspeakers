@@ -341,6 +341,16 @@ const colonyStatus =
     ? "Operational"
     : "Not Established";
 
+const tradeRoutes = colonyCount;
+
+const tradeIncome =
+  tradeRoutes * 25;
+
+const tradeStatus =
+  tradeRoutes > 0
+    ? "Active"
+    : "Inactive";
+
 
 
 
@@ -1141,6 +1151,33 @@ const displayRank = hasEvolved
 
   <p>
     <strong>Primary Colony:</strong> Veilwatch Outpost
+  </p>
+</div>
+<div
+  style={{
+    marginTop: "12px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(0,150,255,0.08)",
+    border: "1px solid #00aaff",
+  }}
+>
+  <h4>📦 Trade Network</h4>
+
+  <p>
+    <strong>Routes:</strong> {tradeRoutes}
+  </p>
+
+  <p>
+    <strong>Status:</strong> {tradeStatus}
+  </p>
+
+  <p>
+    <strong>Income:</strong> {tradeIncome}
+  </p>
+
+  <p>
+    <strong>Primary Route:</strong> Veilwatch Exchange
   </p>
 </div>
 
