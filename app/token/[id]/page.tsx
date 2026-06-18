@@ -251,6 +251,13 @@ const settlementLevel =
     ? "II"
     : "I";
 
+const nextSettlementUpgrade =
+  settlementLevel === "I"
+    ? "Trading Post"
+    : settlementLevel === "II"
+    ? "Harmonic Citadel"
+    : "World Nexus";
+
 const unlockedBuildings = ["Frontier Hall"];
 
 if (settlementLevel === "II" || settlementLevel === "III") {
@@ -260,11 +267,15 @@ if (settlementLevel === "II" || settlementLevel === "III") {
 if (settlementLevel === "III") {
   unlockedBuildings.push("Harmonic Citadel");
 }
-const buildingPopulationBonus = unlockedBuildings.includes("Frontier Hall")
-  ? 5
-  : 0;
 
-const totalPopulation = settlementPopulation + buildingPopulationBonus;
+const buildingPopulationBonus =
+  unlockedBuildings.includes("Frontier Hall")
+    ? 5
+    : 0;
+
+const totalPopulation =
+  settlementPopulation + buildingPopulationBonus;
+
 const reputationBuildingBonus =
   unlockedBuildings.includes("Trading Post")
     ? 10
@@ -273,17 +284,27 @@ const reputationBuildingBonus =
 const totalReputation =
   reputation + reputationBuildingBonus;
 
-const nextSettlementUpgrade =
-  settlementLevel === "I"
-    ? "Trading Post"
-    : settlementLevel === "II"
-    ? "Harmonic Citadel"
-    : "World Nexus";
-const expeditionBonus = forgedArtifacts.includes("Celestial Navigator")
-  ? 10
-  : 0;
+const expeditionBonus =
+  forgedArtifacts.includes("Celestial Navigator")
+    ? 10
+    : 0;
 
-const expeditionProgress = 32 + expeditionBonus;
+const expeditionProgress =
+  32 + expeditionBonus;
+
+const tradeRouteBonus =
+  unlockedBuildings.includes("Trading Post")
+    ? 5
+    : 0;
+
+const totalExpeditionProgress =
+  expeditionProgress + tradeRouteBonus;
+
+
+
+
+
+
 
   const evolutionRank = hasEvolved
   ? "MAX"
@@ -1104,7 +1125,7 @@ const displayRank = hasEvolved
             <h3>⚔️ Active Expedition</h3>
             <p><strong>Destination:</strong> Silent Frontier</p>
             <p><strong>Status:</strong> Exploring</p>
-            <p><strong>Progress:</strong> {expeditionProgress}%</p>
+            <p><strong>Progress:</strong> {totalExpeditionProgress}%</p>
             <p><strong>Discovery Chance:</strong> Moderate</p>
             <p><strong>Next Reward:</strong> Ancient Relic</p>
           </div>
