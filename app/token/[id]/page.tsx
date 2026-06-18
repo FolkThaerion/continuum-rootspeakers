@@ -277,7 +277,6 @@ if (settlementLevel === "II" || settlementLevel === "III") {
 if (settlementLevel === "III") {
   unlockedBuildings.push("Harmonic Citadel");
 }
-
 const buildingPopulationBonus =
   unlockedBuildings.includes("Frontier Hall")
     ? 5
@@ -290,7 +289,6 @@ const reputationBuildingBonus =
   unlockedBuildings.includes("Trading Post")
     ? 10
     : 0;
-
 
 const expeditionBonus =
   forgedArtifacts.includes("Celestial Navigator")
@@ -371,7 +369,17 @@ const totalReputation =
   reputationBuildingBonus +
   treasuryBonus;
 
+const factionInfluence =
+  Math.min(100, Math.floor(totalReputation / 50));
 
+const factionRank =
+  factionInfluence >= 75
+    ? "Council Power"
+    : factionInfluence >= 50
+    ? "Regional Authority"
+    : factionInfluence >= 25
+    ? "Trusted Ally"
+    : "Local Contact";
 
 
   const evolutionRank = hasEvolved
