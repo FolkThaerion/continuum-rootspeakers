@@ -1151,6 +1151,23 @@ const displayRank = hasEvolved
     <p>🎵 Harmonic Citadel → +15 Evolution Readiness</p>
   )}
 </div>
+{settlementLevel === "III" && (
+  <div
+    style={{
+      marginTop: "12px",
+      padding: "12px",
+      borderRadius: "12px",
+      background: "rgba(0,255,255,0.08)",
+      border: "1px solid cyan",
+    }}
+  >
+    <h4>🌌 World Nexus</h4>
+
+    <p>✓ Settlement Fully Developed</p>
+    <p>✓ Harmonic Citadel Active</p>
+    <p>✓ Nexus Influence Expanding</p>
+  </div>
+)}
 </div>
           </div>
 
