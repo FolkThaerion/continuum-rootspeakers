@@ -348,13 +348,15 @@ const regionStatus =
     : "Frontier";
 
 const colonyCount =
-  regionControl >= 75
-    ? 3
-    : regionControl >= 50
-    ? 2
-    : regionControl >= 25
-    ? 1
-    : 0;
+  (
+    regionControl >= 75
+      ? 3
+      : regionControl >= 50
+      ? 2
+      : regionControl >= 25
+      ? 1
+      : 0
+  ) + policyColonyBonus;
 
 const colonyStatus =
   colonyCount > 0
