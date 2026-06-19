@@ -320,8 +320,25 @@ const nexusInfluence =
     ? 10
     : 0;
 
+const activePolicy = selectedPolicy;
+
+const policyRegionBonus =
+  activePolicy === "Nexus Expansion Mandate"
+    ? 10
+    : 0;
+
+const policyTreasuryBonus =
+  activePolicy === "Trade Stabilization Accord"
+    ? 100
+    : 0;
+
+const policyColonyBonus =
+  activePolicy === "Frontier Cooperation Pact"
+    ? 1
+    : 0;
+
 const regionControl =
-  8 + nexusInfluence;
+  8 + nexusInfluence + policyRegionBonus;
 
 const regionStatus =
   regionControl >= 50
@@ -355,7 +372,7 @@ const tradeStatus =
     : "Inactive";
 
 const treasury =
-  tradeIncome * 10;
+  tradeIncome * 10 + policyTreasuryBonus;
 
 const treasuryStatus =
   treasury >= 500
@@ -441,7 +458,7 @@ const empireBonus =
     ? 10
     : 0;
 
-const activePolicy = selectedPolicy;
+
 
 const policyEffect =
   activePolicy === "Nexus Expansion Mandate"
@@ -451,6 +468,8 @@ const policyEffect =
     : activePolicy === "Frontier Cooperation Pact"
     ? "+5 Colony Stability"
     : "None";
+
+
 
 
 
