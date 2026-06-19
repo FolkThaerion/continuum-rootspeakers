@@ -34,6 +34,10 @@ export default function TokenPage(props: any) {
   const [selectedPolicy, setSelectedPolicy] = useState(
   "Nexus Expansion Mandate"
 );
+  const [activeProject, setActiveProject] = useState(
+  "Nexus Megastructure"
+);
+const [projectProgress, setProjectProgress] = useState(0);
 
   const [decision, setDecision] = useState<string | null>(null);
   const [eventIndex, setEventIndex] = useState(0);
@@ -109,6 +113,13 @@ const LEGENDARY_RELICS = [
     setSelectedPolicy(
   data.selectedPolicy ?? "Nexus Expansion Mandate"
 );
+setActiveProject(
+  data.activeProject ?? "Nexus Megastructure"
+);
+
+setProjectProgress(
+  data.projectProgress ?? 0
+);
   }
 
   setStatsLoaded(true);
@@ -130,6 +141,8 @@ const LEGENDARY_RELICS = [
     legendaryRelics,
     forgedArtifacts,
     selectedPolicy,
+    activeProject,
+    projectProgress,
   })
 );
 }, [
@@ -471,6 +484,16 @@ const policyEffect =
     ? "+5 Colony Stability"
     : "None";
 
+const projectReward =
+  activeProject === "Nexus Megastructure"
+    ? "+25 Influence"
+    : activeProject === "Stellar Shipyards"
+    ? "+1 Expedition Bonus"
+    : activeProject === "Grand Archive"
+    ? "+50 Reputation"
+    : activeProject === "Harmonic Beacon"
+    ? "+15 Evolution Readiness"
+    : "None";
 
 
 
@@ -1361,6 +1384,29 @@ const displayRank = hasEvolved
 <p>
   <strong>Empire Bonus:</strong> +{empireBonus} Reputation
 </p>
+</div>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(0,200,255,0.08)",
+    border: "1px solid #00ccff",
+  }}
+>
+  <h3>🏗 Civilization Project</h3>
+
+  <p>
+    <strong>Project:</strong> {activeProject}
+  </p>
+
+  <p>
+    <strong>Progress:</strong> {projectProgress}%
+  </p>
+
+  <p>
+    <strong>Reward:</strong> {projectReward}
+  </p>
 </div>
 
           <div
