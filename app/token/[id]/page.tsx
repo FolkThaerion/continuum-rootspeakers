@@ -297,6 +297,7 @@ if (settlementLevel === "II" || settlementLevel === "III") {
 if (settlementLevel === "III") {
   unlockedBuildings.push("Harmonic Citadel");
 }
+
 const buildingPopulationBonus =
   unlockedBuildings.includes("Frontier Hall")
     ? 5
@@ -318,22 +319,16 @@ const expeditionBonus =
 const expeditionProgress =
   32 + expeditionBonus;
 
-const tradeRouteBonus =
-  unlockedBuildings.includes("Trading Post")
-    ? 5
-    : 0;
-
-const totalExpeditionProgress =
-  expeditionProgress + tradeRouteBonus;
-
-const nexusInfluence =
-  settlementLevel === "III"
-    ? 25
-    : settlementLevel === "II"
-    ? 10
-    : 0;
-
 const activePolicy = selectedPolicy;
+
+const policyEffect =
+  activePolicy === "Nexus Expansion Mandate"
+    ? "+10 Region Control"
+    : activePolicy === "Trade Stabilization Accord"
+    ? "+10 Treasury Growth"
+    : activePolicy === "Frontier Cooperation Pact"
+    ? "+5 Colony Stability"
+    : "None";
 
 const policyRegionBonus =
   activePolicy === "Nexus Expansion Mandate"
@@ -348,6 +343,13 @@ const policyTreasuryBonus =
 const policyColonyBonus =
   activePolicy === "Frontier Cooperation Pact"
     ? 1
+    : 0;
+
+const nexusInfluence =
+  settlementLevel === "III"
+    ? 25
+    : settlementLevel === "II"
+    ? 10
     : 0;
 
 const regionControl =
@@ -403,13 +405,60 @@ const treasuryBonus =
     ? 10
     : 5;
 
+const projectCompleted =
+  projectProgress >= 100;
+
+const projectBonus =
+  projectCompleted
+    ? activeProject === "Nexus Megastructure"
+      ? 25
+      : activeProject === "Stellar Shipyards"
+      ? 10
+      : activeProject === "Grand Archive"
+      ? 50
+      : activeProject === "Harmonic Beacon"
+      ? 15
+      : 0
+    : 0;
+
+const tradeRouteBonus =
+  unlockedBuildings.includes("Trading Post")
+    ? 5
+    : 0;
+
+const totalExpeditionProgress =
+  expeditionProgress +
+  tradeRouteBonus +
+  (
+    activeProject === "Stellar Shipyards"
+      ? projectBonus
+      : 0
+  );
+
 const totalReputation =
   reputation +
   reputationBuildingBonus +
-  treasuryBonus;
+  treasuryBonus +
+  (
+    activeProject === "Grand Archive"
+      ? projectBonus
+      : 0
+  );
 
 const factionInfluence =
-  Math.min(100, Math.floor(totalReputation / 50));
+  Math.min(
+    100,
+    Math.floor(
+      (
+        totalReputation +
+        (
+          activeProject === "Nexus Megastructure"
+            ? projectBonus
+            : 0
+        )
+      ) / 50
+    )
+  );
 
 const factionRank =
   factionInfluence >= 75
@@ -473,28 +522,16 @@ const empireBonus =
     ? 10
     : 0;
 
-
-
-const policyEffect =
-  activePolicy === "Nexus Expansion Mandate"
-    ? "+10 Region Control"
-    : activePolicy === "Trade Stabilization Accord"
-    ? "+10 Treasury Growth"
-    : activePolicy === "Frontier Cooperation Pact"
-    ? "+5 Colony Stability"
-    : "None";
-
 const projectReward =
   activeProject === "Nexus Megastructure"
     ? "+25 Influence"
     : activeProject === "Stellar Shipyards"
-    ? "+1 Expedition Bonus"
+    ? "+10 Expedition Progress"
     : activeProject === "Grand Archive"
     ? "+50 Reputation"
     : activeProject === "Harmonic Beacon"
     ? "+15 Evolution Readiness"
     : "None";
-
 
 
 
@@ -1405,9 +1442,25 @@ const displayRank = hasEvolved
   </p>
 
   <p>
-    <strong>Reward:</strong> {projectReward}
+    <strong>Reward:</strong>{projectReward}
   </p>
+{projectCompleted && (
+  <div
+    style={{
+      marginTop: "12px",
+      padding: "12px",
+      borderRadius: "12px",
+      background: "rgba(0,255,150,0.08)",
+      border: "1px solid #00ffaa",
+    }}
+  >
+    ✅ Project Complete
+    <br />
+    Bonus Activated: +{projectBonus}
+  </div>
+)}
 <div
+
   style={{
     marginTop: "12px",
     display: "flex",
