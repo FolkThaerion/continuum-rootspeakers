@@ -1407,6 +1407,59 @@ const displayRank = hasEvolved
   <p>
     <strong>Reward:</strong> {projectReward}
   </p>
+<div
+  style={{
+    marginTop: "12px",
+    display: "flex",
+    gap: "8px",
+    flexWrap: "wrap",
+  }}
+>
+  {[
+    "Nexus Megastructure",
+    "Stellar Shipyards",
+    "Grand Archive",
+    "Harmonic Beacon",
+  ].map((project) => (
+    <button
+      key={project}
+      onClick={() => setActiveProject(project)}
+      style={{
+        padding: "8px 12px",
+        borderRadius: "999px",
+        border:
+          activeProject === project
+            ? "1px solid cyan"
+            : "1px solid #555",
+        background:
+          activeProject === project
+            ? "rgba(0,200,255,0.12)"
+            : "#111",
+        color: "white",
+        cursor: "pointer",
+      }}
+    >
+      {project}
+    </button>
+  ))}
+</div>
+<button
+  onClick={() => {
+    setProjectProgress((p) => Math.min(100, p + 10));
+  }}
+  style={{
+    marginTop: "12px",
+    padding: "10px 16px",
+    borderRadius: "999px",
+    border: "1px solid cyan",
+    background: "rgba(0,200,255,0.12)",
+    color: "cyan",
+    fontWeight: "bold",
+    cursor: "pointer",
+  }}
+>
+  🏗 Advance Project
+</button>
 </div>
 
           <div
