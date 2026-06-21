@@ -40,6 +40,18 @@ export default function TokenPage(props: any) {
 const [projectProgress, setProjectProgress] = useState(0);
 const [completedProjects, setCompletedProjects] =
   useState<string[]>([]);
+const galacticWonderUnlocked =
+  completedProjects.length >= 4;
+
+const galacticWonder =
+  galacticWonderUnlocked
+    ? "Worldforge Array"
+    : "Locked";
+
+const galacticWonderEffect =
+  galacticWonderUnlocked
+    ? "+50 Empire Growth"
+    : "Complete all civilization projects";
 
   const [decision, setDecision] = useState<string | null>(null);
   const [eventIndex, setEventIndex] = useState(0);
@@ -1549,6 +1561,30 @@ const displayRank = hasEvolved
       </p>
     ))
   )}
+</div>
+<div
+  style={{
+    border: "1px solid violet",
+    borderRadius: "16px",
+    padding: "16px",
+    marginTop: "16px",
+    background: "rgba(180,120,255,0.06)",
+  }}
+>
+  <h3>🌠 Galactic Wonder</h3>
+
+  <p>
+    <strong>Status:</strong>{" "}
+    {galacticWonderUnlocked ? "Unlocked" : "Locked"}
+  </p>
+
+  <p>
+    <strong>Wonder:</strong> {galacticWonder}
+  </p>
+
+  <p>
+    <strong>Effect:</strong> {galacticWonderEffect}
+  </p>
 </div>
 
           <div
