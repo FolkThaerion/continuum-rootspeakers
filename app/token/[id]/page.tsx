@@ -38,6 +38,8 @@ export default function TokenPage(props: any) {
   "Nexus Megastructure"
 );
 const [projectProgress, setProjectProgress] = useState(0);
+const [completedProjects, setCompletedProjects] =
+  useState<string[]>([]);
 
   const [decision, setDecision] = useState<string | null>(null);
   const [eventIndex, setEventIndex] = useState(0);
@@ -1498,8 +1500,21 @@ const displayRank = hasEvolved
 </div>
 <button
   onClick={() => {
-    setProjectProgress((p) => Math.min(100, p + 10));
-  }}
+  const nextProgress =
+    Math.min(100, projectProgress + 10);
+
+  setProjectProgress(nextProgress);
+
+  if (
+    nextProgress >= 100 &&
+    !completedProjects.includes(activeProject)
+  ) {
+    setCompletedProjects([
+      ...completedProjects,
+      activeProject,
+    ]);
+  }
+}}
   style={{
     marginTop: "12px",
     padding: "10px 16px",
@@ -1511,8 +1526,29 @@ const displayRank = hasEvolved
     cursor: "pointer",
   }}
 >
-  🏗 Advance Project
+ 🏗 Advance Project
 </button>
+</div>
+<div
+  style={{
+    border: "1px solid gold",
+    borderRadius: "16px",
+    padding: "16px",
+    marginTop: "16px",
+    background: "rgba(255,215,0,0.05)",
+  }}
+>
+  <h3>🏆 Completed Projects</h3>
+
+  {completedProjects.length === 0 ? (
+    <p>No completed projects yet.</p>
+  ) : (
+    completedProjects.map((project) => (
+      <p key={project}>
+        ✅ {project}
+      </p>
+    ))
+  )}
 </div>
 
           <div
