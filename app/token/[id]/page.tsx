@@ -53,6 +53,36 @@ const galacticWonderEffect =
     ? "+50 Empire Growth"
     : "Complete all civilization projects";
 
+useEffect(() => {
+  const saved = localStorage.getItem("civilization-save");
+
+  if (saved) {
+    const data = JSON.parse(saved);
+
+    setActiveProject(data.activeProject ?? "Nexus Megastructure");
+    setProjectProgress(data.projectProgress ?? 0);
+    setCompletedProjects(data.completedProjects ?? []);
+    setSelectedPolicy(data.selectedPolicy ?? "Nexus Expansion Mandate");
+  }
+}, []);
+
+useEffect(() => {
+  localStorage.setItem(
+    "civilization-save",
+    JSON.stringify({
+      activeProject,
+      projectProgress,
+      completedProjects,
+      selectedPolicy,
+    })
+  );
+}, [
+  activeProject,
+  projectProgress,
+  completedProjects,
+  selectedPolicy,
+]);
+
   const [decision, setDecision] = useState<string | null>(null);
   const [eventIndex, setEventIndex] = useState(0);
   const [hasEvolved, setHasEvolved] = useState(false);
