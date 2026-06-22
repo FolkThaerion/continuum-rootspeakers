@@ -53,6 +53,11 @@ const galacticWonderEffect =
     ? "+50 Empire Growth"
     : "Complete all civilization projects";
 
+const galacticWonderBonus =
+  galacticWonderUnlocked
+    ? 50
+    : 0;
+
 useEffect(() => {
   const saved = localStorage.getItem("civilization-save");
 
@@ -546,7 +551,8 @@ const councilVotingPower =
 
 const empireTerritories =
   colonyCount +
-  Math.floor(councilVotingPower / 10);
+  Math.floor(councilVotingPower / 10) +
+  galacticWonderBonus;
 
 const empireStatus =
   empireTerritories >= 6
