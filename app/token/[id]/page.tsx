@@ -69,6 +69,18 @@ const civilizationAgeBonus =
     : civilizationAge === "Expansion Age"
     ? 10
     : 0;
+const civilizationAscensionUnlocked =
+  civilizationAge === "Legendary Age" &&
+  galacticWonderUnlocked;
+
+const civilizationAscension =
+  civilizationAscensionUnlocked
+    ? "Ascendant Civilization"
+    : "Not Yet Ascended";
+const civilizationAscensionBonus =
+  civilizationAscensionUnlocked
+    ? 100
+    : 0;
 useEffect(() => {
   const saved = localStorage.getItem("civilization-save");
 
@@ -564,7 +576,8 @@ const empireTerritories =
   colonyCount +
   Math.floor(councilVotingPower / 10) +
   galacticWonderBonus +
-  civilizationAgeBonus;
+  civilizationAgeBonus +
+  civilizationAscensionBonus;
 
 const empireStatus =
   empireTerritories >= 6
@@ -1662,6 +1675,33 @@ const displayRank = hasEvolved
     {galacticWonderUnlocked
       ? "Worldforge Array"
       : "Not Yet Constructed"}
+  </p>
+</div>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(255,120,220,0.08)",
+    border: "1px solid #ff78dc",
+  }}
+>
+  <h3>✨ Civilization Ascension</h3>
+
+  <p>
+    <strong>Status:</strong>{" "}
+    {civilizationAscensionUnlocked ? "Unlocked" : "Locked"}
+  </p>
+
+  <p>
+    <strong>State:</strong> {civilizationAscension}
+  </p>
+<p>
+  <strong>Ascension Bonus:</strong> +{civilizationAscensionBonus} Empire Growth
+</p>
+  <p>
+    <strong>Requirement:</strong>{" "}
+    Legendary Age + Worldforge Array
   </p>
 </div>
 
