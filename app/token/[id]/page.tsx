@@ -57,7 +57,18 @@ const galacticWonderBonus =
   galacticWonderUnlocked
     ? 50
     : 0;
-
+const civilizationAge =
+  galacticWonderUnlocked
+    ? "Legendary Age"
+    : completedProjects.length >= 2
+    ? "Expansion Age"
+    : "Founding Age";
+const civilizationAgeBonus =
+  civilizationAge === "Legendary Age"
+    ? 25
+    : civilizationAge === "Expansion Age"
+    ? 10
+    : 0;
 useEffect(() => {
   const saved = localStorage.getItem("civilization-save");
 
@@ -552,7 +563,8 @@ const councilVotingPower =
 const empireTerritories =
   colonyCount +
   Math.floor(councilVotingPower / 10) +
-  galacticWonderBonus;
+  galacticWonderBonus +
+  civilizationAgeBonus;
 
 const empireStatus =
   empireTerritories >= 6
@@ -1620,6 +1632,36 @@ const displayRank = hasEvolved
 
   <p>
     <strong>Effect:</strong> {galacticWonderEffect}
+  </p>
+</div>
+<div
+  style={{
+    marginTop: "15px",
+    padding: "12px",
+    borderRadius: "12px",
+    background: "rgba(180,120,255,0.10)",
+    border: "1px solid #b478ff",
+  }}
+>
+  <h3>🌟 Civilization Age</h3>
+
+  <p>
+    <strong>Age:</strong> {civilizationAge}
+  </p>
+<p>
+  <strong>Age Bonus:</strong> +{civilizationAgeBonus} Empire Growth
+</p>
+
+  <p>
+    <strong>Completed Projects:</strong>{" "}
+    {completedProjects.length}
+  </p>
+
+  <p>
+    <strong>Great Wonder:</strong>{" "}
+    {galacticWonderUnlocked
+      ? "Worldforge Array"
+      : "Not Yet Constructed"}
   </p>
 </div>
 
