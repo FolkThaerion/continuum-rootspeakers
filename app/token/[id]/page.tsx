@@ -578,6 +578,38 @@ const empireTerritories =
   galacticWonderBonus +
   civilizationAgeBonus +
   civilizationAscensionBonus;
+const ascensionLevel =
+  !civilizationAscensionUnlocked
+    ? 0
+    : empireTerritories >= 250
+    ? 3
+    : empireTerritories >= 200
+    ? 2
+    : 1;
+const ascensionTier =
+  ascensionLevel >= 3
+    ? "Transcendent Dominion"
+    : ascensionLevel >= 2
+    ? "Galactic Ascendancy"
+    : ascensionLevel >= 1
+    ? "Ascendant Civilization"
+    : "Unascended";
+const nextAscensionRequirement =
+  ascensionLevel >= 3
+    ? "Maximum Ascension Reached"
+    : ascensionLevel === 2
+    ? "Reach 250 Empire Territories"
+    : ascensionLevel === 1
+    ? "Reach 200 Empire Territories"
+    : "Unlock Civilization Ascension";
+const ascensionProgress =
+  ascensionLevel >= 3
+    ? 100
+    : ascensionLevel === 2
+    ? Math.min(100, Math.floor((empireTerritories / 250) * 100))
+    : ascensionLevel === 1
+    ? Math.min(100, Math.floor((empireTerritories / 200) * 100))
+    : 0;
 
 const empireStatus =
   empireTerritories >= 6
@@ -1696,6 +1728,37 @@ const displayRank = hasEvolved
   <p>
     <strong>State:</strong> {civilizationAscension}
   </p>
+<p>
+  <strong>Ascension Level:</strong> {ascensionLevel}
+</p>
+<p>
+  <strong>Ascension Tier:</strong> {ascensionTier}
+</p>
+<p>
+  <strong>Next Ascension:</strong> {nextAscensionRequirement}
+</p>
+<p>
+  <strong>Ascension Progress:</strong> {ascensionProgress}%
+</p>
+<div
+  style={{
+    width: "100%",
+    height: "10px",
+    background: "rgba(255,255,255,0.1)",
+    borderRadius: "8px",
+    overflow: "hidden",
+    marginTop: "6px",
+  }}
+>
+  <div
+    style={{
+      width: `${ascensionProgress}%`,
+      height: "100%",
+      background: "#ff78dc",
+      transition: "width 0.4s ease",
+    }}
+  />
+</div>
 <p>
   <strong>Ascension Bonus:</strong> +{civilizationAscensionBonus} Empire Growth
 </p>
